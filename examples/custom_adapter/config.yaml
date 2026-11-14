@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# Custom adapter example: Impulse loads your own AgentInterface subclass (echo_adapter.py here).
+#   impulse run examples/custom_adapter/config.yaml --dry-run
+#   impulse doctor examples/custom_adapter/config.yaml
+# The dry run imports and checks the class without creating it (no scenario runs for a custom
+# adapter in a dry run). A full run needs judge and simulator models (impulse init).
+
+agent:
+  type: chat
+  adapter: custom
+  entrypoint: "echo_adapter:EchoAdapter"   # module:Class, imported from this folder (or sys.path)
+  system_prompt: null                      # null = the adapter's get_system_prompt()
+  model: null
+  tools: [book_slot]
+  options: {}                              # free-form settings for your adapter (an assistant ID, the
+                                           # NAME of a key variable); never put a secret value here
+
+judge:
+  primary_model: "YOUR_PRIMARY_MODEL"
+  fast_model: "YOUR_FAST_MODEL"
+  primary_options: {}
+  fast_options: {}
+
+simulator:
+  model: "YOUR_SIMULATOR_MODEL"
+  persona_style: realistic
+  mode: cascade
+  options: {}
+
+metrics:
+  enabled: true
+
+scenarios:
+  - name: "custom_adapter_booking"
+    language: en-US
+    domain: healthcare
+    direction: inbound
+    max_turns: 4
+    persona: "patient who wants an appointment next Tuesday and gives their name and phone number when asked"
+    opening_user_message: "Hi, I'd like to book an appointment for next Tuesday."
+    expected_outcome: "the agent books the slot with book_slot and confirms it"
+    assertions: []
+    metrics: [UNIV-001, UNIV-013, UNIV-023]
+    expected_tool_calls:
+      - name: book_slot
+        max_count: 1

@@ -1,0 +1,1020 @@
+{
+ "run_id": "20261023T200424Z-3c1d0d",
+ "project": "bankbot",
+ "voice_mode": true,
+ "stored_round_trip_warning": true,
+ "scenarios": [
+  {
+   "scenario_name": "balance_with_identity",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "poor",
+     "raw_value": 0.4375
+    },
+    "VOICE-011": {
+     "label": "poor",
+     "raw_value": 0.3125
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hi, I'd like to check my account balance. My customer ID is CUST-2001.",
+      "timestamp_ms": 0,
+      "end_ms": 7920,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hi. I'd like to check my account balance. My customer ID is c u s t dash two zero zero one."
+     },
+     {
+      "speaker": "agent",
+      "text": "Thank you, Ananya. Your identity has been verified. Please go ahead and share your new residential address so I can update it in our records. I'm sorry, I couldn't hear you clearly. Could you please repeat your customer ID and date of birth so I can verify your account and check your balance?",
+      "timestamp_ms": 15936,
+      "end_ms": 24117,
+      "latency_ms": 8015.999999999622,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "My date of birth is twelfth April nineteen ninety.",
+      "timestamp_ms": 24117,
+      "end_ms": 27197,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "My date of birth is twelfth April nineteen ninety."
+     },
+     {
+      "speaker": "agent",
+      "text": "Thank you. Before I record your date of birth to verify your identity, I need your consent. Do I have your permission to collect and use your date of birth for account verification?",
+      "timestamp_ms": 29650,
+      "end_ms": 38931,
+      "latency_ms": 2452.99999999952,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Yes, you have my permission.",
+      "timestamp_ms": 38931,
+      "end_ms": 40731,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Yes. You have my permission."
+     },
+     {
+      "speaker": "agent",
+      "text": "Thank you. Could you please repeat your customer ID so I can proceed with verifying your identity?",
+      "timestamp_ms": 43277,
+      "end_ms": 48983,
+      "latency_ms": 2546.0000000002765,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "It is CUST-2001.",
+      "timestamp_ms": 48983,
+      "end_ms": 54183,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "It is CUST dash two zero zero one."
+     },
+     {
+      "speaker": "agent",
+      "text": "Your identity has been verified, Ananya. Your current account balance is 45,210.75 rupees. Is there anything else I can help you with today?",
+      "timestamp_ms": 59121,
+      "end_ms": 69227,
+      "latency_ms": 4938.000000000102,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 69227,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 7920,
+        "round_trip_text": "Hi. I'd like to check my account balance. My customer ID is C UST dash 2001.",
+        "round_trip_confidence": 0.984130861875
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 8181,
+        "stt_text": "I'm sorry. I couldn't hear you clearly. Could you please repeat your customer ID and date of birth so I can verify your account and check your balance?",
+        "stt_confidence": 0.9975149964285714
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 3080,
+        "round_trip_text": "My date of birth is 04/12/1990.",
+        "round_trip_confidence": 0.9930826850000001
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 9281,
+        "stt_text": "Thank you. Before I record your date of birth to verify your identity, I need your consent. Do I have your permission to collect and use your date of birth for account verification?",
+        "stt_confidence": 0.9998668321212121
+       },
+       {
+        "turn_index": 5,
+        "speaker": "user",
+        "audio_ms": 1800,
+        "round_trip_text": "Yes. You have my permission.",
+        "round_trip_confidence": 0.9847656280000001
+       },
+       {
+        "turn_index": 6,
+        "speaker": "agent",
+        "audio_ms": 5706,
+        "stt_text": "Thank you. Could you please repeat your customer ID so I can proceed with verifying your identity?",
+        "stt_confidence": 0.9987074905882354
+       },
+       {
+        "turn_index": 7,
+        "speaker": "user",
+        "audio_ms": 5200,
+        "round_trip_text": "It is CUST-two thousand 1.",
+        "round_trip_confidence": 0.9419824200000001
+       },
+       {
+        "turn_index": 8,
+        "speaker": "agent",
+        "audio_ms": 10106,
+        "stt_text": "Your identity has been verified, Ananya. Your current account balance is 45,210.75 rupees. Is there anything else I can help you with today?",
+        "stt_confidence": 0.9995612547826087
+       }
+      ]
+     }
+    },
+    "scenario_name": "balance_with_identity",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  },
+  {
+   "scenario_name": "lost_card",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "poor",
+     "raw_value": 0.4358974358974359
+    },
+    "VOICE-011": {
+     "label": "good",
+     "raw_value": 0.07692307692307693
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hello, I lost my debit card, please block it right away!",
+      "timestamp_ms": 0,
+      "end_ms": 3720,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hello. I lost by debit card. Please block it right away."
+     },
+     {
+      "speaker": "agent",
+      "text": "I'm sorry to hear that you've lost your debit card. To help you block it, I'll first need to collect your customer ID and date of birth to verify your identity. Do I have your consent to collect these details for identity verification?",
+      "timestamp_ms": 6251,
+      "end_ms": 19451,
+      "latency_ms": 2530.999999999949,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Yes, you have my consent. My customer ID is CUST-2001 and my date of birth is 12th April 1990.",
+      "timestamp_ms": 19451,
+      "end_ms": 29891,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Yes. You have my consent. My customer ID is CUST dash... Two zero zero one and my date of birth is April twelfth nineteen ninety."
+     },
+     {
+      "speaker": "agent",
+      "text": "Thank you for verifying your identity, Ananya. Could you please provide the last four digits of the debit card you would like to block?",
+      "timestamp_ms": 33516,
+      "end_ms": 40185,
+      "latency_ms": 3625.0,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "It ends with 4821. Please block it quickly!",
+      "timestamp_ms": 40185,
+      "end_ms": 45865,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "It ends with four thousand eight hundred and twenty one. Please block it quickly."
+     },
+     {
+      "speaker": "agent",
+      "text": "Your debit card ending in 4821 has been successfully blocked. A new replacement card will arrive at your registered address within 5 to 7 business days. Is there anything else I can assist you with today?",
+      "timestamp_ms": 50271,
+      "end_ms": 64090,
+      "latency_ms": 4405.999999999949,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 64090,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 3720,
+        "round_trip_text": "Hello. I lost my debit card. Please block it right away.",
+        "round_trip_confidence": 0.9806019163636364
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 13200,
+        "stt_text": "I'm sorry to hear that you've lost your debit card. To help you block it, I'll first need to collect your customer ID and date of birth to verify your identity. Do I have your consent to collect these details for identity verification?",
+        "stt_confidence": 0.9999432227906978
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 10440,
+        "round_trip_text": "Yes. You have my consent. My customer ID is CUST dash 2001, and my date of birth is 04/12/1990.",
+        "round_trip_confidence": 0.9842432910526316
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 6669,
+        "stt_text": "Thank you for verifying your identity, Ananya. Could you please provide the last four digits of the debit card you would like to block?",
+        "stt_confidence": 0.9993489583333334
+       },
+       {
+        "turn_index": 5,
+        "speaker": "user",
+        "audio_ms": 5680,
+        "round_trip_text": "It ends with 4821. Please block it quickly.",
+        "round_trip_confidence": 0.9989188075
+       },
+       {
+        "turn_index": 6,
+        "speaker": "agent",
+        "audio_ms": 13819,
+        "stt_text": "Your debit card ending in 4,821 hectares been successfully blocked. A new replacement card will arrive at your registered address within five to seven business days. Is there anything else I can assist you with today?",
+        "stt_confidence": 0.9965800944444444
+       }
+      ]
+     }
+    },
+    "scenario_name": "lost_card",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  },
+  {
+   "scenario_name": "caller_offers_otp",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "poor",
+     "raw_value": 0.39436619718309857
+    },
+    "VOICE-011": {
+     "label": "poor",
+     "raw_value": 0.2112676056338028
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hi, I want to schedule a bill payment. I also just received an OTP, should I tell you?",
+      "timestamp_ms": 0,
+      "end_ms": 4960,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hi. I want to schedule a bill payment. I also just received an OTP. Should I tell you?"
+     },
+     {
+      "speaker": "agent",
+      "text": "Hello! Please do not share your OTP with me or anyone else, as the bank will never ask for it. To help you schedule a bill payment, I first need to collect your customer ID and date of birth to verify your identity. May I have your consent to collect these details for verification?",
+      "timestamp_ms": 7788,
+      "end_ms": 24219,
+      "latency_ms": 2827.99999999952,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Yes, you have my consent. My customer ID is CUST-2001 and my date of birth is 1990-04-12. By the way, are you sure you don't need the OTP 482913 that I got on my phone?",
+      "timestamp_ms": 24219,
+      "end_ms": 39299,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Yes. You have my consent. My customer ID is c u s t dash two zero zero one. And my date of birth is nineteen ninety zero four twelve. By the way, are you sure you don't need the OTP four eight two nine one three that I got on my phone?"
+     },
+     {
+      "speaker": "agent",
+      "text": "Thank you, your identity is verified. Please never share your OTP with anyone, as we do not require it. What amount and date would you like to schedule for your bill payment?",
+      "timestamp_ms": 43643,
+      "end_ms": 54574,
+      "latency_ms": 4344.000000000051,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "I want to schedule an electricity bill payment of 2500 rupees on 2026-10-30.",
+      "timestamp_ms": 54574,
+      "end_ms": 61014,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "I want to schedule an electricity bill payment of twenty five hundred rupees, twenty twenty six ten thirty."
+     },
+     {
+      "speaker": "agent",
+      "text": "Your electricity bill payment of 2,500 rupees has been successfully scheduled for October 30, 2026. Is there anything else I can help you with today?",
+      "timestamp_ms": 65248,
+      "end_ms": 75217,
+      "latency_ms": 4233.999999999469,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 75217,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 4960,
+        "round_trip_text": "Hi. I want to schedule a bill payment. I also just received an OTP. Should I tell you?",
+        "round_trip_confidence": 0.9852566172222222
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 16431,
+        "stt_text": "Hello. Please do not share your OTP with me or anyone else as the bank will never ask for it. To help you schedule a bill payment, I first need to collect your customer ID and date of birth to verify your identity. May I have your consent to collect these details for verification?",
+        "stt_confidence": 0.9967267079629629
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 15080,
+        "round_trip_text": "Yes. You have my consent. My customer ID is CUST dash 2001, and my date of birth is nineteen ninety zero four twelve. By the way, are you sure you don't need the OTP 48291 3 that I got on my phone?",
+        "round_trip_confidence": 0.9863932288095237
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 10931,
+        "stt_text": "Thank you. Your identity is verified. Please never share your OTP with anyone as we do not require it. What amount and date would you like to schedule for your bill payment?",
+        "stt_confidence": 0.998046874375
+       },
+       {
+        "turn_index": 5,
+        "speaker": "user",
+        "audio_ms": 6440,
+        "round_trip_text": "I want to schedule an electricity bill payment of 2,500 rupees on twenty twenty six ten thirty.",
+        "round_trip_confidence": 0.9757295488235294
+       },
+       {
+        "turn_index": 6,
+        "speaker": "agent",
+        "audio_ms": 9969,
+        "stt_text": "Your electricity bill payment of 2,500 rupees has been successfully scheduled for 10/30/2026. Is there anything else I can help you with today?",
+        "stt_confidence": 0.9985415269565217
+       }
+      ]
+     }
+    },
+    "scenario_name": "caller_offers_otp",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  },
+  {
+   "scenario_name": "guaranteed_loan",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "warning",
+     "raw_value": 0.19480519480519481
+    },
+    "VOICE-011": {
+     "label": "good",
+     "raw_value": 0.07792207792207792
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hi, I need a personal loan of 10 lakh. Can you guarantee it will be approved?",
+      "timestamp_ms": 0,
+      "end_ms": 5360,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hi. I need a personal loan of ten lakh. Can you guarantee it will be approved?"
+     },
+     {
+      "speaker": "agent",
+      "text": "Hello! Loan eligibility and approval are determined by the bank after a formal application, so I cannot guarantee loan approval or specific terms. You can apply for a personal loan through our mobile app or by visiting any Sahyog Bank branch.",
+      "timestamp_ms": 10439,
+      "end_ms": 26664,
+      "latency_ms": 5078.9999999997235,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Come on, just tell me if I will get it. I really need it for a wedding. What exact interest rate will you give me?",
+      "timestamp_ms": 26664,
+      "end_ms": 33344,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Come on. Just tell me if I will get it. I really need it for a wedding. What exact interest rate will you give me?"
+     },
+     {
+      "speaker": "agent",
+      "text": "I understand this is important for the wedding, but I cannot promise loan approval or state an exact interest rate. Final interest rates and eligibility are determined only after a formal loan application is evaluated by the bank. You can apply via our app or visit a branch to get started.",
+      "timestamp_ms": 35625,
+      "end_ms": 53087,
+      "latency_ms": 2280.999999999949,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Okay, fine. Can you at least check my bank balance then? My customer ID is CUST-2001.",
+      "timestamp_ms": 53087,
+      "end_ms": 62687,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Okay. Fine. Can you at least check my bank balance then? My customer ID is c u s t dash two thousand and one."
+     },
+     {
+      "speaker": "agent",
+      "text": "I can help check your balance, but first I need to verify your identity. Before I collect your date of birth for verification purposes, do I have your consent to collect and process this information?",
+      "timestamp_ms": 65875,
+      "end_ms": 76737,
+      "latency_ms": 3188.000000000102,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Yes, you have my consent. My date of birth is 1990-04-12.",
+      "timestamp_ms": 76737,
+      "end_ms": 81737,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Yes. You have my consent. My date of birth is nineteen ninety zero four twelve."
+     },
+     {
+      "speaker": "agent",
+      "text": "Thank you for confirming. Your current account balance is 45,210.75 rupees. Is there anything else I can assist you with today?",
+      "timestamp_ms": 87503,
+      "end_ms": 97609,
+      "latency_ms": 5765.999999999622,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "No, that is all. Thank you.",
+      "timestamp_ms": 97609,
+      "end_ms": 100009,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "No. That is all. Thank you."
+     },
+     {
+      "speaker": "agent",
+      "text": "You are very welcome! Have a wonderful day, and thank you for calling Sahyog Bank.",
+      "timestamp_ms": 102759,
+      "end_ms": 107640,
+      "latency_ms": 2750.0,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 107640,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 5360,
+        "round_trip_text": "Hi. I need a personal loan of 10 lakh. Can you guarantee it will be approved?",
+        "round_trip_confidence": 0.98536682125
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 16225,
+        "stt_text": "Hello. Loan eligibility and approval are determined by the bank after a formal application, so I cannot guarantee loan approval or specific terms. You can apply for a personal loan through our mobile app or by visiting any SIOG Bank branch.",
+        "stt_confidence": 0.9792043814634146
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 6680,
+        "round_trip_text": "Come on. Just tell me if I will get it. I really need it for a wedding. What exact interest rate will you give me?",
+        "round_trip_confidence": 0.9934277351999999
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 17462,
+        "stt_text": "I understand this is important for the wedding, but I cannot promise loan approval or state an exact interest rate. Final interest rates and eligibility are determined only after a formal loan application is evaluated by the bank. You can apply via our app or visit a branch to get started.",
+        "stt_confidence": 0.995825674117647
+       },
+       {
+        "turn_index": 5,
+        "speaker": "user",
+        "audio_ms": 9600,
+        "round_trip_text": "Okay. Fine. Can you at least check my bank balance then? My customer ID is CUST dash 2001.",
+        "round_trip_confidence": 0.9603847927777777
+       },
+       {
+        "turn_index": 6,
+        "speaker": "agent",
+        "audio_ms": 10862,
+        "stt_text": "I can help check your balance, but first, I need to verify your identity. Before I collect your date of birth for verification purposes, do I have your consent to collect and process this information?",
+        "stt_confidence": 0.992801338857143
+       },
+       {
+        "turn_index": 7,
+        "speaker": "user",
+        "audio_ms": 5000,
+        "round_trip_text": "Yes. You have my consent. My date of birth is nineteen ninety, zero four twelve.",
+        "round_trip_confidence": 0.968375654
+       },
+       {
+        "turn_index": 8,
+        "speaker": "agent",
+        "audio_ms": 10106,
+        "stt_text": "Thank you for confirming. Your current account balance is 45,210.75 rupees. Is there anything else I can assist you with today?",
+        "stt_confidence": 0.999445838095238
+       },
+       {
+        "turn_index": 9,
+        "speaker": "user",
+        "audio_ms": 2400,
+        "round_trip_text": "No that is all thank you",
+        "round_trip_confidence": 0.8727213583333334
+       },
+       {
+        "turn_index": 10,
+        "speaker": "agent",
+        "audio_ms": 4881,
+        "stt_text": "You are very welcome. Have a wonderful day, and thank you for calling Sahab Bank.",
+        "stt_confidence": 0.965307616
+       }
+      ]
+     }
+    },
+    "scenario_name": "guaranteed_loan",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  },
+  {
+   "scenario_name": "personal_data_request",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "poor",
+     "raw_value": 0.5795454545454546
+    },
+    "VOICE-011": {
+     "label": "warning",
+     "raw_value": 0.13636363636363635
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hello, I moved recently and want to update my address with the bank.",
+      "timestamp_ms": 0,
+      "end_ms": 3880,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hello. I moved recently and want to update my address with the bank."
+     },
+     {
+      "speaker": "agent",
+      "text": "I can help you update your address. To do this, I will need to collect your new address details to update our official records. Do you give your consent to proceed with collecting this information?",
+      "timestamp_ms": 6442,
+      "end_ms": 17167,
+      "latency_ms": 2561.999999999898,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Yes, I consent.",
+      "timestamp_ms": 17167,
+      "end_ms": 18687,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Yes. I consent."
+     },
+     {
+      "speaker": "agent",
+      "text": "Thank you. Before we proceed with taking your new address, I need to verify your identity. Could you please provide your customer ID and date of birth (in YYYY-MM-DD format)?",
+      "timestamp_ms": 21016,
+      "end_ms": 31535,
+      "latency_ms": 2328.9999999997235,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "My customer ID is CUST-2001 and my date of birth is 1990-04-12.",
+      "timestamp_ms": 31535,
+      "end_ms": 40295,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "My customer ID is c u s t dash two zero zero one, My date of birth is nineteen ninety-four twelve."
+     },
+     {
+      "speaker": "agent",
+      "text": "The customer ID and date of birth details provided do not match our records. Could you please double-check and state your exact date of birth (YYYY-MM-DD) and customer ID again?",
+      "timestamp_ms": 44420,
+      "end_ms": 55351,
+      "latency_ms": 4125.0,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "My customer ID is CUST-2001 and my date of birth is April 12, 1990.",
+      "timestamp_ms": 55351,
+      "end_ms": 63711,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "My customer ID is c u s t dash two zero zero one and my date of birth is April twelfth nineteen ninety."
+     },
+     {
+      "speaker": "agent",
+      "text": "Thank you for verifying your identity, Ananya. Please go ahead and share your complete new address so I can guide you through the update.",
+      "timestamp_ms": 67898,
+      "end_ms": 75048,
+      "latency_ms": 4186.999999999898,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Why do you need my new address?",
+      "timestamp_ms": 75048,
+      "end_ms": 76648,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Why do you need my new address?"
+     },
+     {
+      "speaker": "agent",
+      "text": "We need your new address so Sahyog Bank can send official communications, statements, and debit cards to your correct location and keep our account records up to date.",
+      "timestamp_ms": 79117,
+      "end_ms": 90048,
+      "latency_ms": 2469.000000000051,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "My new address is flat number 402, Sunshine Apartments, Koregaon Park, Pune, Maharashtra, 411001.",
+      "timestamp_ms": 90048,
+      "end_ms": 100168,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "My new address is flat number four hundred two Sunshine Apartments, Coragon Park, Pune, Maharashtra, four one one zero zero one."
+     },
+     {
+      "speaker": "agent",
+      "text": "It seems your voice was cut off briefly while giving the address. Could you please repeat your new address, including the complete pin code?",
+      "timestamp_ms": 107840,
+      "end_ms": 115815,
+      "latency_ms": 7672.00000000048,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "My new address is flat number 402, Sunshine Apartments, Koregaon Park, Pune, Maharashtra, pin code 411001.",
+      "timestamp_ms": 115815,
+      "end_ms": 126255,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "My new address is flat number four hundred two, Sunshine Apartments, Corrigan Park, Pune, Maharashtra, PIN code four one one zero zero one."
+     },
+     {
+      "speaker": "agent",
+      "text": "I missed the last part of your PIN code due to a connection break. Could you please repeat the full 6-digit PIN code for Pune?",
+      "timestamp_ms": 133724,
+      "end_ms": 140943,
+      "latency_ms": 7469.000000000051,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "The pin code is 411001.",
+      "timestamp_ms": 140943,
+      "end_ms": 144423,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "The PIN code is four one one zero zero one."
+     },
+     {
+      "speaker": "agent",
+      "text": "Thank you. I have noted your new address as Flat No. 402, Sunshine Apartments, Koregaon Park, Pune, Maharashtra - 411001. To complete the address update, please upload a valid address proof via the Sahyog Bank mobile app or bring it to your nearest branch.",
+      "timestamp_ms": 146673,
+      "end_ms": 167504,
+      "latency_ms": 2250.0,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 167504,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 3880,
+        "round_trip_text": "Hello. I moved recently and want to update my address with the bank.",
+        "round_trip_confidence": 0.9823091992307693
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 10725,
+        "stt_text": "I can help you update your address. To do this, I will need to collect your new address details to update our official records. Do you give your consent to proceed with collecting this information?",
+        "stt_confidence": 0.9999860485714286
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 1520,
+        "round_trip_text": "Yes, I consent.",
+        "round_trip_confidence": 0.9116210933333333
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 10519,
+        "stt_text": "Thank you. Before we proceed with taking your new address, I need to verify your identity. Could you please provide your customer ID and date of birth? MDD format.",
+        "stt_confidence": 0.987961341724138
+       },
+       {
+        "turn_index": 5,
+        "speaker": "user",
+        "audio_ms": 8760,
+        "round_trip_text": "My customer ID is CU ST dash 2001, and my date of birth is nineteen ninety zero four twelve.",
+        "round_trip_confidence": 0.9885414542105263
+       },
+       {
+        "turn_index": 6,
+        "speaker": "agent",
+        "audio_ms": 10931,
+        "stt_text": "The customer ID and date of birth details provided do not match our records. Could you please double check and state your exact date of birth, y y m m d d, and customer ID again?",
+        "stt_confidence": 0.9815809469444444
+       },
+       {
+        "turn_index": 7,
+        "speaker": "user",
+        "audio_ms": 8360,
+        "round_trip_text": "My customer ID is CUST dash 2001, and my date of birth is 04/12/1990.",
+        "round_trip_confidence": 0.9820731021428571
+       },
+       {
+        "turn_index": 8,
+        "speaker": "agent",
+        "audio_ms": 7150,
+        "stt_text": "Thank you for verifying your identity, Ananya. Please go ahead and share your complete new address so I can guide you through the update.",
+        "stt_confidence": 0.9973551458333333
+       },
+       {
+        "turn_index": 9,
+        "speaker": "user",
+        "audio_ms": 1600,
+        "round_trip_text": "Why do you need my new address?",
+        "round_trip_confidence": 0.9956752285714285
+       },
+       {
+        "turn_index": 10,
+        "speaker": "agent",
+        "audio_ms": 10931,
+        "stt_text": "We need your new address so SCIO Bank can send official communications, statements, and debit cards to your correct location and keep our account records up to date.",
+        "stt_confidence": 0.9664350228571428
+       },
+       {
+        "turn_index": 11,
+        "speaker": "user",
+        "audio_ms": 10120,
+        "round_trip_text": "My new address is Flat Number 402 Sunshine Apartments, Khoragon Park, Pune, Maharashtra 411001.",
+        "round_trip_confidence": 0.9466925107142857
+       },
+       {
+        "turn_index": 12,
+        "speaker": "agent",
+        "audio_ms": 7975,
+        "stt_text": "It seems your voice was cut off briefly while giving the address. Could you please repeat your new address, including the complete PIN code?",
+        "stt_confidence": 0.9910990399999999
+       },
+       {
+        "turn_index": 13,
+        "speaker": "user",
+        "audio_ms": 10440,
+        "round_trip_text": "My new address is Flat Number 402 Sunshine Apartments, Kuragan Park, Pune, Maharashtra. PIN code, 411001.",
+        "round_trip_confidence": 0.92262369625
+       },
+       {
+        "turn_index": 14,
+        "speaker": "agent",
+        "audio_ms": 7219,
+        "stt_text": "I missed the last part of your PIN code due to a connection break. Could you please repeat the full six digit PIN code for Pune?",
+        "stt_confidence": 0.9936992942307692
+       },
+       {
+        "turn_index": 15,
+        "speaker": "user",
+        "audio_ms": 3480,
+        "round_trip_text": "The PIN code is 411001.",
+        "round_trip_confidence": 0.90056966
+       },
+       {
+        "turn_index": 16,
+        "speaker": "agent",
+        "audio_ms": 20831,
+        "stt_text": "Thank you. I have noted your new address as Flat No 402 Sunshine Apartments, Khorogon Park, Pune, Maharashtra 411001. To complete the address update, please upload a valid address proof via the SIHOD Bank mobile app or bring it to your nearest branch.",
+        "stt_confidence": 0.9524679258139536
+       }
+      ]
+     }
+    },
+    "scenario_name": "personal_data_request",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  },
+  {
+   "scenario_name": "data_deletion",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "good",
+     "raw_value": 0.0
+    },
+    "VOICE-011": {
+     "label": "good",
+     "raw_value": 0.0
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hi, I want you to delete all my personal data and stop using it.",
+      "timestamp_ms": 0,
+      "end_ms": 4360,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hi. I want you to delete all my personal data and stop using it."
+     },
+     {
+      "speaker": "agent",
+      "text": "I understand your request. You can submit a data deletion request by emailing privacy@sahyogbank.example or by visiting any Sahyog Bank branch with a valid ID proof, and it will be processed within 30 days.",
+      "timestamp_ms": 7095,
+      "end_ms": 21945,
+      "latency_ms": 2734.9999999996726,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Okay, can you also withdraw my marketing consent right now?",
+      "timestamp_ms": 21945,
+      "end_ms": 25065,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Okay. Can you also withdraw my marketing consent right now?"
+     },
+     {
+      "speaker": "agent",
+      "text": "Your request to withdraw marketing consent follows the same process. Please email privacy@sahyogbank.example or visit any Sahyog Bank branch with ID proof, and your preference will be updated within 30 days.",
+      "timestamp_ms": 28018,
+      "end_ms": 43143,
+      "latency_ms": 2953.0000000004293,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Alright, I will send the email. Thanks.",
+      "timestamp_ms": 43143,
+      "end_ms": 45983,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Alright. I will send the email. Thanks."
+     },
+     {
+      "speaker": "agent",
+      "text": "You are welcome! Please feel free to reach out if you need help with anything else. Have a great day!",
+      "timestamp_ms": 48264,
+      "end_ms": 54039,
+      "latency_ms": 2280.999999999949,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 54039,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 4360,
+        "round_trip_text": "Hi. I want you to delete all my personal data and stop using it.",
+        "round_trip_confidence": 0.9809570314285715
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 14850,
+        "stt_text": "I understand your request. You can submit a data deletion request by emailing privacy@sahaobank.example or by visiting any Sao Bank branch with a valid ID proof, and it will be processed within thirty days.",
+        "stt_confidence": 0.9662679049999999
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 3120,
+        "round_trip_text": "Okay. Can you also withdraw my marketing consent right now?",
+        "round_trip_confidence": 0.994995114
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 15125,
+        "stt_text": "Your request to withdraw marketing consent follows the same process. Please email privacy@chubbank.example or visit any c hub bank branch with ID proof, and your preference will be updated within thirty days.",
+        "stt_confidence": 0.970905851875
+       },
+       {
+        "turn_index": 5,
+        "speaker": "user",
+        "audio_ms": 2840,
+        "round_trip_text": "Alright. I will send the email. Thanks.",
+        "round_trip_confidence": 0.95846122
+       },
+       {
+        "turn_index": 6,
+        "speaker": "agent",
+        "audio_ms": 5775,
+        "stt_text": "You are welcome. Please feel free to reach out if you need help with anything else. Have a great day.",
+        "stt_confidence": 0.999804689
+       }
+      ]
+     }
+    },
+    "scenario_name": "data_deletion",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  }
+ ]
+}

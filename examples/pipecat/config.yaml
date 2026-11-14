@@ -1,0 +1,90 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# Pipecat example: Impulse connects to your running Pipecat bot through Pipecat's eval transport.
+# Bot side: see README.md in this folder (start the bot with -t eval and copy the URL it prints).
+#   pip install -e ".[pipecat]"     (from a clone; pip install impulse-evals[pipecat] once 0.1.0 is published)
+#   impulse doctor examples/pipecat/config.yaml
+#   impulse run examples/pipecat/config.yaml
+# Pipecat bots serve one client at a time, so scenarios always run one by one.
+#
+# Text and voice: voice mode is switched on per config file by the voice_config block, not per
+# scenario. As shipped, this file runs in text mode (the bot skips TTS). Uncomment voice_config
+# below to run both scenarios in voice mode (the bot's audio is captured and scored).
+
+agent:
+  type: voice
+  adapter: pipecat                 # entrypoint is for the generic adapter only, so it is not set
+  system_prompt: null              # null = ask the bot with the get_system_prompt client message (README.md);
+                                   # or set a path to your bot's prompt file, which then always wins and lets
+                                   # Impulse reset a -t eval bot's conversation before each scenario (README.md)
+  model: null
+  tools: null                      # null = unknown: the judge reads the tools from the system prompt
+  pipecat:
+    mode: eval                     # eval (default) | websocket
+    url: "ws://localhost:7860"     # replace with the WebSocket URL your bot prints when started with -t eval
+    end_of_turn_grace_ms: 800
+    handshake_timeout_s: 10
+    headers: {}
+    api_key_env: null              # NAME of an env var; its value is sent as "Authorization: Bearer <value>"
+    sample_rate: 16000             # both modes: user audio is sent at this rate; must equal the bot's
+                                   # PipelineParams.audio_in_sample_rate (the bot does not resample inbound audio)
+    # websocket mode only (mode: websocket); setting these in eval mode only prints a warning.
+    # A bot on Pipecat's development runner started with -t websocket listens at ws://host:port/ws-client.
+    # chunk_ms: 20
+    # realtime_pacing: true
+    # trailing_silence_ms: 600
+
+judge:
+  primary_model: "YOUR_PRIMARY_MODEL"
+  fast_model: "YOUR_FAST_MODEL"
+  primary_options: {}
+  fast_options: {}
+
+simulator:
+  model: "YOUR_SIMULATOR_MODEL"
+  persona_style: realistic
+  mode: cascade
+  options: {}
+
+# voice_config:
+#   tts:
+#     provider: local_hf
+#     model: "YOUR_TTS_MODEL"
+#     device: auto
+#   stt:
+#     provider: local_hf
+#     model: "YOUR_STT_MODEL"
+#     device: auto
+#     compute_type: auto
+#   save_audio: true
+#   save_recording: true
+#   timeout_s: 30
+
+metrics:
+  enabled: true
+
+scenarios:
+  # Text-mode scenario: conversation quality, tool use, and responsiveness from the bot's text.
+  - name: "pipecat_text_conversation"
+    language: en-US
+    domain: general
+    direction: inbound
+    max_turns: 6
+    persona: "curious first-time user who asks what the bot can do, then asks one follow-up question"
+    opening_user_message: "Hi! What can you help me with?"
+    expected_outcome: "the bot explains what it can do and answers the follow-up question"
+    assertions: []
+    metrics: [UNIV-001, UNIV-009, UNIV-013, UNIV-019, UNIV-023, VOICE-029, VOICE-039]
+
+  # Voice-mode scenario: latency, hearing (heard_text from the bot's own transcriptions), speech
+  # rate, and spoken naturalness. In text mode the latency metrics run as labelled proxies and the
+  # audio-only metrics are skipped; uncomment voice_config above for the full audio checks.
+  - name: "pipecat_voice_conversation"
+    language: en-US
+    domain: general
+    direction: inbound
+    max_turns: 6
+    persona: "busy caller who speaks in short sentences and interrupts when the bot talks too long"
+    opening_user_message: "Hey, quick question about what you do."
+    expected_outcome: "the bot answers briefly and handles interruptions gracefully"
+    assertions: []
+    metrics: [UNIV-001, UNIV-021, VOICE-001, VOICE-003, VOICE-005, VOICE-007, VOICE-009, VOICE-015, VOICE-037]

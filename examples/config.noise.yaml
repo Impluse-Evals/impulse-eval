@@ -1,0 +1,97 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# Impulse Evals example: noise simulation (EXPERIMENTAL). The same clinic booking call four times:
+# clean, then with pink background noise at 20 dB (mild), 10 dB (a busy street) and 5 dB (harsh).
+# The report then shows a "Pass rate by noise level" table.
+#
+# Check it without any model, TTS or STT (noise is ignored in a dry run, with one warning):
+#   impulse run examples/config.noise.yaml --dry-run
+#
+# A real run needs voice mode and an agent that hears audio. sample_agent.py does not (it has no
+# user_audio parameter, so Impulse warns that the noise has no effect on it): point the agent block
+# at your own agent (LiveKit, Pipecat, HTTP with send_audio: true, custom, or a generic function
+# with a user_audio parameter). Signal-to-noise ratio (SNR) guide: 20 = mild, 10 = busy street,
+# 5 = harsh. Your own recordings: profile: file, file: noise/traffic.wav (a WAV you own or have a
+# clear licence for).
+
+agent:
+  type: voice
+  adapter: generic
+  entrypoint: "sample_agent:respond"   # replace with your agent
+  system_prompt: "system_prompt.txt"
+  model: null
+
+judge:
+  primary_model: "YOUR_PRIMARY_MODEL"
+  fast_model: "YOUR_FAST_MODEL"
+  primary_options: {}
+  fast_options: {}
+
+simulator:
+  model: "YOUR_SIMULATOR_MODEL"
+  persona_style: realistic
+  mode: cascade
+  options: {}
+
+voice_config:
+  tts:
+    provider: local_light              # free, no key, no PyTorch: pip install impulse-evals[light]
+  stt:
+    provider: local_light
+  save_audio: true
+  save_recording: true
+  timeout_s: 30
+  noise:                               # EXPERIMENTAL: the default for every scenario below
+    profile: pink                      # white | pink | brown | file
+    snr_db: 10                         # -5..40; lower is noisier
+
+metrics:
+  enabled: true
+
+scenarios:
+  - name: "clinic_booking_clean"
+    language: en-IN
+    domain: healthcare
+    direction: inbound
+    max_turns: 6
+    persona: "patient who wants the earliest slot on Tuesday, gives name and phone when asked"
+    opening_user_message: "Hello, I need a doctor's appointment on Tuesday."
+    expected_outcome: "appointment booked and confirmed back to the patient"
+    assertions: []
+    metrics: [UNIV-001, UNIV-005, VOICE-009, VOICE-027]
+    noise: false                       # the clean baseline
+
+  - name: "clinic_booking_noise_20db"
+    language: en-IN
+    domain: healthcare
+    direction: inbound
+    max_turns: 6
+    persona: "patient who wants the earliest slot on Tuesday, gives name and phone when asked"
+    opening_user_message: "Hello, I need a doctor's appointment on Tuesday."
+    expected_outcome: "appointment booked and confirmed back to the patient"
+    assertions: []
+    metrics: [UNIV-001, UNIV-005, VOICE-009, VOICE-027]
+    noise: {profile: pink, snr_db: 20}
+
+  - name: "clinic_booking_noise_10db"
+    language: en-IN
+    domain: healthcare
+    direction: inbound
+    max_turns: 6
+    persona: "patient who wants the earliest slot on Tuesday, gives name and phone when asked"
+    opening_user_message: "Hello, I need a doctor's appointment on Tuesday."
+    expected_outcome: "appointment booked and confirmed back to the patient"
+    assertions: []
+    metrics: [UNIV-001, UNIV-005, VOICE-009, VOICE-027]
+    # no noise key: voice_config.noise (pink, 10 dB) applies
+
+  - name: "clinic_booking_noise_5db"
+    language: en-IN
+    domain: healthcare
+    direction: inbound
+    max_turns: 6
+    persona: "patient who wants the earliest slot on Tuesday, gives name and phone when asked"
+    opening_user_message: "Hello, I need a doctor's appointment on Tuesday."
+    expected_outcome: "appointment booked and confirmed back to the patient"
+    assertions: []
+    metrics: [UNIV-001, UNIV-005, VOICE-009, VOICE-027]
+    noise: {profile: pink, snr_db: 5}

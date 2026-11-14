@@ -1,0 +1,93 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+name: Noise simulation test report
+description: Share the results of running noise simulation (experimental) on your own voice agent.
+title: "[noise test] <adapter> / <platform> / <language>"
+labels: ["noise-simulation", "test-report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for testing noise simulation. How to run it: docs/contributing.md, section "Help us test noise simulation".
+        Remove keys, personal data and private transcripts before you paste anything here.
+        Testers who send a report are added to CONTRIBUTORS.md (say below if you would rather not be listed).
+  - type: dropdown
+    id: adapter
+    attributes:
+      label: Adapter
+      options:
+        - generic (handler with a user_audio parameter)
+        - http (send_audio true)
+        - livekit
+        - pipecat (eval mode)
+        - pipecat (websocket mode)
+        - custom
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Agent platform and versions
+      description: For example "LiveKit Agents 1.8.8, Deepgram STT", "Pipecat 1.12.0", "Vapi through a custom adapter".
+    validations:
+      required: true
+  - type: input
+    id: impulse-version
+    attributes:
+      label: Impulse version or commit
+      placeholder: "0.1.0 (commit abc1234)"
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Scenario language(s)
+      placeholder: "en-IN, hi-IN"
+    validations:
+      required: true
+  - type: input
+    id: noise
+    attributes:
+      label: Noise type and SNR levels
+      description: Profile (white, pink, brown, or file with a short description of the recording) and every snr_db you ran.
+      placeholder: "pink at 20, 10 and 5 dB; file: street traffic at 10 dB"
+    validations:
+      required: true
+  - type: textarea
+    id: results
+    attributes:
+      label: Pass or fail per level
+      description: One line per level, from the clean run to the harshest. The report's "Pass rate by noise level" table has these numbers.
+      placeholder: |
+        clean: 3/3 passed
+        pink, 20 dB: 3/3 passed
+        pink, 10 dB: 2/3 passed
+        pink, 5 dB: 0/3 passed
+    validations:
+      required: true
+  - type: input
+    id: voice-009
+    attributes:
+      label: VOICE-009 value(s)
+      description: The agent-hearing word error rate per level (the raw value in the report), or "skipped" if your agent returns no heard_text.
+      placeholder: "clean 0.02, 20 dB 0.05, 10 dB 0.18, 5 dB 0.41"
+  - type: textarea
+    id: snippet
+    attributes:
+      label: Report snippet
+      description: A short excerpt (a failing turn, the "agent heard" line, a warning). No personal data.
+      render: text
+  - type: dropdown
+    id: sound
+    attributes:
+      label: Did the noisy audio sound right for its level?
+      options:
+        - "Yes"
+        - "Too quiet"
+        - "Too loud"
+        - "Distorted or clipped"
+        - "Did not listen"
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything unexpected (latency changes, warnings, the agent never hearing the noise, crashes), and whether you would like to be listed in CONTRIBUTORS.md.

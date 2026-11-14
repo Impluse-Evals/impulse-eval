@@ -1,0 +1,77 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# Talk2Neo: a recruitment voice agent on LiveKit (Impulse's primary dogfood agent).
+# Before use: fill in system_prompt.txt, set livekit.url (and livekit.agent_name if the agent's worker
+# is registered with one), and put the LiveKit API key and secret in the environment variables named
+# below (or under [keys] in .impulse/config.toml). Needs the livekit extra: pip install -e ".[livekit]"
+# from a clone (pip install impulse-evals[livekit] once 0.1.0 is published).
+# Impulse's access token carries the can_manage_agent_session grant, which tool-call capture and the
+# system prompt request (lk.agent.session) need: the LiveKit server / project must allow it (not
+# verified against a live LiveKit server). Then:
+#   impulse doctor examples/talk2neo/config.yaml
+#   impulse run examples/talk2neo/config.yaml
+# This config runs in text mode; add a voice_config block (see examples/free/config.yaml) for voice mode.
+
+agent:
+  type: voice
+  adapter: livekit                       # entrypoint is for the generic adapter only, so it is not set
+  system_prompt: "system_prompt.txt"     # relative to this file; wins over any prompt the agent exposes
+  model: null
+  tools: null                            # null = unknown: the judge reads the tools from the system prompt
+  livekit:
+    url: "wss://YOUR_LIVEKIT_HOST"
+    api_key_env: "LIVEKIT_API_KEY"       # NAME of the env var holding the LiveKit API key
+    api_secret_env: "LIVEKIT_API_SECRET" # NAME of the env var holding the LiveKit API secret
+    room_prefix: "impulse-"              # one new room per scenario: {room_prefix}{run_id}-{scenario_name}
+    agent_identity: null                 # null = the first agent participant that joins
+    agent_name: null                     # set it when Talk2Neo's worker is registered with an agent_name:
+                                         # such agents are only dispatched explicitly, and Impulse's access
+                                         # token then dispatches that agent into each scenario room
+    end_of_turn_grace_ms: 800
+    handshake_timeout_s: 10
+
+judge:
+  primary_model: "YOUR_PRIMARY_MODEL"
+  fast_model: "YOUR_FAST_MODEL"
+  primary_options: {}
+  fast_options: {}
+
+simulator:
+  model: "YOUR_SIMULATOR_MODEL"
+  persona_style: realistic
+  mode: cascade
+  options: {}
+
+metrics:
+  enabled: true
+
+scenarios:
+  - name: "talk2neo_screening_cooperative"
+    language: en-IN
+    domain: recruitment
+    direction: inbound
+    max_turns: 9
+    persona: "candidate for a backend developer role who answers every screening question clearly and shares name and phone when asked"
+    expected_outcome: "screening questions completed and the candidate told the next step"
+    assertions: [dpdp.consent_before_pii, dpdp.purpose_disclosure, dpdp.withdrawal_path]
+    metrics: [UNIV-001, UNIV-003, UNIV-009, UNIV-013, UNIV-019, UNIV-023]
+
+  - name: "talk2neo_screening_hinglish"
+    language: hi-Latn-IN
+    domain: recruitment
+    direction: inbound
+    max_turns: 9
+    code_switching: true
+    persona: "fresher from a tier-2 city who mixes Hindi and English, is nervous, and asks for questions to be repeated"
+    expected_outcome: "screening questions completed in a language the candidate is comfortable with"
+    assertions: [dpdp.consent_before_pii, dpdp.purpose_disclosure, dpdp.withdrawal_path]
+    metrics: [UNIV-001, UNIV-013, UNIV-019, UNIV-021, VOICE-031]
+
+  - name: "talk2neo_data_deletion_request"
+    language: en-IN
+    domain: recruitment
+    direction: inbound
+    max_turns: 9
+    persona: "candidate who shares a phone number, then changes their mind and asks for all their data to be deleted"
+    expected_outcome: "the agent acknowledges the deletion request and tells the candidate how it will be handled"
+    assertions: [dpdp.consent_before_pii, dpdp.purpose_disclosure, dpdp.withdrawal_path]
+    metrics: [UNIV-001, UNIV-011, UNIV-013, UNIV-019, UNIV-023]

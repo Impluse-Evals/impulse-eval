@@ -1,0 +1,79 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# Starter config.yaml written by `impulse init --profile free` (based on examples/free/config.yaml).
+# Everything runs on your machine: LLMs served by Ollama, speech by local Hugging Face models
+# (local_hf, needs `pip install impulse-evals[local]`). No API key is needed anywhere.
+#
+# Before the first run:
+#   1. Set agent.entrypoint to your agent's module:function (importable from this folder).
+#   2. Set agent.system_prompt to your agent's system prompt file (the judge's rubric).
+#   3. impulse doctor config.yaml        (fix every FAIL row)
+#   4. impulse run config.yaml           (delete the voice_config block for a text-mode run)
+
+agent:
+  type: voice                          # voice | chat | multimodal
+  adapter: generic
+  entrypoint: "YOUR_AGENT_MODULE:respond"   # module:function; this folder is added to sys.path
+  system_prompt: null                  # e.g. "system_prompt.txt", relative to this file
+  model: null
+  tools: null                          # optional: the tools your agent can call, e.g. [book_slot]
+
+# YOUR_..._MODEL placeholders are resolved from .impulse/config.toml (written by impulse init) or
+# from IMPULSE_MODEL_PRIMARY / _FAST / _SIMULATOR; or replace them here with ollama/<tag> strings.
+# api_base points every role at the local Ollama server, so no key is ever required.
+judge:
+  primary_model: "YOUR_PRIMARY_MODEL"
+  fast_model: "YOUR_FAST_MODEL"
+  primary_options:
+    api_base: "http://localhost:11434"
+  fast_options:
+    api_base: "http://localhost:11434"
+
+simulator:
+  model: "YOUR_SIMULATOR_MODEL"
+  persona_style: realistic             # realistic | adversarial | polite
+  mode: cascade
+  options:
+    api_base: "http://localhost:11434"
+
+voice_config:
+  tts:
+    provider: local_hf
+    model: "YOUR_TTS_MODEL"            # a Hugging Face text-to-speech model id
+    models_by_language: {}             # optional per-language override, e.g. {hi-IN: "YOUR_TTS_MODEL"}
+    voice: null
+    device: auto                       # auto | cpu | cuda
+    base_url: null
+    api_key_env: null
+  stt:
+    provider: local_hf
+    model: "YOUR_STT_MODEL"            # a faster-whisper model id
+    device: auto
+    compute_type: auto
+    base_url: null
+    api_key_env: null
+  save_audio: true
+  save_recording: true
+  timeout_s: 30
+
+metrics:
+  enabled: true
+  voice:
+    ttfa_warn_ms: 1500
+    ttfa_fail_ms: 3000
+    dead_air_ms: 1500
+    wer_warn: 0.15
+    wer_fail: 0.30
+    tail_latency_warn_ms: 3000
+    tail_latency_fail_ms: 5000
+    speech_rate_wpm: [110, 180]
+
+scenarios:
+  - name: "first_scenario"
+    language: "YOUR_LANGUAGE"
+    domain: general
+    direction: inbound
+    max_turns: 9
+    persona: "a typical caller for this agent with an ordinary, in-scope request"
+    expected_outcome: "the caller's request is handled the way the system prompt asks"
+    assertions: []
+    metrics: [UNIV-001, UNIV-013, UNIV-019, UNIV-021, VOICE-001, VOICE-029, VOICE-037, VOICE-039]

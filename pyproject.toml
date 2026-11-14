@@ -1,0 +1,82 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "impulse-evals"
+version = "0.1.0"
+description = "Pytest-style evaluation framework for AI voice and chat agents (formerly PULSE)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "AGPL-3.0-only AND Elastic-2.0 AND Apache-2.0"
+license-files = ["LICENSE", "LICENSE-ELv2", "LICENSE-APACHE"]
+keywords = ["evaluation", "voice agents", "chat agents", "llm", "testing", "compliance"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = [
+    "typer",
+    # cli.py imports click itself (typer vendors its own copy and may stop installing it).
+    "click>=8",
+    "pydantic>=2,<3",
+    "httpx",
+    "websockets",
+    "litellm",
+    "rich",
+    "pytest",
+    "PyYAML",
+    # jiwer 3.x raises on an empty reference; 4.x counts it as insertions (fixes round 4, L22).
+    "jiwer>=4",
+    "numpy",
+]
+
+[project.optional-dependencies]
+livekit = ["livekit", "livekit-api", "livekit-protocol"]
+# Eval mode relies on internal pipecat-ai APIs; raise the cap only after testing a new release.
+pipecat = ["pipecat-ai>=1.12,<1.13"]
+voice = ["sounddevice", "pydub", 'audioop-lts; python_version >= "3.13"']
+# torch is the user's install choice (CPU or GPU build); it is deliberately not pinned here.
+local = ["faster-whisper", "transformers", "soundfile"]
+# Light local voice (local_light): Kokoro ONNX TTS + faster-whisper STT, no PyTorch. kokoro-onnx 0.6.1
+# declares Requires-Python <3.14; on 3.14 install it with --ignore-requires-python (see the docs).
+light = ['kokoro-onnx>=0.6.1,<0.7; python_version < "3.14"', "faster-whisper"]
+dev = ["pytest-asyncio", "ruff", "mypy"]
+
+[project.scripts]
+impulse = "impulse_evals.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["impulse_evals"]
+
+# The plain-language licensing summary ships inside the package (the PEP 639 license-files above are
+# the LICENSE texts only and stay unchanged).
+[tool.hatch.build.targets.wheel.force-include]
+"LICENSING.md" = "impulse_evals/LICENSING.md"
+
+# The sdist holds what a build needs: the root planning files and the CI workflows stay out.
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "/SPEC.md",
+    "/METRICS.md",
+    "/KICKOFF.md",
+    "/CLAUDE.md",
+    "/REVIEW.md",
+    "/REVIEW-2.md",
+    "/DECISIONS.md",
+    "/PROGRESS.md",
+    "/FINAL-REPORT.md",
+    "/AUDIT.md",
+    "/AUDIT-FIXES.md",
+    "/.github",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

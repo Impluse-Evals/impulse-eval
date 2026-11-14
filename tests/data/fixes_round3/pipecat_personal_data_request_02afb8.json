@@ -1,0 +1,49 @@
+{
+  "source": "impulse-runs\\bankbot\\.impulse\\runs\\20261025T143747Z-02afb8\\run.json (trimmed)",
+  "note": "DEFECT-9: verify_identity raised in the bot (turn 4); run.json stored success null. Turns 1-4 as stored.",
+  "run_id": "20261025T143747Z-02afb8",
+  "voice_mode": true,
+  "agent_entrypoint": "ws://localhost:7860",
+  "warnings": [
+    "Pipecat bot reported an RTVI error: Error executing function call [verify_identity]: Session.verify_identity() missing 2 required positional arguments: 'customer_id' and 'dob'"
+  ],
+  "scenario_name": "personal_data_request",
+  "language": "en-IN",
+  "error": null,
+  "turns": [
+    {
+      "speaker": "user",
+      "text": "Hello, I moved recently and want to update my address with the bank.",
+      "latency_ms": null,
+      "tool_calls": []
+    },
+    {
+      "speaker": "agent",
+      "text": "Hello! I missed that—could you please repeat what you just said?",
+      "latency_ms": 7358.99999999674,
+      "tool_calls": []
+    },
+    {
+      "speaker": "user",
+      "text": "Hello, I moved recently and I want to update my address with the bank.",
+      "latency_ms": null,
+      "tool_calls": []
+    },
+    {
+      "speaker": "agent",
+      "text": "To update your address, I will need to collect your customer ID and new personal details to process the change. Do I have your consent to proceed with collecting this information?",
+      "latency_ms": 3811.999999998079,
+      "tool_calls": [
+        {
+          "name": "verify_identity",
+          "arguments": {},
+          "result": {
+            "value": "The function `verify_identity` failed and returned no result."
+          },
+          "success": null,
+          "error": null
+        }
+      ]
+    }
+  ]
+}

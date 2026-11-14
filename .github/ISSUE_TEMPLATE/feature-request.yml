@@ -1,0 +1,49 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+name: Feature request
+description: Suggest a new feature or an improvement.
+title: "[feature] <short description>"
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the roadmap (ROADMAP.md) and the known limitations (docs/known-limitations.md) first: your idea may already be planned.
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What are you trying to test or do, and what stops you today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you would like
+      description: How it could work, for example a config key, a command, a metric or an adapter.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Workarounds or alternatives
+      description: What you do today instead, or other tools you have tried.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - adapters
+        - voice and speech providers
+        - noise simulation
+        - metrics and judge
+        - compliance packs
+        - reports and compare
+        - command line and CI
+        - docs or Claude skill
+        - other
+  - type: checkboxes
+    id: contribute
+    attributes:
+      label: Contribution
+      options:
+        - label: I would like to help build this.

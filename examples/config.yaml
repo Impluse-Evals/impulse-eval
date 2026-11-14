@@ -1,0 +1,135 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# Impulse Evals example: six scenarios (four Indian ones: ecommerce sales, recruitment, healthcare,
+# BFSI; then US ecommerce support in English and a Mexican clinic in Spanish) against the tiny echo
+# agent in sample_agent.py. Validate and run it without any LLM call:
+#   impulse run examples/config.yaml --dry-run
+# Models: YOUR_..._MODEL placeholders are resolved from IMPULSE_MODEL_PRIMARY / _FAST / _SIMULATOR
+# or from .impulse/config.toml (written by impulse init), or replace them here.
+
+agent:
+  type: voice                          # voice | chat | multimodal
+  adapter: generic
+  entrypoint: "sample_agent:respond"   # examples/sample_agent.py; this folder is added to sys.path
+  system_prompt: "system_prompt.txt"   # relative to this file; wins over sample_agent.SYSTEM_PROMPT
+  model: null
+  tools:                               # the tools the agent can call (names checked against expected/forbidden calls)
+    - name: book_slot
+      description: "Book a demo call, interview round, or clinic appointment. Arguments: date, patient_name, phone."
+    - name: cancel_slot
+      description: "Cancel an existing booking. Arguments: date, phone."
+
+judge:
+  primary_model: "YOUR_PRIMARY_MODEL"
+  fast_model: "YOUR_FAST_MODEL"
+  primary_options: {}
+  fast_options: {}
+
+simulator:
+  model: "YOUR_SIMULATOR_MODEL"
+  persona_style: realistic             # realistic | adversarial | polite
+  mode: cascade
+  options: {}
+
+# No voice_config block: this example runs in text mode.
+
+metrics:
+  enabled: true
+  voice:
+    ttfa_warn_ms: 1500
+    ttfa_fail_ms: 3000
+    dead_air_ms: 1500
+    wer_warn: 0.15
+    wer_fail: 0.30
+    tail_latency_warn_ms: 3000
+    tail_latency_fail_ms: 5000
+    speech_rate_wpm: [110, 180]
+
+scenarios:
+  # Ecommerce sales: no compliance pack. The metrics list is explicit and leaves out UNIV-023
+  # (an empty list would mean every universal metric).
+  - name: "sales_lead_followup_hindi"
+    language: hi-IN
+    accent: north-indian
+    domain: ecommerce
+    direction: outbound
+    max_turns: 9
+    persona: "small business owner, interested but price-sensitive, wants ROI before committing"
+    expected_outcome: "the caller understands the price and the free trial and agrees to a demo call"
+    assertions: []
+    metrics: [UNIV-001, UNIV-003, UNIV-005, UNIV-013, UNIV-019, VOICE-027, VOICE-035]
+
+  # Recruitment (Talk2Neo style): consent before personal data, and the booking tool must be called.
+  - name: "recruitment_interview_booking"
+    language: en-IN
+    domain: recruitment
+    direction: inbound
+    max_turns: 9
+    persona: "candidate who cleared the first round and wants to book the second interview round next Monday; gives name and phone when asked"
+    opening_user_message: "Hi, I cleared the first round. Can I schedule my next interview?"
+    expected_outcome: "second-round interview booked with book_slot and confirmed to the candidate"
+    assertions: [dpdp.consent_before_pii]
+    metrics: [UNIV-001, UNIV-003, UNIV-013, UNIV-019, UNIV-023]
+    expected_tool_calls:
+      - name: book_slot
+        required_arguments: [date, phone]
+
+  # Healthcare: dpdp only (the hipaa pack is opt-in), exactly one booking, never a cancellation.
+  - name: "clinic_appointment_booking"
+    language: en-IN
+    domain: healthcare
+    direction: inbound
+    max_turns: 12
+    persona: "patient who wants the earliest slot on Tuesday, gives name and phone when asked"
+    opening_user_message: "Hello, I need a doctor's appointment on Tuesday."
+    expected_outcome: "appointment booked and confirmed back to the patient"
+    assertions: [dpdp.consent_before_pii]
+    metrics: [UNIV-001, UNIV-005, UNIV-011, UNIV-019, UNIV-023]
+    expected_tool_calls:
+      - name: book_slot
+        required_arguments: [date, patient_name, phone]
+        max_count: 1
+    forbidden_tool_calls: [cancel_slot]
+
+  # BFSI: outbound EMI reminder in Hinglish, with RBI KYC, DPDP, and TRAI DLT checks.
+  - name: "loan_emi_reminder_outbound"
+    language: hi-Latn-IN
+    domain: fsi
+    direction: outbound
+    max_turns: 12
+    persona: "personal-loan customer who missed one EMI, worried about the CIBIL score impact, mixes Hindi and English"
+    expected_outcome: "identity verified before any loan details are shared, and a payment date agreed"
+    key_terms: [EMI, CIBIL]
+    code_switching: true
+    assertions: [rbi_kyc.identity_before_disclosure, dpdp.consent_before_pii, trai_dlt.consent_for_outbound]
+    metrics: [UNIV-001, UNIV-005, UNIV-019, UNIV-023, VOICE-013]
+
+  # US ecommerce support: no compliance pack (the India packs are for scenarios whose language has
+  # the region IN). system_prompt.txt has no order desk, so the agent should not invent one. The
+  # metrics list is explicit and leaves out UNIV-023.
+  - name: "support_order_status_us"
+    language: en-US
+    domain: ecommerce
+    direction: inbound
+    max_turns: 9
+    persona: "online shopper whose order is two days late, a little annoyed, wants a clear delivery date and to know whether a refund is possible"
+    opening_user_message: "Hi, my order was supposed to arrive on Monday and it still hasn't shown up. Where is it?"
+    expected_outcome: "the agent says honestly that it cannot look up orders, invents no order status or delivery date, and offers to transfer the shopper to a human agent"
+    assertions: []
+    metrics: [UNIV-001, UNIV-003, UNIV-005, UNIV-007, UNIV-019, VOICE-027, VOICE-035]
+
+  # Mexican clinic, in Spanish: exactly one booking with date, patient name and phone. No pack is
+  # added by default for es-MX (hipaa is opt-in; list a pack explicitly to check it).
+  - name: "cita_clinica_mx"
+    language: es-MX
+    domain: healthcare
+    direction: inbound
+    max_turns: 12
+    persona: "paciente que quiere una cita con el médico general el jueves por la mañana; da su nombre y su teléfono cuando se los piden"
+    opening_user_message: "Hola, quisiera una cita con el médico general para el jueves, por favor."
+    expected_outcome: "la cita queda agendada con book_slot y se le confirma al paciente el día, la hora y su nombre"
+    assertions: []
+    metrics: [UNIV-001, UNIV-005, UNIV-011, UNIV-019, UNIV-023]
+    expected_tool_calls:
+      - name: book_slot
+        required_arguments: [date, patient_name, phone]
+        max_count: 1

@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# HTTP adapter example: Impulse POSTs every agent turn as JSON to your agent (any language).
+#   python examples/http/server.py              # the standard-library echo agent, local testing only
+#   impulse doctor examples/http/config.yaml    # a plain TCP connect to the URL; no HTTP request
+#   impulse run examples/http/config.yaml --dry-run
+# README.md in this folder has the exact JSON of every request and answer. A full run needs judge
+# and simulator models (impulse init).
+
+agent:
+  type: chat
+  adapter: http
+  system_prompt: null                  # null = the start answer's system_prompt (server.py sends one)
+  model: null
+  tools: [book_slot]
+  http:
+    url: "http://localhost:8080/turn"         # required; http:// or https://
+    start_url: "http://localhost:8080/start"  # optional: POSTed once when a scenario starts
+    close_url: "http://localhost:8080/close"  # optional: POSTed once when a scenario ends
+    headers: {}                               # extra request headers (values are redacted in errors)
+    api_key_env: null                         # NAME of an env var; its value is sent as "Authorization: Bearer <value>"
+    turn_timeout_s: null                      # seconds per request; null = voice_config.timeout_s, else 30
+
+judge:
+  primary_model: "YOUR_PRIMARY_MODEL"
+  fast_model: "YOUR_FAST_MODEL"
+  primary_options: {}
+  fast_options: {}
+
+simulator:
+  model: "YOUR_SIMULATOR_MODEL"
+  persona_style: realistic
+  mode: cascade
+  options: {}
+
+metrics:
+  enabled: true
+
+scenarios:
+  - name: "http_agent_booking"
+    language: en-US
+    domain: healthcare
+    direction: inbound
+    max_turns: 4
+    persona: "patient who wants an appointment next Tuesday and gives their name and phone number when asked"
+    opening_user_message: "Hi, I'd like to book an appointment for next Tuesday."
+    expected_outcome: "the agent books the slot with book_slot and confirms it"
+    assertions: []
+    metrics: [UNIV-001, UNIV-013, UNIV-023]
+    expected_tool_calls:
+      - name: book_slot
+        max_count: 1

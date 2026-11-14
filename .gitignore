@@ -1,0 +1,60 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+
+# Impulse run folders, local config and reports
+.impulse/
+*.report.html
+run.json
+compare_*.json
+compare_*.html
+
+# Secrets and environment files
+.env
+.env.*
+*.pem
+*.key
+
+# Audio recordings (allowed only under docs/images and examples)
+*.wav
+*.mp3
+*.ogg
+*.opus
+*.flac
+*.m4a
+!docs/images/**
+!examples/**
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Tool caches and coverage
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+
+# IDE, editor and OS files
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+.claude/
+
+# Packaged skill (build it locally; never commit it)
+impulse-evals-skill.zip
+*.zip

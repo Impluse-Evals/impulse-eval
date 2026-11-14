@@ -1,0 +1,63 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+name: Bug report
+description: Something in Impulse does not work as the docs say.
+title: "[bug] <short description>"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for the report. Remove keys, personal data and private transcripts before you paste anything here.
+        Security problems go through private reporting instead (SECURITY.md), never a public issue.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and output
+      description: The exact command you ran and its output. Impulse redacts keys, but check before you paste.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Minimal config.yaml
+      description: The smallest config that shows the problem, with placeholders instead of real values.
+      render: yaml
+  - type: input
+    id: impulse-version
+    attributes:
+      label: Impulse version or commit
+      placeholder: "0.1.0 (commit abc1234)"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Python version and OS
+      placeholder: "Python 3.12.4, Ubuntu 24.04"
+    validations:
+      required: true
+  - type: dropdown
+    id: adapter
+    attributes:
+      label: Adapter
+      options:
+        - generic
+        - http
+        - livekit
+        - pipecat (eval mode)
+        - pipecat (websocket mode)
+        - custom
+        - not relevant
+  - type: input
+    id: extras
+    attributes:
+      label: Extras and versions involved
+      description: For example "local (faster-whisper 1.2.1)", "pipecat (pipecat-ai 1.12.0)".

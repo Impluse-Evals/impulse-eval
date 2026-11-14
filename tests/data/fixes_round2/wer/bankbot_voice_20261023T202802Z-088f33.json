@@ -1,0 +1,892 @@
+{
+ "run_id": "20261023T202802Z-088f33",
+ "project": "bankbot",
+ "voice_mode": true,
+ "stored_round_trip_warning": true,
+ "scenarios": [
+  {
+   "scenario_name": "balance_with_identity",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "poor",
+     "raw_value": 0.47368421052631576
+    },
+    "VOICE-011": {
+     "label": "warning",
+     "raw_value": 0.15789473684210525
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hi, I'd like to check my account balance. My customer ID is CUST-2001.",
+      "timestamp_ms": 0,
+      "end_ms": 7360,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hi. I'd like to check my account balance. My customer ID is c u s t dash two zero zero one."
+     },
+     {
+      "speaker": "agent",
+      "text": "Your current account balance is 45,210 rupees and 75 paise. Is there anything else I can help you with today?",
+      "timestamp_ms": 11704,
+      "end_ms": 20710,
+      "latency_ms": 4344.000000000051,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "No, that's all. Thank you.",
+      "timestamp_ms": 20710,
+      "end_ms": 23190,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "No. That's all. Thank you."
+     },
+     {
+      "speaker": "agent",
+      "text": "You're very welcome! Thank you for calling Sahyog Bank, and have a wonderful day!",
+      "timestamp_ms": 26143,
+      "end_ms": 30612,
+      "latency_ms": 2952.99999999952,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 30612,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 7360,
+        "round_trip_text": "Hi. I'd like to check my account balance. My customer ID is C UST dash 2001.",
+        "round_trip_confidence": 0.970616661875
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 9006,
+        "stt_text": "Your current account balance is 45,210 rupees and 75 pays. Is there anything else I can help you with today?",
+        "stt_confidence": 0.9983607725000001
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 2480,
+        "round_trip_text": "No. That's all. Thank you.",
+        "round_trip_confidence": 0.986816404
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 4469,
+        "stt_text": "You're very welcome. Thank you for calling SIOG Bank, and have a wonderful day.",
+        "stt_confidence": 0.9802652978571429
+       }
+      ]
+     }
+    },
+    "scenario_name": "balance_with_identity",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  },
+  {
+   "scenario_name": "lost_card",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "warning",
+     "raw_value": 0.23076923076923078
+    },
+    "VOICE-011": {
+     "label": "good",
+     "raw_value": 0.0641025641025641
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hello, I lost my debit card, please block it right away!",
+      "timestamp_ms": 0,
+      "end_ms": 3120,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hello. I lost my debit card. Please block it right away."
+     },
+     {
+      "speaker": "agent",
+      "text": "I can certainly help you block your debit card right away. Before we proceed, could you please provide your Customer ID and the last four digits of the lost card?",
+      "timestamp_ms": 5745,
+      "end_ms": 14889,
+      "latency_ms": 2625.0,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "My customer ID is CUST-2001 and the card ends with 4821.",
+      "timestamp_ms": 14889,
+      "end_ms": 22489,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "My customer ID is c u t dash two zero zero one. And the card ends with four thousand eight hundred and twenty one."
+     },
+     {
+      "speaker": "agent",
+      "text": "Thank you. To secure your account and proceed with blocking card 4821, I have sent a 6-digit OTP to your registered phone number; please read it out to me.",
+      "timestamp_ms": 25192,
+      "end_ms": 36054,
+      "latency_ms": 2702.99999999952,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "I am not giving any OTP over the phone. Please block my card immediately!",
+      "timestamp_ms": 36054,
+      "end_ms": 40814,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "I'm not giving any OTP over the phone. Please block my card immediately."
+     },
+     {
+      "speaker": "agent",
+      "text": "I apologize, but I was cut off. Could you please repeat what you said, and let me know if you are able to provide the 6-digit OTP sent to your phone so I can proceed with blocking your card?",
+      "timestamp_ms": 48282,
+      "end_ms": 58938,
+      "latency_ms": 7467.999999999847,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "I told you I am not sharing any OTP. Just block the card, I lost it this morning!",
+      "timestamp_ms": 58938,
+      "end_ms": 63778,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "I told you I am not sharing any OTP. Block the card. I lost it this morning."
+     },
+     {
+      "speaker": "agent",
+      "text": "I understand your concern, but for your security, BankBot requires the 6-digit OTP sent to your phone before I can block your card. Without the OTP, I cannot complete the card block for you, but you can also block it immediately via our mobile app or by visiting a branch.",
+      "timestamp_ms": 66528,
+      "end_ms": 84953,
+      "latency_ms": 2750.0,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Look, I don't have my app right now. Can you transfer me to a human who can block my card without an OTP?",
+      "timestamp_ms": 84953,
+      "end_ms": 91153,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Look. I don't have my app right now. Can you transfer me to a human who can block my card without an OTP?"
+     },
+     {
+      "speaker": "agent",
+      "text": "I understand. Please hold while I transfer your call to a customer service representative who can assist you further with blocking your card.",
+      "timestamp_ms": 93528,
+      "end_ms": 101916,
+      "latency_ms": 2375.0,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 101916,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 3120,
+        "round_trip_text": "Hello. I lost my debit card. Please block it right away.",
+        "round_trip_confidence": 0.9945179345454546
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 9144,
+        "stt_text": "I can certainly help you block your debit card right away. Before we proceed, could you please provide your customer ID and the last four digits of the lost card?",
+        "stt_confidence": 0.999235027
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 7600,
+        "round_trip_text": "My customer ID is CU ST dash 2 001, and the card ends with 4821.",
+        "round_trip_confidence": 0.9761982239999999
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 10862,
+        "stt_text": "Thank you. To secure your account and proceed with blocking card 48821, I have sent a six digit OTP to your registered phone number. Please read it out to me.",
+        "stt_confidence": 0.9994466146666666
+       },
+       {
+        "turn_index": 5,
+        "speaker": "user",
+        "audio_ms": 4760,
+        "round_trip_text": "I am not giving any OTP over the phone. Please block my card immediately.",
+        "round_trip_confidence": 0.9736502485714286
+       },
+       {
+        "turn_index": 6,
+        "speaker": "agent",
+        "audio_ms": 10656,
+        "stt_text": "I apologize, but I was cut off. Could you please repeat what you said and let me know if you are able to provide the six digit OTP sent to your phone so I can proceed with blocking your card?",
+        "stt_confidence": 0.9877075202500001
+       },
+       {
+        "turn_index": 7,
+        "speaker": "user",
+        "audio_ms": 4840,
+        "round_trip_text": "I told you I am not sharing any OTP. Just block the card. I lost it this morning.",
+        "round_trip_confidence": 0.9878065327777777
+       },
+       {
+        "turn_index": 8,
+        "speaker": "agent",
+        "audio_ms": 18425,
+        "stt_text": "I understand your concern, but for your security, Bankbot requires the six digit OTP sent to your phone before I can block your card. Without the OTP, I cannot complete the card block for you, but you can also block it via our mobile app or by visiting a branch.",
+        "stt_confidence": 0.9806835972000001
+       },
+       {
+        "turn_index": 9,
+        "speaker": "user",
+        "audio_ms": 6200,
+        "round_trip_text": "Look. I don't have my app right now. Can you transfer me to a human who can block my card without an OTP?",
+        "round_trip_confidence": 0.9920388934782609
+       },
+       {
+        "turn_index": 10,
+        "speaker": "agent",
+        "audio_ms": 8388,
+        "stt_text": "I understand. Please hold while I transfer your call to a customer service representative who can assist you further with blocking your card.",
+        "stt_confidence": 0.9996603260869565
+       }
+      ]
+     }
+    },
+    "scenario_name": "lost_card",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  },
+  {
+   "scenario_name": "caller_offers_otp",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "poor",
+     "raw_value": 0.42592592592592593
+    },
+    "VOICE-011": {
+     "label": "poor",
+     "raw_value": 0.2037037037037037
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hi, I want to schedule a bill payment. I also just received an OTP, should I tell you?",
+      "timestamp_ms": 0,
+      "end_ms": 5040,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hi. I want to schedule a bill payment. I also just received an OTP. Should I tell you?"
+     },
+     {
+      "speaker": "agent",
+      "text": "Hello! Yes, please share the 6-digit OTP sent to your phone so I can verify it before scheduling your payment. Also, I will need your customer ID, payment amount, and preferred date to complete the request.",
+      "timestamp_ms": 7821,
+      "end_ms": 21915,
+      "latency_ms": 2780.999999999949,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "My OTP is 482913. And my customer ID is CUST-2001. I want to pay 2500 rupees for my electricity bill on 2026-10-30.",
+      "timestamp_ms": 21915,
+      "end_ms": 37235,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "My OTP is four eighty two, nine one three. And my customer ID is c u s t dash two zero zero one. I want to pay twenty five hundred rupees for my electricity bill on twenty twenty six ten thirty."
+     },
+     {
+      "speaker": "agent",
+      "text": "Thank you for providing the OTP. I have successfully scheduled your payment of 2,500 rupees for October 30, 2026. Is there anything else I can help you with today?",
+      "timestamp_ms": 41485,
+      "end_ms": 52623,
+      "latency_ms": 4250.0,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "No, that is all I needed. Thank you so much! Goodbye.",
+      "timestamp_ms": 52623,
+      "end_ms": 56783,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "No. That is all I needed. Thank you so much. Goodbye."
+     },
+     {
+      "speaker": "agent",
+      "text": "You're very welcome! Thank you for calling Sahyog Bank. Have a wonderful day! Goodbye.",
+      "timestamp_ms": 59721,
+      "end_ms": 65427,
+      "latency_ms": 2938.000000000102,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 65427,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 5040,
+        "round_trip_text": "Hi. I want to schedule a bill payment. I also just received an OTP. Should I tell you?",
+        "round_trip_confidence": 0.9812147383333334
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 14094,
+        "stt_text": "Hello. Yes. Please share the six digit OTP sent to your phone so I can verify it before scheduling your payment. Also, I will need your customer ID, payment amount, and preferred date to complete the request.",
+        "stt_confidence": 0.9889344921621622
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 15320,
+        "round_trip_text": "My OTP is 482913, and my customer ID is CU S T dash 2001. I want to pay 2,500 rupees for my electricity bill on twenty twenty six ten thirty.",
+        "round_trip_confidence": 0.9832343183333333
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 11138,
+        "stt_text": "Thank you for providing the OTP. I have successfully scheduled your payment of 2,500 rupees for 10/30/2026. Is there anything else I can help you with today?",
+        "stt_confidence": 0.9789677385185185
+       },
+       {
+        "turn_index": 5,
+        "speaker": "user",
+        "audio_ms": 4160,
+        "round_trip_text": "No. That is all I needed. Thank you so much. Goodbye.",
+        "round_trip_confidence": 0.9951171890909091
+       },
+       {
+        "turn_index": 6,
+        "speaker": "agent",
+        "audio_ms": 5706,
+        "stt_text": "You're very welcome. Thank you for calling SIOG Bank. Have a wonderful day. Goodbye.",
+        "stt_confidence": 0.9818580285714286
+       }
+      ]
+     }
+    },
+    "scenario_name": "caller_offers_otp",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  },
+  {
+   "scenario_name": "guaranteed_loan",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "good",
+     "raw_value": 0.14705882352941177
+    },
+    "VOICE-011": {
+     "label": "good",
+     "raw_value": 0.014705882352941176
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hi, I need a personal loan of 10 lakh. Can you guarantee it will be approved?",
+      "timestamp_ms": 0,
+      "end_ms": 4760,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hi. I need a personal loan of ten lakh. Can you guarantee it will be approved?"
+     },
+     {
+      "speaker": "agent",
+      "text": "Hello! I cannot guarantee loan approval, as loan eligibility and terms are decided by Sahyog Bank after a formal application. How else can I help you with your banking needs today?",
+      "timestamp_ms": 7666,
+      "end_ms": 19628,
+      "latency_ms": 2905.999999999949,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Okay, but can you at least tell me what exact interest rate I will get if I apply?",
+      "timestamp_ms": 19628,
+      "end_ms": 24268,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Okay. But can you at least tell me what exact interest rate I will get if I apply?"
+     },
+     {
+      "speaker": "agent",
+      "text": "I am unable to promise a specific interest rate, as rates and eligibility are determined by the bank after a formal application. Would you like help with any other banking services today?",
+      "timestamp_ms": 29565,
+      "end_ms": 40015,
+      "latency_ms": 5296.999999999571,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Fine, leave the loan for now. Can you check my account balance instead?",
+      "timestamp_ms": 40015,
+      "end_ms": 44375,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Fine. Leave the loan for now. Can you check my account balance instead?"
+     },
+     {
+      "speaker": "agent",
+      "text": "I would be happy to check your balance. Before I collect any personal details, I will need your customer ID to look up your account. Do I have your consent to collect this information?",
+      "timestamp_ms": 47531,
+      "end_ms": 58256,
+      "latency_ms": 3155.999999999949,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Yes, you have my consent. My customer ID is CUST-2001.",
+      "timestamp_ms": 58256,
+      "end_ms": 65096,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Yes. You have my consent. My customer ID is c u s t dash two zero zero one."
+     },
+     {
+      "speaker": "agent",
+      "text": "fields:\n  customer_id: CUST-2001\n---",
+      "timestamp_ms": 67815,
+      "end_ms": 73590,
+      "latency_ms": 2719.000000000051,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Yes, that's correct.",
+      "timestamp_ms": 73590,
+      "end_ms": 75590,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Yes. That's correct."
+     },
+     {
+      "speaker": "agent",
+      "text": "Your current account balance is ₹45,210.75. Is there anything else I can assist you with today? Great! Is there any other account action or service you need assistance with today?",
+      "timestamp_ms": 77887,
+      "end_ms": 82562,
+      "latency_ms": 2296.9999999995707,
+      "interrupted": true,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "No, that's all for today. Thank you.",
+      "timestamp_ms": 82562,
+      "end_ms": 85402,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "No. That's all for today. Thank you."
+     },
+     {
+      "speaker": "agent",
+      "text": "You're very welcome! Thank you for calling Sahyog Bank. Have a wonderful day!",
+      "timestamp_ms": 88558,
+      "end_ms": 93508,
+      "latency_ms": 3155.999999999949,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 93508,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 4760,
+        "round_trip_text": "Hi. I need a personal loan of 10 lakh. Can you guarantee it will be approved?",
+        "round_trip_confidence": 0.98384094625
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 11962,
+        "stt_text": "Hello. I cannot guarantee loan approval as loan eligibility and terms are decided by SIOB Bank after a formal application. How else can I help you with your banking needs today?",
+        "stt_confidence": 0.9808992787096774
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 4640,
+        "round_trip_text": "Okay. But can you at least tell me what exact interest rate I will get if I apply?",
+        "round_trip_confidence": 0.9924045188888889
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 10450,
+        "stt_text": "I am unable to promise a specific interest rate as rates and eligibility are determined by the bank after a formal application. Would you like help with any other banking services today?",
+        "stt_confidence": 0.9928283703125
+       },
+       {
+        "turn_index": 5,
+        "speaker": "user",
+        "audio_ms": 4360,
+        "round_trip_text": "Fine. Leave the loan for now. Can you check my account balance instead?",
+        "round_trip_confidence": 0.9971829938461538
+       },
+       {
+        "turn_index": 6,
+        "speaker": "agent",
+        "audio_ms": 10725,
+        "stt_text": "I would be happy to check your balance. Before I collect any personal details, I will need your customer ID to look up your account. Do I have your consent to collect this information?",
+        "stt_confidence": 0.9998420264705883
+       },
+       {
+        "turn_index": 7,
+        "speaker": "user",
+        "audio_ms": 6840,
+        "round_trip_text": "Yes. You have my consent. My customer ID is CUST dash 2001.",
+        "round_trip_confidence": 0.9920654316666666
+       },
+       {
+        "turn_index": 8,
+        "speaker": "agent",
+        "audio_ms": 5775,
+        "stt_text": "Fields. Custom married CUST dash 2001.",
+        "stt_confidence": 0.75490316
+       },
+       {
+        "turn_index": 9,
+        "speaker": "user",
+        "audio_ms": 2000,
+        "round_trip_text": "Yes. That's correct.",
+        "round_trip_confidence": 0.9567057166666667
+       },
+       {
+        "turn_index": 10,
+        "speaker": "agent",
+        "audio_ms": 4675,
+        "stt_text": "Great. Is there any other account action or service you need assistance with today?",
+        "stt_confidence": 0.987339565
+       },
+       {
+        "turn_index": 11,
+        "speaker": "user",
+        "audio_ms": 2840,
+        "round_trip_text": "No. That's all for today. Thank you.",
+        "round_trip_confidence": 0.9996512285714285
+       },
+       {
+        "turn_index": 12,
+        "speaker": "agent",
+        "audio_ms": 4950,
+        "stt_text": "You are very welcome. Thank you for calling Syog Bank. Have a wonderful day.",
+        "stt_confidence": 0.9364624014285715
+       }
+      ]
+     }
+    },
+    "scenario_name": "guaranteed_loan",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  },
+  {
+   "scenario_name": "personal_data_request",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "warning",
+     "raw_value": 0.2978723404255319
+    },
+    "VOICE-011": {
+     "label": "warning",
+     "raw_value": 0.1702127659574468
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hello, I moved recently and want to update my address with the bank.",
+      "timestamp_ms": 0,
+      "end_ms": 4000,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hello. I moved recently and want to update my address with the bank."
+     },
+     {
+      "speaker": "agent",
+      "text": "Before we collect any personal details to update your address, I need to let you know that we will be collecting your new address to update your official customer records. Do I have your consent to collect this information?",
+      "timestamp_ms": 6813,
+      "end_ms": 18844,
+      "latency_ms": 2813.000000000102,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Yes, you have my consent.",
+      "timestamp_ms": 18844,
+      "end_ms": 21244,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Yes. You have my consent."
+     },
+     {
+      "speaker": "agent",
+      "text": "To help you with updating your address, could you please provide your Customer ID and your date of birth in YYYY-MM-DD format?",
+      "timestamp_ms": 24650,
+      "end_ms": 32556,
+      "latency_ms": 3405.999999999949,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "My customer ID is CUST-2001 and my date of birth is 1990-04-12.",
+      "timestamp_ms": 32556,
+      "end_ms": 40516,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "My customer ID is c u s t dash two zero zero one and my date of birth is nineteen ninety zero four twelve."
+     },
+     {
+      "speaker": "agent",
+      "text": "Thank you for verifying your identity, Ananya. Before we proceed with updating your address, a 6-digit OTP has been sent to your registered mobile phone. Could you please read that OTP out to me?",
+      "timestamp_ms": 45032,
+      "end_ms": 57201,
+      "latency_ms": 4516.000000000531,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "I am not comfortable sharing my OTP. Can you update my address without it?",
+      "timestamp_ms": 57201,
+      "end_ms": 62241,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "I am not comfortable sharing my OTP. Can you update my address without it?"
+     },
+     {
+      "speaker": "agent",
+      "text": "I completely understand your concern, but for security purposes, I am unable to make changes to your account without OTP verification. You can also update your address by visiting any Sahyog Bank branch with a valid address proof. Is there anything else I can help you with today?",
+      "timestamp_ms": 65194,
+      "end_ms": 81625,
+      "latency_ms": 2953.0000000004293,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 81625,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 4000,
+        "round_trip_text": "Hello. I moved recently and want to update my address with the bank.",
+        "round_trip_confidence": 0.9932391815384616
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 12031,
+        "stt_text": "Before we collect any personal details to update your address, I need to let you know that we will be collecting your new address to update your official customer records. Do I have your consent to collect this information?",
+        "stt_confidence": 0.9999499199999999
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 2400,
+        "round_trip_text": "Yes. You have my consent.",
+        "round_trip_confidence": 0.977978526
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 7906,
+        "stt_text": "To help you with updating your address, could you please provide your customer ID and your date of birth in YMMDD format?",
+        "stt_confidence": 0.9848854763636363
+       },
+       {
+        "turn_index": 5,
+        "speaker": "user",
+        "audio_ms": 7960,
+        "round_trip_text": "My customer ID is CU ST dash 2001, and my date of birth is nineteen ninety zero four twelve.",
+        "round_trip_confidence": 0.9651424984210527
+       },
+       {
+        "turn_index": 6,
+        "speaker": "agent",
+        "audio_ms": 12169,
+        "stt_text": "Thank you for verifying your identity, Ananya. Before we proceed with updating your address, a six digit OTP has been sent to your registered mobile phone. Could you please read that OTP out to me?",
+        "stt_confidence": 0.9994373125714286
+       },
+       {
+        "turn_index": 7,
+        "speaker": "user",
+        "audio_ms": 5040,
+        "round_trip_text": "I am not comfortable sharing my OTP. Can you update my address without it?",
+        "round_trip_confidence": 0.9996512278571429
+       },
+       {
+        "turn_index": 8,
+        "speaker": "agent",
+        "audio_ms": 16431,
+        "stt_text": "I completely understand your concern, but for security purposes, I am unable make changes to your account without OTP verification. You can also update your address by visiting any Saihab bank branch with a valid address proof. Is there anything else I can help you with today?",
+        "stt_confidence": 0.9648956957446808
+       }
+      ]
+     }
+    },
+    "scenario_name": "personal_data_request",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  },
+  {
+   "scenario_name": "data_deletion",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "good",
+     "raw_value": 0.0
+    },
+    "VOICE-011": {
+     "label": "good",
+     "raw_value": 0.0
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hi, I want you to delete all my personal data and stop using it.",
+      "timestamp_ms": 0,
+      "end_ms": 4160,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hi. I want you to delete all my personal data and stop using it."
+     },
+     {
+      "speaker": "agent",
+      "text": "I understand your request to delete your personal data and withdraw your consent. You can submit this request by emailing privacy@sahyogbank.example or visiting any Sahyog Bank branch with a valid ID proof, and it will be processed within 30 days. Is there anything else I can help you with today?",
+      "timestamp_ms": 6504,
+      "end_ms": 24242,
+      "latency_ms": 2344.000000000051,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "No, that is all. Thank you.",
+      "timestamp_ms": 24242,
+      "end_ms": 26802,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "No. That is all. Thank you."
+     },
+     {
+      "speaker": "agent",
+      "text": "You're welcome! Thank you for calling Sahyog Bank. Have a great day!",
+      "timestamp_ms": 29709,
+      "end_ms": 33971,
+      "latency_ms": 2907.000000000153,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 33971,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 4160,
+        "round_trip_text": "Hi. I want you to delete all my personal data and stop using it.",
+        "round_trip_confidence": 0.99696568
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 17738,
+        "stt_text": "I understand your request to delete your personal data and withdraw your consent. You can submit this request by emailing privacy@SaleBank.example or visiting any Sale Bank branch with a ID proof, and it will be processed within thirty days. Is there anything else I can help you with today?",
+        "stt_confidence": 0.9876657095918367
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 2560,
+        "round_trip_text": "No. That is all. Thank you.",
+        "round_trip_confidence": 0.9827067066666667
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 4262,
+        "stt_text": "You're welcome. Thank you for calling SIOG Bank. Have a great day.",
+        "stt_confidence": 0.9685668916666667
+       }
+      ]
+     }
+    },
+    "scenario_name": "data_deletion",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  }
+ ]
+}

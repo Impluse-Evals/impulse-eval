@@ -1,0 +1,107 @@
+# SPDX-License-Identifier: AGPL-3.0-only
+# All-open-source Impulse Evals config: LLMs served locally by Ollama, speech by local Hugging Face
+# models running in-process (local_hf). No API key is needed anywhere.
+# Run every step from the repository root, in the same shell:
+#   1. pip install -e ".[local]"       (from a clone; pip install impulse-evals[local] once 0.1.0 is published)
+#   2. impulse init --profile free     (writes your Ollama models to .impulse/config.toml, and a starter
+#                                        config.yaml for your own agent when the folder has none; no key asked)
+#   3. impulse init does not change this file: set voice_config.tts.model and voice_config.stt.model
+#      below to your Hugging Face model ids, or delete the voice_config block for a text-mode run.
+#      With YOUR_TTS_MODEL / YOUR_STT_MODEL left in, doctor shows FAIL rows and run exits 2.
+#   4. Put examples/ on PYTHONPATH so the entrypoint can import examples/sample_agent.py:
+#        PowerShell:  $env:PYTHONPATH = "examples"
+#        bash:        export PYTHONPATH=examples
+#   5. impulse doctor examples/free/config.yaml
+#   6. impulse run examples/free/config.yaml
+
+agent:
+  type: voice
+  adapter: generic
+  # examples/sample_agent.py. Only this config's folder (examples/free) is added to sys.path, so
+  # put examples/ on PYTHONPATH (step 4 above) when running from the repository, or point this
+  # at your own agent.
+  entrypoint: "sample_agent:respond"
+  system_prompt: "../system_prompt.txt"   # relative to this file
+  model: null
+  tools:
+    - name: book_slot
+      description: "Book a demo call, interview round, or clinic appointment. Arguments: date, patient_name, phone."
+
+# YOUR_..._MODEL placeholders are resolved from IMPULSE_MODEL_PRIMARY / _FAST / _SIMULATOR or from
+# .impulse/config.toml, or replace them here with your Ollama model strings (ollama/<tag>).
+# api_base points every role at the local Ollama server, so no key is ever required.
+judge:
+  primary_model: "YOUR_PRIMARY_MODEL"
+  fast_model: "YOUR_FAST_MODEL"
+  primary_options:
+    api_base: "http://localhost:11434"
+  fast_options:
+    api_base: "http://localhost:11434"
+
+simulator:
+  model: "YOUR_SIMULATOR_MODEL"
+  persona_style: realistic
+  mode: cascade
+  options:
+    api_base: "http://localhost:11434"
+
+voice_config:
+  tts:
+    provider: local_hf
+    model: "YOUR_TTS_MODEL"         # a Hugging Face text-to-speech model id
+    models_by_language: {}          # optional per-language override, e.g. {hi-IN: "YOUR_TTS_MODEL"}
+    voice: null
+    device: auto                    # auto | cpu | cuda
+    base_url: null
+    api_key_env: null
+  stt:
+    provider: local_hf
+    model: "YOUR_STT_MODEL"         # a faster-whisper model id
+    device: auto
+    compute_type: auto
+    base_url: null
+    api_key_env: null
+  save_audio: true
+  save_recording: true
+  timeout_s: 30
+
+metrics:
+  enabled: true
+  voice:
+    ttfa_warn_ms: 1500
+    ttfa_fail_ms: 3000
+    dead_air_ms: 1500
+    wer_warn: 0.15
+    wer_fail: 0.30
+    tail_latency_warn_ms: 3000
+    tail_latency_fail_ms: 5000
+    speech_rate_wpm: [110, 180]
+
+scenarios:
+  # sample_agent.py returns a dummy book_slot call whenever the caller says "book", so UNIV-023 and
+  # UNIV-025 can be tried without a real backend.
+  - name: "free_clinic_booking"
+    language: en-IN
+    domain: healthcare
+    direction: inbound
+    max_turns: 12
+    persona: "patient who wants the earliest slot on Tuesday, gives name and phone when asked"
+    opening_user_message: "Hello, I need a doctor's appointment on Tuesday."
+    expected_outcome: "appointment booked and confirmed back to the patient"
+    assertions: [dpdp.consent_before_pii]
+    metrics: [UNIV-001, UNIV-019, UNIV-023, VOICE-001, VOICE-003, VOICE-005, VOICE-029]
+    expected_tool_calls:
+      - name: book_slot
+        required_arguments: [date, patient_name, phone]
+        max_count: 1
+
+  - name: "free_opening_hours_question"
+    language: en-IN
+    domain: general
+    direction: inbound
+    max_turns: 9
+    persona: "caller who only wants to know the clinic's opening hours, then says goodbye"
+    opening_user_message: "Hi, what time does the clinic open on Saturday?"
+    expected_outcome: "the caller gets the opening hours without being asked for personal details"
+    assertions: []
+    metrics: [UNIV-001, UNIV-013, UNIV-021, VOICE-029, VOICE-037, VOICE-039]

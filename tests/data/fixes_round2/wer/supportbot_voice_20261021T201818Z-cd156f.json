@@ -1,0 +1,386 @@
+{
+ "run_id": "20261021T201818Z-cd156f",
+ "project": "supportbot",
+ "voice_mode": true,
+ "stored_round_trip_warning": false,
+ "scenarios": [
+  {
+   "scenario_name": "order_status",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "poor",
+     "raw_value": 0.38095238095238093
+    },
+    "VOICE-011": {
+     "label": "good",
+     "raw_value": 0.047619047619047616
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hi, I want to know where my order is.",
+      "timestamp_ms": 0,
+      "end_ms": 2640,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hi. I want to know where my order is."
+     },
+     {
+      "speaker": "agent",
+      "text": "I'd be happy to help you with that! Could you please provide your order ID, such as ORD-1001?",
+      "timestamp_ms": 5583,
+      "end_ms": 15363,
+      "latency_ms": 2942.9583333339906,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "My order ID is ORD-1004.",
+      "timestamp_ms": 15363,
+      "end_ms": 20003,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "My order ID is o r d dash one zero zero four."
+     },
+     {
+      "speaker": "agent",
+      "text": "Your order ORD-1004 for a Smart watch has been shipped! It is currently expected to be delivered by October 25, 2026. Is there anything else I can help you with today?",
+      "timestamp_ms": 24603,
+      "end_ms": 38703,
+      "latency_ms": 4600.166666667064,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "No, that is all. Thank you.",
+      "timestamp_ms": 38703,
+      "end_ms": 40863,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "No. That is all. Thank you."
+     },
+     {
+      "speaker": "agent",
+      "text": "You're very welcome! Thanks for reaching out to ShopKart, and have a wonderful day!",
+      "timestamp_ms": 44019,
+      "end_ms": 49269,
+      "latency_ms": 3155.8125000001382,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 49269,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 2640,
+        "round_trip_text": "Hi. I want to know where my order is.",
+        "round_trip_confidence": 0.9988335488888889
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 9780,
+        "stt_text": "I'd be happy to help you with that. Could you please provide your order ID, such as ORD dash 1001?",
+        "stt_confidence": 0.9768412315000001
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 4640,
+        "round_trip_text": "My order ID is ORD dash 1004.",
+        "round_trip_confidence": 0.9973493342857143
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 14100,
+        "stt_text": "Your order ORD dash 1004 for a smartwatch has been shipped. It is currently expected to be delivered by 10/25/2026. Is there anything else I can help you with today?",
+        "stt_confidence": 0.9939371743333333
+       },
+       {
+        "turn_index": 5,
+        "speaker": "user",
+        "audio_ms": 2160,
+        "round_trip_text": "No, that is all. Thank you.",
+        "round_trip_confidence": 0.9551595
+       },
+       {
+        "turn_index": 6,
+        "speaker": "agent",
+        "audio_ms": 5250,
+        "stt_text": "Very welcome. Thanks for reaching out to ShopKart, and have a wonderful day.",
+        "stt_confidence": 0.9840463492307693
+       }
+      ]
+     }
+    },
+    "scenario_name": "order_status",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  },
+  {
+   "scenario_name": "refund_within_policy",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "poor",
+     "raw_value": 0.42105263157894735
+    },
+    "VOICE-011": {
+     "label": "warning",
+     "raw_value": 0.10526315789473684
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hello, I need a refund for my headphones.",
+      "timestamp_ms": 0,
+      "end_ms": 2720,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hello. I need a refund for my headphones."
+     },
+     {
+      "speaker": "agent",
+      "text": "Hello! I'd be happy to help you with that. Could you please provide your order ID so I can look up your order details?",
+      "timestamp_ms": 5657,
+      "end_ms": 13057,
+      "latency_ms": 2937.3958333335395,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Order ID is ORD-1001.",
+      "timestamp_ms": 13057,
+      "end_ms": 18097,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Order ID is o r d dash one zero zero one."
+     },
+     {
+      "speaker": "agent",
+      "text": "I have processed the refund of ₹2,499 for your Bluetooth headphones. You should see the amount credited back to your original payment method within 5 to 7 business days. Is there anything else I can help you with today?",
+      "timestamp_ms": 24141,
+      "end_ms": 37921,
+      "latency_ms": 6043.708333332688,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "No, that is all. Thank you.",
+      "timestamp_ms": 37921,
+      "end_ms": 40321,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "No. That is all. Thank you."
+     },
+     {
+      "speaker": "agent",
+      "text": "You're very welcome! Have a great day ahead!",
+      "timestamp_ms": 43110,
+      "end_ms": 47590,
+      "latency_ms": 2789.1458333333503,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 47590,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 2720,
+        "round_trip_text": "Hello. I need a refund for my headphones.",
+        "round_trip_confidence": 0.98947143
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 7400,
+        "stt_text": "Hello. I'd be happy to help you with that. Could you please provide your order ID so I can look up your order details?",
+        "stt_confidence": 0.9978637687499999
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 5040,
+        "round_trip_text": "Order ID is ORD-ten 01.",
+        "round_trip_confidence": 0.9226074219999999
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 13780,
+        "stt_text": "I have processed the refund of 2,499 rupees for your Bluetooth headphones. You should see the amount credited back to your original payment method within five to seven business days. Is there anything else I can help you with today?",
+        "stt_confidence": 0.9960248679999999
+       },
+       {
+        "turn_index": 5,
+        "speaker": "user",
+        "audio_ms": 2400,
+        "round_trip_text": "No. That is all. Thank you.",
+        "round_trip_confidence": 0.9958903
+       },
+       {
+        "turn_index": 6,
+        "speaker": "agent",
+        "audio_ms": 4480,
+        "stt_text": "You're very welcome. Have a great day ahead.",
+        "stt_confidence": 0.99902344125
+       }
+      ]
+     }
+    },
+    "scenario_name": "refund_within_policy",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  },
+  {
+   "scenario_name": "damaged_item_ticket",
+   "stored_metrics": {
+    "VOICE-009": {
+     "label": "poor",
+     "raw_value": 0.34782608695652173
+    },
+    "VOICE-011": {
+     "label": "good",
+     "raw_value": 0.043478260869565216
+    }
+   },
+   "transcript": {
+    "turns": [
+     {
+      "speaker": "user",
+      "text": "Hi, my coffee mugs arrived cracked. Can you log a complaint?",
+      "timestamp_ms": 0,
+      "end_ms": 4440,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Hi. My coffee mugs arrived cracked. Can you log a complaint?"
+     },
+     {
+      "speaker": "agent",
+      "text": "I'm so sorry to hear your coffee mugs arrived cracked. I've logged a support ticket for you with ID TCK-50001. If you'd like me to look into a replacement or refund, could you please share your order ID?",
+      "timestamp_ms": 8669,
+      "end_ms": 26769,
+      "latency_ms": 4229.416666667021,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "Yes, the order ID is ORD-1003.",
+      "timestamp_ms": 26769,
+      "end_ms": 31729,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "Yes. The order ID is o r d dash one zero zero three."
+     },
+     {
+      "speaker": "agent",
+      "text": "I've located your order for the ceramic coffee mug set delivered on October 19th. Since it arrived damaged and within our 30-day window, I have processed a full refund of 899 rupees back to your original payment method. You should see it in 5 to 7 business days.",
+      "timestamp_ms": 38175,
+      "end_ms": 56565,
+      "latency_ms": 6445.937499999673,
+      "interrupted": false,
+      "heard_text": null
+     },
+     {
+      "speaker": "user",
+      "text": "That sounds good. Thank you.",
+      "timestamp_ms": 56565,
+      "end_ms": 59405,
+      "latency_ms": null,
+      "interrupted": false,
+      "heard_text": "That sounds good. Thank you."
+     },
+     {
+      "speaker": "agent",
+      "text": "You're very welcome! I'm glad I could help resolve that for you. Is there anything else I can assist you with today?",
+      "timestamp_ms": 62366,
+      "end_ms": 69896,
+      "latency_ms": 2960.9375,
+      "interrupted": false,
+      "heard_text": null
+     }
+    ],
+    "duration_ms": 69896,
+    "metadata": {
+     "impulse_voice": {
+      "turns": [
+       {
+        "turn_index": 1,
+        "speaker": "user",
+        "audio_ms": 4440,
+        "round_trip_text": "Hi. My coffee mugs arrived cracked. Can you log a complaint?",
+        "round_trip_confidence": 0.9988458818181818
+       },
+       {
+        "turn_index": 2,
+        "speaker": "agent",
+        "audio_ms": 18100,
+        "stt_text": "I'm so sorry to hear your coffee mugs arrived cracked. I've logged a support ticket for you with ID TCK dash 50001. If you'd like me to look into a replacement or refund, could you please share your order ID?",
+        "stt_confidence": 0.9881327329999999
+       },
+       {
+        "turn_index": 3,
+        "speaker": "user",
+        "audio_ms": 4960,
+        "round_trip_text": "Yes. The order ID is ORD dash 1003.",
+        "round_trip_confidence": 0.9601084375
+       },
+       {
+        "turn_index": 4,
+        "speaker": "agent",
+        "audio_ms": 18390,
+        "stt_text": "I've located your order for the ceramic coffee mug set delivered on October 19. Since it arrived damaged and within our thirty day window, I have processed a full refund of 899 rupees back to your original payment method. You should see it in five to seven business days.",
+        "stt_confidence": 0.9874043406122449
+       },
+       {
+        "turn_index": 5,
+        "speaker": "user",
+        "audio_ms": 2840,
+        "round_trip_text": "That sounds good. Thank you.",
+        "round_trip_confidence": 0.9955078199999999
+       },
+       {
+        "turn_index": 6,
+        "speaker": "agent",
+        "audio_ms": 7530,
+        "stt_text": "You're very welcome. I'm glad I could help resolve that for you. Is there anything else I can assist you with today?",
+        "stt_confidence": 0.9975474977272728
+       }
+      ]
+     }
+    },
+    "scenario_name": "damaged_item_ticket",
+    "language": "en-IN",
+    "accent": null,
+    "voice_mode": true,
+    "recording_path": null,
+    "agent_system_prompt": null
+   }
+  }
+ ]
+}
