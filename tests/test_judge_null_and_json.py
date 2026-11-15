@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 2: the LiteLLM judge survives empty, tool-call-only, fenced, and invalid output (SPEC.md section 12)."""
 
 import pytest

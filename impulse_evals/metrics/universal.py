@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Universal metrics (METRICS.md section 1). Criterion and "Skip when" texts are copied word for word.
 
 UNIV-001 ... UNIV-023 are judge-based. UNIV-025 (expected tool calls) is checked by code and never

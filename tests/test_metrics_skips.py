@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Metric skip rules (METRICS.md sections 0-3; SPEC.md sections 12-14).
 
 Phase 3: universal metric registry, code-decided skips with zero judge calls, UNIV-023 / UNIV-025

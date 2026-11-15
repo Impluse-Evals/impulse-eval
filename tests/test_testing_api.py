@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 10: the pytest API in ``impulse_evals.testing`` (SPEC.md sections 15 and 18.1).
 
 ``impulse_check(config_path, scenario_name=None) -> RunResult`` runs a config the way ``impulse run``

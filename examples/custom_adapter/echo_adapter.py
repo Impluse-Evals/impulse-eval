@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """A tiny custom adapter (``adapter: custom``) with no network: it echoes the user, like
 ``examples/sample_agent.py``, and returns one dummy ``book_slot`` tool call when the user text
 contains the whole word "book".

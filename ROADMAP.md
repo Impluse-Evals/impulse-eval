@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Roadmap
 
 This page lists what is planned for Impulse after 0.1.0, so you can see where it is going and tell us what matters to you.

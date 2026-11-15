@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """``openai_compatible`` voice provider: any server with the OpenAI audio API shape (SPEC.md section 14.1).
 
 * TTS: ``POST {base_url}/audio/speech`` with JSON ``model``, ``input``, ``voice`` (when set) and

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 name: Bug report
 description: Something in Impulse does not work as the docs say.
 title: "[bug] <short description>"

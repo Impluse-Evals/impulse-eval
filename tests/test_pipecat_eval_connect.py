@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 11, AUDIT batch 2 (findings 12 and 15): eval mode with the real ``EvalChannel``
 (``PipecatAdapter(config)`` with no ``channel_factory``) against ``websockets`` servers on 127.0.0.1
 (an ephemeral port, started by each test). No other network, no LLM.

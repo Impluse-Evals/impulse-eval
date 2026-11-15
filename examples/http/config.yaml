@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 # HTTP adapter example: Impulse POSTs every agent turn as JSON to your agent (any language).
 #   python examples/http/server.py              # the standard-library echo agent, local testing only
 #   impulse doctor examples/http/config.yaml    # a plain TCP connect to the URL; no HTTP request

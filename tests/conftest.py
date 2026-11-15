@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Shared fixtures for the Impulse Evals test suite (SPEC.md section 18).
 
 Stage B owns this file; builders never edit it. Every test runs offline:
@@ -1450,7 +1450,7 @@ class ImpulseProject:
         if code is None:
             code = (EXAMPLES_DIR / "sample_agent.py").read_text(encoding="utf-8")
         else:
-            code = "# SPDX-License-Identifier: AGPL-3.0-only\n" + textwrap.dedent(code)
+            code = "# SPDX-License-Identifier: Apache-2.0\n" + textwrap.dedent(code)
         (self.root / f"{stem}.py").write_text(code, encoding="utf-8")
         importlib.invalidate_caches()
         self.entrypoint = f"{stem}:respond"

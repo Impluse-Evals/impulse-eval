@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 4, O1 (FINAL-TEST.md audit, 2026-11-02): say so when Impulse resets a Pipecat eval bot.
 
 In eval mode with ``agent.system_prompt`` set, the adapter sends ``eval-context`` with that prompt before

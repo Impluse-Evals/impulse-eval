@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 13: judge-size and context-length warnings (SPEC.md section 12).
 
 * Small judge: when the primary judge model string contains a parameter count <= 14B

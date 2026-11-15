@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """``local_light`` voice provider: Kokoro ONNX TTS and faster-whisper STT, in-process, no PyTorch
 (SPEC.md section 14; FIXES-ROUND-3-SPEC.md "B1 decisions").
 

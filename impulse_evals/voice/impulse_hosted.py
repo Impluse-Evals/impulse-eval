@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """``impulse_hosted`` voice provider: optional client for an Impulse-hosted voice API (SPEC.md section 14.2).
 
 Only the client is built (the hosted server is a non-goal). ``base_url`` has no default and must be

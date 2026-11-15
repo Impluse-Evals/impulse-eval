@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Claude skill
 
 This page shows how to give Claude the Impulse Evals skill, so you can ask Claude to set up, run and read Impulse without reading every page first.
@@ -99,7 +99,7 @@ The skill is a summary of these pages, so it goes stale when they change.
 
 ### Licence
 
-The skill folder and the script are part of the core: AGPL-3.0-only, like `docs/` ([Contributing](contributing.md#licensing-of-contributions)). `SKILL.md` starts with the YAML block Claude needs, so its SPDX header comes right after that block.
+The skill folder and the script are under the Apache License 2.0, like the rest of Impulse ([Contributing](contributing.md#licensing-of-contributions)). `SKILL.md` starts with the YAML block Claude needs, so its SPDX header comes right after that block.
 
 ## Next steps
 

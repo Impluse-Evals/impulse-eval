@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 3, A2 (DEFECT-9): a Pipecat tool call that raised is ``success=False`` with its error
 (FIXES-ROUND-3-SPEC.md section A2).
 

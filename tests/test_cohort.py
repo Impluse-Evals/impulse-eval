@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 6: per-language cohorts (SPEC.md section 15; cohort.build_cohorts).
 
 Cohorts group scenario results by ``(transcript.language, transcript.accent)``; they are never

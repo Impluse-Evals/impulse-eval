@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 3, B2-rev: the LiteLLM voice provider after the Stage D review
 (FIXES-ROUND-3-SPEC.md section "B2-rev"; review findings V1, V2, V3, V4, V9).
 

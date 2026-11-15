@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """A standard-library echo agent behind the HTTP adapter's three endpoints, for local testing only.
 
     python examples/http/server.py            # listens on http://localhost:8080

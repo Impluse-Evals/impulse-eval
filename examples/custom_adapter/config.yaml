@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 # Custom adapter example: Impulse loads your own AgentInterface subclass (echo_adapter.py here).
 #   impulse run examples/custom_adapter/config.yaml --dry-run
 #   impulse doctor examples/custom_adapter/config.yaml

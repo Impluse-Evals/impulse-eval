@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # CI integration
 
 This page shows how to block a merge with Impulse: `impulse run` and `impulse compare` exit 1 when the problems you choose appear.

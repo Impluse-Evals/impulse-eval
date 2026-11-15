@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 2, A7 (DEFECT-6): one-line provider errors, and judge calls stop after a quota error
 with a long retry delay (FIXES-ROUND-2-SPEC.md section A7).
 

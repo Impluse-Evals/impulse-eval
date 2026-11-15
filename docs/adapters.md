@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Adapters
 
 An adapter connects Impulse to the agent you test, and this page shows how to choose, configure, and write one.
@@ -47,15 +47,15 @@ Every adapter gives the runner the same data for each agent turn:
 - whether the caller interrupted the agent;
 - the tool calls the agent made in that turn.
 
-### Plugin API licence
+### The plugin API
 
-The plugin API files are under the Apache License 2.0, a permissive licence:
+Adapters, metrics, and judges are built against the plugin API files:
 
 - `impulse_evals/plugin_types.py`: the types `AgentTool`, `ToolCall`, `MetricContext`, `MetricResult`, `ScoreResult`;
 - `impulse_evals/adapters/base.py`: `AgentInterface`, `AgentReply`, `AgentClosed`;
 - `impulse_evals/assertions/base.py`, `impulse_evals/metrics/base.py`, and `impulse_evals/judge/base.py`.
 
-They import no AGPL code. An adapter you write against them depends only on Apache-2.0 code. The rest of Impulse is AGPL-3.0-only, and the compliance packs are under the Elastic License 2.0. See [LICENSING.md](../LICENSING.md); the import rule is in [Architecture](architecture.md#the-plugin-api-import-rule).
+They import no other Impulse module, so an adapter you write against them does not depend on Impulse internals. Like all of Impulse, they are under the Apache License 2.0 ([LICENSING.md](../LICENSING.md)). The import rule is in [Architecture](architecture.md#the-plugin-api-import-rule).
 
 ### Generic adapter
 

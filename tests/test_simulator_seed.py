@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 5: the simulator system prompt and the seed line (SPEC.md sections 7 and 10).
 
 The prompt template is normative; ``{seed_line}`` is "Your conversation seed is {seed}. Produce the

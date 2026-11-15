@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Impulse Evals documentation
 
 These pages show how to install Impulse Evals (formerly PULSE), point it at your agent, run it for free, and read its report.
@@ -107,11 +107,12 @@ The commands, flags, keys, defaults, and outputs on these pages were checked aga
 
 ### Licensing
 
-- Core: AGPL-3.0-only. Running Impulse to test your own agents, inside your company or in CI, does not oblige you to publish your agent or your configs.
-- Plugin API files (`plugin_types.py` and the four `base.py` files of `adapters`, `assertions`, `judge`, `metrics`): Apache License 2.0.
-- Compliance packs (`dpdp`, `rbi_kyc`, `trai_dlt`, `hipaa`): Elastic License 2.0.
+- All of Impulse, including the plugin API and the compliance packs (`dpdp`, `rbi_kyc`, `trai_dlt`, `hipaa`), is under the Apache License 2.0. Copyright VITAF Technologies.
+- You may use, modify, and embed it, and offer it as a service, including commercially. Keep the `LICENSE` and `NOTICE` files when you redistribute it.
+- The licence does not grant rights to the name "Impulse" or the Impulse logo.
+- Releases already published on PyPI keep the licence they were published under.
 
-[LICENSING.md](../LICENSING.md) explains what each licence means for you in plain language. The licensing of the combined distribution (three licences in one package) must be reviewed by counsel before the first public release.
+[LICENSING.md](../LICENSING.md) explains this in plain language.
 
 ## Next steps
 

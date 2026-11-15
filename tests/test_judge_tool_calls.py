@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Tool call lines in transcripts (SPEC.md sections 12 and 15) and UNIV-023 (METRICS.md section 1).
 
 Phase 2 runs only the formatting tests (`-k format`); the whole file passes at phase 3.

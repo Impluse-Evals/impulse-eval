@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Fixes round 3, Stage B notes: B2 (LiteLLM voice provider) and B5 (neutral pack defaults)
 
 New test files: `tests/test_litellm_voice.py` (B2), `tests/test_neutral_defaults.py` (B5).

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 2, Part B: report audio (FIXES-ROUND-2-SPEC.md B1-B4; reporter.render_html, SPEC.md
 section 16). B5 (compressed audio) is not implemented, so it has no test.
 

@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Changelog
 
 This page lists the changes in each Impulse release, newest first.
@@ -15,6 +15,18 @@ This page lists the changes in each Impulse release, newest first.
 - **What success looks like.** `impulse --help` lists the commands `run`, `report`, `compare`, `doctor`, `init`, `generate`, `convert-failure`, and `calibrate` (verified).
 
 ## Details
+
+### Unreleased
+
+#### Licence change: everything is Apache-2.0
+
+- **All of Impulse Evals is now under the Apache License 2.0**, including the plugin API files and the compliance packs (`dpdp`, `rbi_kyc`, `trai_dlt`, `hipaa`). Nothing remains under AGPL-3.0-only or the Elastic License 2.0.
+- You may use, modify, and embed Impulse, and offer it as a hosted or managed service, including commercially. Keep the `LICENSE` and `NOTICE` files when you redistribute it.
+- Copyright VITAF Technologies. The new `NOTICE` file names the project and the copyright holder; the licence does not grant rights to the name "Impulse" or the Impulse logo.
+- `LICENSE` holds the Apache License 2.0 text. `LICENSE-APACHE` and `LICENSE-ELv2` are removed. The package metadata declares `License-Expression: Apache-2.0`, with `LICENSE` and `NOTICE` as its licence files.
+- Every source file carries the `Apache-2.0` SPDX header. The plugin API import rule stays, as an architecture rule: the plugin API files import only each other ([Architecture](architecture.md#the-plugin-api-import-rule)).
+- Contributions are accepted under the Apache License 2.0 and need a Developer Certificate of Origin sign-off (`git commit -s`) ([Contributing](contributing.md#licensing-of-contributions)).
+- **Releases already published on PyPI keep the licence they were published under.** This change applies from the first release that includes it.
 
 ### 0.1.0 (unreleased)
 

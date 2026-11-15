@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Scenario generator and domain guard (SPEC.md section 11).
 
 The primary model reads the agent's system prompt and writes test scenarios as YAML. The answer is

@@ -15,8 +15,8 @@
 ``KNOWN_METRIC_IDS`` (every metric ID in METRICS.md) is defined here; ``impulse_evals.config``
 imports it for ``load_config`` validation, so the registry and config validation always agree.
 
-Licensing: this file is Apache-2.0 (SPEC.md section 5.1) and imports no AGPL core code: the plugin
-types come from the Apache-2.0 ``impulse_evals.plugin_types``, every other core name is
+Plugin API (SPEC.md section 5.1): this file imports no core module outside the plugin API: the plugin
+types come from ``impulse_evals.plugin_types``, every other core name is
 annotation-only, and metric modules are loaded by name through ``importlib`` (``get_metric``).
 """
 

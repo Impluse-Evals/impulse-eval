@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Testing a Pipecat bot with Impulse
 
 Impulse connects to your running Pipecat bot as a client and speaks RTVI, Pipecat's standard client/server message protocol. Your pipeline does not change, and Impulse never imports or runs it in its own process.

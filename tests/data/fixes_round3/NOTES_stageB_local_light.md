@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Fixes round 3, Stage B notes: B1 (light local voice `local_light`, extra `light`) and the blank HTTP bearer token rule
 
 New test files: `tests/test_local_light.py` (B1), `tests/test_http_blank_token.py` (B4-rev blank token). No existing test, `conftest.py` or source file was changed.

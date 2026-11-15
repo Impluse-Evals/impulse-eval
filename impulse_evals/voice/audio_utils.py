@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Audio helpers for the voice pipeline (SPEC.md sections 5 and 14).
 
 WAV files are read and written with the standard library ``wave`` module; mixing down to mono and

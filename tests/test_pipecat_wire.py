@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 11: wire round trips through Pipecat's real serializers (SPEC.md sections 9 and 18.2).
 
 Skipped unless ``pipecat-ai`` is installed (it is an optional extra, not in the dev environment).

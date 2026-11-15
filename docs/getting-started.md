@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Getting started
 
 This guide takes you from install to a dry run, your models, and a first real run, then points Impulse at your own agent.

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 4, M2 (FINAL-TEST.md audit, 2026-11-02): a failure AFTER the conversation ended does not
 discard the evaluation.
 
@@ -64,7 +64,7 @@ class CloseFailsAdapter(AgentInterface):
 
 def _write_module(project):
     stem = f"impulse_test_close_{uuid.uuid4().hex[:10]}"
-    (project.root / f"{stem}.py").write_text("# SPDX-License-Identifier: AGPL-3.0-only\n" + ADAPTER, encoding="utf-8")
+    (project.root / f"{stem}.py").write_text("# SPDX-License-Identifier: Apache-2.0\n" + ADAPTER, encoding="utf-8")
     importlib.invalidate_caches()
     return stem
 

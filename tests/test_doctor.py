@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 8: ``impulse doctor [CONFIG]`` (SPEC.md section 17): a pass/fail table (each row shows the
 word PASS or FAIL, any case; info rows never fail); exit 0 when every check passes, 2 otherwise.
 Backends are mocked: ``mock_llm`` answers the model pings.

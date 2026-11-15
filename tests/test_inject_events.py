@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 6: inject_events are modelled but not executed in v1 (SPEC.md sections 7 and 16).
 
 The runner prints the note once per affected scenario to the console, copies the events into

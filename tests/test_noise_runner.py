@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Noise simulation (EXPERIMENTAL) in ``runner.run`` (SPEC.md sections 9, 14.4 and 15).
 
 Per user turn in voice mode with noise: simulator text -> TTS (clean) -> mix (noisy) -> ``send(text,

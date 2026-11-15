@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """``litellm`` voice provider: speech to text and text to speech through LiteLLM (FIXES-ROUND-3-SPEC.md
 B2 and B2-rev).
 

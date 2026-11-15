@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Metrics
 
 This page mirrors [METRICS.md](../METRICS.md), the normative definition of every metric Impulse computes, with each judge criterion quoted exactly as the judge receives it.

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """``impulse doctor`` rows for noise simulation (SPEC.md section 17; EXPERIMENTAL).
 
 - No noise anywhere: no noise row.

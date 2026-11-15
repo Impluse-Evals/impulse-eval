@@ -1,20 +1,14 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Licensing
 
-1. **Which files are under which licence.**
+1. **One licence for everything.** All of Impulse Evals, including the plugin API files and the compliance packs (`dpdp`, `rbi_kyc`, `trai_dlt`, `hipaa`), is under the Apache License 2.0 (`LICENSE`). Copyright VITAF Technologies; see `NOTICE`.
 
-   | Part | Files | Licence |
-   |---|---|---|
-   | Core | everything in the repository except the plugin API and compliance pack files below (including `assertions/__init__.py`, `examples/`, `tests/`, `templates/`, `docs/`) | AGPL-3.0-only (`LICENSE`) |
-   | Plugin API | `impulse_evals/plugin_types.py`, `impulse_evals/assertions/base.py`, `impulse_evals/metrics/base.py`, `impulse_evals/adapters/base.py`, `impulse_evals/judge/base.py` | Apache-2.0 (`LICENSE-APACHE`) |
-   | Compliance packs | `impulse_evals/assertions/dpdp.py`, `rbi_kyc.py`, `trai_dlt.py`, `hipaa.py` | Elastic License 2.0 (`LICENSE-ELv2`) |
+2. **What the Apache License 2.0 allows.** Anyone may use, copy, modify, embed, and redistribute Impulse, including commercially and including offering it to others as a hosted or managed service. When you redistribute it, keep the `LICENSE` and `NOTICE` files and the copyright notices, and mark the files you changed.
 
-2. **Testing your own agents creates no obligation.** Running Impulse to test your own agents, inside your company or in CI, does not oblige you to publish your agent or your configs.
+3. **Testing your own agents.** Running Impulse to test your own agents, inside your company or in CI, creates no obligation to publish your agent, your configs, or your changes to Impulse.
 
-3. **When the AGPL applies.** The AGPL obligations apply when you distribute a modified Impulse, or when you let other people use a modified Impulse over a network.
+4. **Trademark.** The licence does not grant rights to the name "Impulse" or the Impulse logo.
 
-4. **What the Elastic License 2.0 allows for the compliance packs.** Anyone may use, copy, modify, and redistribute the packs, including commercially. You may not provide them to third parties as a hosted or managed service, circumvent licence-key functionality, or remove licensing notices.
+5. **Earlier releases.** Releases already published on PyPI keep the licences they were published under: AGPL-3.0-only for the core, Apache-2.0 for the plugin API files, and the Elastic License 2.0 for the compliance packs.
 
-5. **The plugin API files are permissive.** The plugin API files (table above) are under the Apache License 2.0, a permissive licence: anyone may use, copy, modify, and redistribute them, including commercially, provided the licence and notices are kept.
-
-6. This summary is not legal advice; the LICENSE files govern.
+6. This summary is not legal advice; the `LICENSE` file governs.

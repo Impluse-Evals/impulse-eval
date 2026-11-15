@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 9: ``impulse generate`` (SPEC.md sections 8.1, 11, and 17).
 
 ``impulse generate --prompt F --domain D --language L --count 11 [--out FILE] [--yes] [--voice-mode]``

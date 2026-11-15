@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Simulated caller (SPEC.md section 10).
 
 An LLM plays the user. ``Simulator`` builds the SPEC.md section 10 system prompt (the ``{seed_line}``

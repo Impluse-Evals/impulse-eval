@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Concepts
 
 This page explains Impulse's core ideas: scenarios, the simulated caller, adapters, the judge, metrics, assertions, and when a scenario passes.

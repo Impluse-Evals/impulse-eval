@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Chat metrics (METRICS.md section 3; SPEC.md sections 7 and 13). Criterion texts copied word for word.
 
 CHAT metrics run only when a scenario lists them in ``metrics`` (an empty list means the universal

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 11: ``config.yaml`` changes from the pre-Stage-B source read (SPEC.md sections 8.2 and 9;
 DECISIONS.md decisions D2 and D11).
 

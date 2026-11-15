@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 3, B5: neutral compliance-pack defaults and the two global example scenarios
 (FIXES-ROUND-3-SPEC.md section B5; maintainer decision 2026-10-26 "Neutral defaults").
 

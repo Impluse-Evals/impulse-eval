@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 # Impulse Evals example: noise simulation (EXPERIMENTAL). The same clinic booking call four times:
 # clean, then with pink background noise at 20 dB (mild), 10 dB (a busy street) and 5 dB (harsh).
 # The report then shows a "Pass rate by noise level" table.

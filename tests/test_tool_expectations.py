@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 3: UNIV-025 expected tool calls (METRICS.md section 1), its config rules (SPEC.md section 8.2),
 the tool expectation models, and the sample agent's dummy tool call (SPEC.md section 8.2)."""
 

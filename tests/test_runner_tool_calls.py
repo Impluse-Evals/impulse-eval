@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 6: the runner captures tool calls from adapter replies, UNIV-023 judges them, and
 ``format_transcript`` shows them (SPEC.md sections 9, 12, 13; METRICS.md section 1)."""
 

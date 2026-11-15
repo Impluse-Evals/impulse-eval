@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 11: graceful degradation and latency honesty in voice mode (SPEC.md sections 14.1, 14.3, 15;
 METRICS.md section 0 and VOICE-015).
 

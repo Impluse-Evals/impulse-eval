@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 11: voice providers (SPEC.md sections 14, 14.1, 14.2; section 18.1 ``voice.tts`` / ``voice.stt``).
 
 ``get_tts_provider(cfg)`` / ``get_stt_provider(cfg)`` take the loaded ``voice_config`` block

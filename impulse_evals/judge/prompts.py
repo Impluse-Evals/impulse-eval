@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Judge prompt texts (SPEC.md sections 4 and 12). Copied word for word from the spec; do not edit."""
 
 from __future__ import annotations

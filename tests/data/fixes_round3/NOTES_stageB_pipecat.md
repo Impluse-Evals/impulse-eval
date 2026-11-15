@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Stage B notes: fixes round 3, A1 and A2 (Pipecat)
 
 Test files: `tests/test_pipecat_turn_timeout.py` (A1, DEFECT-8) and `tests/test_pipecat_tool_errors.py`

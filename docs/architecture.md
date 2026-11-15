@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Architecture
 
 This page describes how the Impulse package is organised and how a run flows through it, for contributors and for anyone extending it.
@@ -16,7 +16,7 @@ flowchart LR
 ```
 
 - Results are plain files under `.impulse/runs/<run_id>/`: `run.json`, `scenarios/<name>.json`, and `report.html`. There is no database, server, or dashboard.
-- To extend Impulse, write an adapter against the Apache-2.0 plugin API ([Adapters](adapters.md#writing-your-own-adapter)).
+- To extend Impulse, write an adapter against the plugin API ([Adapters](adapters.md#writing-your-own-adapter)).
 
 Words used on this page: TTS is text-to-speech, and STT is speech-to-text.
 
@@ -31,7 +31,7 @@ impulse_evals/
   cli.py              # the command line (typer)
   config.py           # load and validate config.yaml and .impulse/config.toml; model and key resolution; redaction
   models.py           # the pydantic data models; re-exports the plugin types
-  plugin_types.py     # Apache-2.0: AgentTool, ToolCall, MetricContext, MetricResult, ScoreResult
+  plugin_types.py     # plugin API: AgentTool, ToolCall, MetricContext, MetricResult, ScoreResult
   domains.py          # domain keyword lists and the domain defaults table
   runner.py           # orchestrates a run (text and voice mode)
   simulator.py        # the simulated caller and the system prompt summary
@@ -46,7 +46,7 @@ impulse_evals/
   testing.py          # pytest helpers: impulse_check, assert_no_critical
   reporter.py         # JSON and the self-contained HTML reports
   adapters/
-    base.py           # Apache-2.0: AgentInterface, AgentReply, AgentClosed
+    base.py           # plugin API: AgentInterface, AgentReply, AgentClosed
     generic_adapter.py
     custom_adapter.py       # adapter: custom, your own AgentInterface class named in config.yaml
     http_adapter.py         # adapter: http, any agent behind JSON endpoints
@@ -55,17 +55,17 @@ impulse_evals/
     _clock.py               # the clock shared by the LiveKit and Pipecat adapters
     _v2_platforms/          # vapi.py, retell.py, bland.py: stubs that raise NotImplementedError
   judge/
-    base.py           # Apache-2.0: Judge, JudgeVerdict
+    base.py           # plugin API: Judge, JudgeVerdict
     litellm_judge.py  # the LiteLLM judge: routing, tolerant JSON parsing, warnings
     prompts.py        # the safety floor and the judge messages
   metrics/
-    base.py           # Apache-2.0: Metric, JudgeMetric, the registry, select_metrics, build_criterion
+    base.py           # plugin API: Metric, JudgeMetric, the registry, select_metrics, build_criterion
     universal.py      # UNIV-001 ... UNIV-025
     voice.py          # VOICE-001 ... VOICE-039
     chat.py           # CHAT-001, CHAT-003, CHAT-005
   assertions/
-    base.py           # Apache-2.0: Assertion, the lazy pack registry
-    dpdp.py rbi_kyc.py trai_dlt.py hipaa.py   # Elastic-2.0 compliance packs
+    base.py           # plugin API: Assertion, the lazy pack registry
+    dpdp.py rbi_kyc.py trai_dlt.py hipaa.py   # compliance packs
   voice/
     tts.py stt.py     # provider interfaces and factories
     local_hf.py       # in-process Hugging Face speech models (extra "local")
@@ -112,19 +112,13 @@ impulse_evals/
 - **Plain files only.** Results are JSON and HTML files under `.impulse/`. There is no database, server, or dashboard.
 - **Zero network in tests.** The test suite mocks LiteLLM, the voice servers, the Pipecat channel, and the LiveKit room.
 
-### Licensing by file
+### Licensing
 
-| part | files | licence |
-|---|---|---|
-| core | everything not listed below, including `docs/`, `examples/`, and `tests/` | AGPL-3.0-only |
-| plugin API | `plugin_types.py` and the four `base.py` files of `adapters/`, `assertions/`, `judge/`, `metrics/` | Apache-2.0 |
-| compliance packs | `assertions/dpdp.py`, `rbi_kyc.py`, `trai_dlt.py`, `hipaa.py` | Elastic License 2.0 |
-
-Every source file starts with its SPDX licence header. See [LICENSING.md](../LICENSING.md) and [Contributing](contributing.md).
+Everything in the repository, including the plugin API and the compliance packs, is under the Apache License 2.0. Every source file starts with the `Apache-2.0` SPDX licence header. See [LICENSING.md](../LICENSING.md) and [Contributing](contributing.md).
 
 #### The plugin API import rule
 
-The Apache-2.0 plugin API files import only each other, the Python standard library, and third-party packages. So extending Impulse through them needs no AGPL code.
+The plugin API files (`plugin_types.py` and the four `base.py` files of `adapters/`, `assertions/`, `judge/`, `metrics/`) import only each other, the Python standard library, and third-party packages. So extending Impulse through them does not depend on Impulse internals, which can change between releases.
 
 - Core names, such as `Scenario` from `impulse_evals.models`, appear only inside `if TYPE_CHECKING:` blocks.
 - `TYPE_CHECKING` is `False` when the program runs, so Python skips those imports. Only type checkers read them, for the type annotations.

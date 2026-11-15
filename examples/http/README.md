@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Testing an agent over HTTP with Impulse
 
 `adapter: http` lets Impulse test an agent written in any language: Impulse sends one JSON `POST` per agent turn to your endpoint and reads the agent's reply from the JSON answer. Your agent needs one endpoint (`url`) and, optionally, two more (`start_url`, `close_url`).

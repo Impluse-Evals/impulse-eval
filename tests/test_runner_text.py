@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 6: runner.run in text mode (SPEC.md sections 7, 9, 10, 12, 13, 15, 17).
 
 ``await runner.run(config, *, dry_run=False, concurrency=1, adapter_factory=None)`` takes the

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 2, A3 (DEFECT-4): ``impulse compare`` reports fail -> fail check regressions and can
 gate on high (FIXES-ROUND-2-SPEC.md A3; SPEC.md sections 7, 15, 16, 17).
 

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Noise simulation (EXPERIMENTAL) in the HTML report (SPEC.md section 16).
 
 Read from ``CallTranscript.metadata["impulse_noise"]`` and the per-turn ``impulse_voice`` records, so

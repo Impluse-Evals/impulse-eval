@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 3, B4-rev (decided after the fix-up; FIXES-ROUND-3-SPEC.md "B1 decisions", last
 sentence): an HTTP adapter bearer token that is blank after stripping (environment variable or
 config.toml ``[keys]``) is the missing-key ``ConfigError`` at ``agent.http.api_key_env``:

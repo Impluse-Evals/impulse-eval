@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Tool call outcome detection from common result shapes (FIXES-ROUND-2-SPEC.md A1.1, DEFECT-1).
 
 ``infer_success(call) -> ToolCall`` returns a copy of ``call`` (never a mutation) with ``success``

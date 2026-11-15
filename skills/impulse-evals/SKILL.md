@@ -2,7 +2,7 @@
 name: impulse-evals
 description: Set up, run, and interpret Impulse Evals (formerly PULSE), the open-source testing framework for AI voice and chat agents (`pip install impulse-evals`, command `impulse`). Use this skill whenever the user mentions Impulse, impulse-evals, PULSE evals, `impulse run`, `impulse doctor`, a `config.yaml` with `agent`/`judge`/`simulator`/`scenarios` blocks, UNIV-/VOICE-/CHAT- metric IDs, compliance rules like `dpdp.consent_before_pii` or `rbi_kyc.*`, or wants to test, evaluate, regression-gate, or load-test a voice agent (LiveKit, Pipecat, Vapi, Retell, an HTTP agent, or a Python function) with a simulated caller and an LLM judge, even if they don't name Impulse explicitly but are clearly working in an Impulse project.
 ---
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 # Impulse Evals
 
@@ -10,7 +10,7 @@ Impulse Evals 0.1.0 tests AI voice and chat agents. A **simulated caller** (an L
 
 - Package `impulse-evals`, command `impulse` (or `python -m impulse_evals`), import package `impulse_evals`, Python 3.11 or newer (3.10 is not supported).
 - Models are LiteLLM model strings the user brings. With Ollama and local speech models no paid key is needed.
-- Licences: core AGPL-3.0-only; plugin API files Apache-2.0; compliance packs Elastic License 2.0. Testing your own agent, in your company or CI, does not oblige you to publish it.
+- Licence: everything, including the compliance packs, is Apache-2.0 (copyright VITAF Technologies). Users may use, modify, embed it, and offer it as a service, keeping `LICENSE` and `NOTICE`; the licence grants no rights to the "Impulse" name or logo. Releases already on PyPI keep the licence they were published under.
 
 The complete documentation is in `references/documentation.md` (about 6,000 lines). Read only the section you need; the map at the end of this file tells you which heading to search for.
 

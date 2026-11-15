@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 8: ``impulse init`` profiles and the language rule (SPEC.md sections 8.1 and 17).
 
 Interactive answers are fed through ``CliRunner`` input, one line per question (contract logged in
@@ -159,7 +159,7 @@ def test_free_profile_writes_starter_config_yaml_with_model_ids(impulse_project,
 
 def test_free_profile_keeps_existing_config_yaml_and_prints_snippet(impulse_project, mock_llm, cli):
     config_yaml = impulse_project.root / "config.yaml"
-    config_yaml.write_text("# SPDX-License-Identifier: AGPL-3.0-only\n# my own project config\n", encoding="utf-8")
+    config_yaml.write_text("# SPDX-License-Identifier: Apache-2.0\n# my own project config\n", encoding="utf-8")
     before = config_yaml.read_bytes()
     result = cli.invoke("init", "--profile", "free", "--no-ping", input=_lines("en-IN", repeat=U))
     assert result.exit_code == 0, cli.text(result)

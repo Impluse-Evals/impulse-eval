@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 # Impulse Evals example: six scenarios (four Indian ones: ecommerce sales, recruitment, healthcare,
 # BFSI; then US ecommerce support in English and a Mexican clinic in Spanish) against the tiny echo
 # agent in sample_agent.py. Validate and run it without any LLM call:

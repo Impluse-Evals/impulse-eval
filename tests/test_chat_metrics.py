@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 12: chat metrics in ``metrics/chat.py`` (METRICS.md section 3; SPEC.md sections 7 and 13).
 
 * CHAT-001 Response latency (deterministic, no judge): ``raw_value`` = median ``Turn.latency_ms``

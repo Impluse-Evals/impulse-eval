@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # FAQ
 
 Short answers to the questions people ask most about Impulse.
@@ -135,6 +135,10 @@ Audio is embedded as WAV by default, so the report plays anywhere; a long voice 
 
 [Known limitations](known-limitations.md) lists every documented limitation in one place, each with a workaround.
 
+### What licence is Impulse under? Can I use it commercially or offer it as a service?
+
+All of Impulse, including the compliance packs, is under the Apache License 2.0. You may use, modify, and embed it, and offer it to others as a hosted or managed service, including commercially; keep the `LICENSE` and `NOTICE` files when you redistribute it. Testing your own agents creates no obligation to publish anything. The licence does not grant rights to the name "Impulse" or its logo. Releases already published on PyPI keep the licence they were published under ([Licensing](../LICENSING.md)).
+
 ### Was this called PULSE?
 
 Yes. Impulse Evals was previously named PULSE; the package is now `impulse-evals`, the import package `impulse_evals`, and the command `impulse` ([Changelog](changelog.md)).
@@ -145,7 +149,7 @@ Yes. Impulse Evals was previously named PULSE; the package is now `impulse-evals
 - [Reading the report](reading-the-report.md): what each part of the report shows.
 - [Concepts](concepts.md): how Impulse judges a conversation.
 - [Troubleshooting](troubleshooting.md): what the error messages mean.
-- [Licensing](../LICENSING.md): what each licence means for you.
+- [Licensing](../LICENSING.md): what the licence means for you.
 
 ---
 

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Reports: JSON and one self-contained HTML file (SPEC.md section 16).
 
 - ``write_json(run, path)`` writes ``RunResult.model_dump_json(indent=2)`` (UTF-8, one trailing

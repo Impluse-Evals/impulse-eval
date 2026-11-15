@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """The pytest API (SPEC.md sections 15 and 18.1).
 
 Use it inside your own pytest tests::

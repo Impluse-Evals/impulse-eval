@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """The ``impulse`` command line (SPEC.md sections 8.1, 15, 16, and 17).
 
 Commands: ``init``, ``doctor``, ``run``, ``report``, ``compare``, ``generate``, ``convert-failure``,

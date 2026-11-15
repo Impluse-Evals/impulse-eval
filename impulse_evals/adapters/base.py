@@ -23,8 +23,8 @@ scenario (one conversation per scenario), then ``send(...)`` once per user turn,
   runner records that partial turn (when it has text, a tool call, or audio) before the scenario
   error.
 
-Licensing: this file is Apache-2.0 (SPEC.md section 5.1) and imports no AGPL core code: ``ToolCall``
-comes from the Apache-2.0 ``impulse_evals.plugin_types``, and ``Scenario`` is annotation-only.
+Plugin API (SPEC.md section 5.1): this file imports no core module outside the plugin API:
+``ToolCall`` comes from ``impulse_evals.plugin_types``, and ``Scenario`` is annotation-only.
 """
 
 from __future__ import annotations

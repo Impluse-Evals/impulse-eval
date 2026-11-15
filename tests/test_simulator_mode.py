@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 8: ``simulator.mode`` (SPEC.md sections 8.2, 10, and 17).
 
 ``audio_native`` is a config error with the exact message

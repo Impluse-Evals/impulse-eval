@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Compliance packs load lazily (SPEC.md section 13; section 20 "no pack import").
 
 Phase 3: no dpdp import without a listed dpdp assertion; the dpdp rules themselves (METRICS.md 4.1).

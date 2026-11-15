@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # CLI reference
 
 This page lists every `impulse` command with its arguments, flags, defaults, output, and exit codes, as built in this release.

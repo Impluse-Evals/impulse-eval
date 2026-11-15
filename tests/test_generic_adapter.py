@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 4: adapters/base.py and the generic adapter (SPEC.md sections 8.2 and 9).
 
 Test-facing names used here beyond the SPEC.md section 18.1 table (contracts logged in DECISIONS.md,

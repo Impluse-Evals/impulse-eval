@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 4, L15 (FINAL-TEST.md): sensitive keys are redacted in tool-call ARGUMENTS too.
 
 The runner stores every tool call's ``arguments`` with the value of every sensitive key (the same key
@@ -58,7 +58,7 @@ class OtpAdapter(AgentInterface):
 
 def _config(project, **fields):
     stem = f"impulse_test_otp_{uuid.uuid4().hex[:10]}"
-    (project.root / f"{stem}.py").write_text("# SPDX-License-Identifier: AGPL-3.0-only\n" + ADAPTER, encoding="utf-8")
+    (project.root / f"{stem}.py").write_text("# SPDX-License-Identifier: Apache-2.0\n" + ADAPTER, encoding="utf-8")
     importlib.invalidate_caches()
     values = {"max_turns": 1, "metrics": ["UNIV-023"]}
     values.update(fields)
@@ -145,7 +145,7 @@ EMPTY_OTP_ADAPTER = ADAPTER.replace('"otp": "483921",', '"otp": "",')
 @pytest.mark.asyncio
 async def test_univ025_required_sensitive_argument_that_is_empty_is_still_missing(impulse_project, llm_router):
     stem = f"impulse_test_otp_{uuid.uuid4().hex[:10]}"
-    (impulse_project.root / f"{stem}.py").write_text("# SPDX-License-Identifier: AGPL-3.0-only\n" + EMPTY_OTP_ADAPTER, encoding="utf-8")
+    (impulse_project.root / f"{stem}.py").write_text("# SPDX-License-Identifier: Apache-2.0\n" + EMPTY_OTP_ADAPTER, encoding="utf-8")
     importlib.invalidate_caches()
     scenario = impulse_project.scenario(
         "otp_check", max_turns=1, metrics=["UNIV-023"],

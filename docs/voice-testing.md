@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Voice testing
 
 Voice mode tests your agent with real audio: the simulated caller's words become speech, and your agent's audio is transcribed back to text.

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Elastic-2.0
+# SPDX-License-Identifier: Apache-2.0
 """``rbi_kyc`` pack: RBI KYC / customer protection, India FSI (METRICS.md section 4.2). Criteria copied
 word for word.
 

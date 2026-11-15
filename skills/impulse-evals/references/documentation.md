@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Impulse Evals: complete documentation
 
 Every page of the Impulse Evals 0.1.0 documentation in one file: the README, all pages under `docs/`, and the roadmap.
@@ -380,7 +380,7 @@ The LiveKit and Pipecat adapters capture both fields without code changes:
 
 Both were verified with live agents in the 2026-10-24 and 2026-10-25 test campaigns, with `heard_text` on every user turn of the voice runs.
 
-For any other stack, write your own adapter. Subclass `AgentInterface` from `impulse_evals.adapters.base`, and return `AgentReply(text=..., latency_ms=..., heard_text=..., tool_calls=[ToolCall(...)])` from its `send()`. `ToolCall` is in `impulse_evals.plugin_types`; these plugin API files are Apache-2.0. Load your adapter from `config.yaml` with `adapter: custom` and `entrypoint: "module:Class"` (examples/custom_adapter/). Or pass it from Python to the async `impulse_evals.runner.run(config, adapter_factory=...)`. It returns the run result without writing `run.json` or `report.html`. In voice mode it still writes the `audio/` files under `.impulse/runs/<run_id>/`. An agent in another language can answer JSON over HTTP instead, with `adapter: http` (examples/http/README.md); its answer carries `heard_text` and `tool_calls` the same way. See [docs/adapters.md](#adapters).
+For any other stack, write your own adapter. Subclass `AgentInterface` from `impulse_evals.adapters.base`, and return `AgentReply(text=..., latency_ms=..., heard_text=..., tool_calls=[ToolCall(...)])` from its `send()`. `ToolCall` is in `impulse_evals.plugin_types`. Load your adapter from `config.yaml` with `adapter: custom` and `entrypoint: "module:Class"` (examples/custom_adapter/). Or pass it from Python to the async `impulse_evals.runner.run(config, adapter_factory=...)`. It returns the run result without writing `run.json` or `report.html`. In voice mode it still writes the `audio/` files under `.impulse/runs/<run_id>/`. An agent in another language can answer JSON over HTTP instead, with `adapter: http` (examples/http/README.md); its answer carries `heard_text` and `tool_calls` the same way. See [docs/adapters.md](#adapters).
 
 ### CI and regression gates
 
@@ -400,11 +400,12 @@ That is exactly what happens. On the free local path (Ollama, and `local_hf` or 
 
 ### Licence
 
-- Core: AGPL-3.0-only (LICENSE). Running Impulse to test your own agents, inside your company or in CI, does not oblige you to publish your agent or your configs.
-- Plugin API files (`plugin_types.py` and the four `base.py` files of `adapters`, `assertions`, `judge`, `metrics`): Apache License 2.0 (LICENSE-APACHE).
-- Compliance packs (`dpdp`, `rbi_kyc`, `trai_dlt`, `hipaa`): Elastic License 2.0 (LICENSE-ELv2).
+- All of Impulse Evals, including the plugin API and the compliance packs (`dpdp`, `rbi_kyc`, `trai_dlt`, `hipaa`), is under the Apache License 2.0 (Apache-2.0, LICENSE). Copyright VITAF Technologies (NOTICE).
+- You are free to use, modify, and embed it, and to offer it as a service, including commercially. Keep the `LICENSE` and `NOTICE` files when you redistribute it.
+- Trademark: the licence does not grant rights to the name "Impulse" or the Impulse logo.
+- Releases already published on PyPI keep the licence they were published under.
 
-LICENSING.md explains what each licence means for you in plain language.
+LICENSING.md explains this in plain language.
 
 ### Status
 
@@ -562,11 +563,12 @@ The commands, flags, keys, defaults, and outputs on these pages were checked aga
 
 #### Licensing
 
-- Core: AGPL-3.0-only. Running Impulse to test your own agents, inside your company or in CI, does not oblige you to publish your agent or your configs.
-- Plugin API files (`plugin_types.py` and the four `base.py` files of `adapters`, `assertions`, `judge`, `metrics`): Apache License 2.0.
-- Compliance packs (`dpdp`, `rbi_kyc`, `trai_dlt`, `hipaa`): Elastic License 2.0.
+- All of Impulse, including the plugin API and the compliance packs (`dpdp`, `rbi_kyc`, `trai_dlt`, `hipaa`), is under the Apache License 2.0. Copyright VITAF Technologies.
+- You may use, modify, and embed it, and offer it as a service, including commercially. Keep the `LICENSE` and `NOTICE` files when you redistribute it.
+- The licence does not grant rights to the name "Impulse" or the Impulse logo.
+- Releases already published on PyPI keep the licence they were published under.
 
-LICENSING.md explains what each licence means for you in plain language. The licensing of the combined distribution (three licences in one package) must be reviewed by counsel before the first public release.
+LICENSING.md explains this in plain language.
 
 ### Next steps
 
@@ -2115,15 +2117,15 @@ Every adapter gives the runner the same data for each agent turn:
 - whether the caller interrupted the agent;
 - the tool calls the agent made in that turn.
 
-#### Plugin API licence
+#### The plugin API
 
-The plugin API files are under the Apache License 2.0, a permissive licence:
+Adapters, metrics, and judges are built against the plugin API files:
 
 - `impulse_evals/plugin_types.py`: the types `AgentTool`, `ToolCall`, `MetricContext`, `MetricResult`, `ScoreResult`;
 - `impulse_evals/adapters/base.py`: `AgentInterface`, `AgentReply`, `AgentClosed`;
 - `impulse_evals/assertions/base.py`, `impulse_evals/metrics/base.py`, and `impulse_evals/judge/base.py`.
 
-They import no AGPL code. An adapter you write against them depends only on Apache-2.0 code. The rest of Impulse is AGPL-3.0-only, and the compliance packs are under the Elastic License 2.0. See LICENSING.md; the import rule is in [Architecture](#the-plugin-api-import-rule).
+They import no other Impulse module, so an adapter you write against them does not depend on Impulse internals. Like all of Impulse, they are under the Apache License 2.0 (LICENSING.md). The import rule is in [Architecture](#the-plugin-api-import-rule).
 
 #### Generic adapter
 
@@ -3905,7 +3907,7 @@ Compliance packs are optional judge-based checks for regulated industries, liste
 
 - **What success looks like.** Each rule returns `pass`, `fail`, or `skip`. A `fail` of any severity fails the scenario. With the default `--fail-on high`, a failed `critical` or `high` rule makes `impulse run` exit 1.
 - **What a result means.** Every result carries the disclaimer "Technical signal only. Not legal certification."
-- **Licence.** The pack files are under the Elastic License 2.0 (below).
+- **Licence.** The pack files are under the Apache License 2.0, like the rest of Impulse (below).
 
 ### Details
 
@@ -3928,15 +3930,15 @@ Every result carries the disclaimer "Technical signal only. Not legal certificat
 - The `regulation_ref` strings name the provision a rule relates to. They are informational. Have counsel verify them before they appear in any customer-facing material.
 - Some things cannot be checked from a conversation at all, for example whether your company's DLT registration exists. The `trai_dlt.consent_for_outbound` criterion says so itself.
 
-#### Licence: Elastic License 2.0
+#### Licence: Apache License 2.0
 
-The four pack files (`impulse_evals/assertions/dpdp.py`, `rbi_kyc.py`, `trai_dlt.py`, `hipaa.py`) are source-available under the Elastic License 2.0.
+The four pack files (`impulse_evals/assertions/dpdp.py`, `rbi_kyc.py`, `trai_dlt.py`, `hipaa.py`) are open source under the Apache License 2.0, like the rest of Impulse.
 
-- Anyone may use, copy, modify, and redistribute them, including commercially.
-- No one may provide them to third parties as a hosted or managed service, circumvent licence-key functionality, or remove licensing notices.
-- Running the packs to test your own agents, in your company or in CI, is ordinary use.
+- Anyone may use, copy, modify, embed, and redistribute them, including commercially.
+- Anyone may offer them to others as part of a hosted or managed service.
+- Keep the `LICENSE` and `NOTICE` files when you redistribute them.
 
-The pack base class (`assertions/base.py`) is part of the Apache-2.0 plugin API, and the rest of Impulse is AGPL-3.0-only. Details in plain language: LICENSING.md.
+Releases already published on PyPI keep the licence they were published under (the packs were under the Elastic License 2.0 there). Details in plain language: LICENSING.md.
 
 #### Using a pack
 
@@ -5552,6 +5554,10 @@ Audio is embedded as WAV by default, so the report plays anywhere; a long voice 
 
 [Known limitations](#known-limitations) lists every documented limitation in one place, each with a workaround.
 
+#### What licence is Impulse under? Can I use it commercially or offer it as a service?
+
+All of Impulse, including the compliance packs, is under the Apache License 2.0. You may use, modify, and embed it, and offer it to others as a hosted or managed service, including commercially; keep the `LICENSE` and `NOTICE` files when you redistribute it. Testing your own agents creates no obligation to publish anything. The licence does not grant rights to the name "Impulse" or its logo. Releases already published on PyPI keep the licence they were published under (Licensing).
+
 #### Was this called PULSE?
 
 Yes. Impulse Evals was previously named PULSE; the package is now `impulse-evals`, the import package `impulse_evals`, and the command `impulse` ([Changelog](#changelog)).
@@ -5562,7 +5568,7 @@ Yes. Impulse Evals was previously named PULSE; the package is now `impulse-evals
 - [Reading the report](#reading-the-report): what each part of the report shows.
 - [Concepts](#concepts): how Impulse judges a conversation.
 - [Troubleshooting](#troubleshooting): what the error messages mean.
-- Licensing: what each licence means for you.
+- Licensing: what the licence means for you.
 
 ---
 
@@ -5821,7 +5827,7 @@ Simulated callers include adversarial ones, so transcripts are untrusted data.
 - Every compliance result carries "Technical signal only. Not legal certification."
 - The `regulation_ref` strings are informational. Have counsel verify them before they appear in customer-facing material ([Compliance packs](#compliance-packs)).
 - The models you choose (Ollama models, Hugging Face speech models, hosted models) come with their own licences and terms of use. Check each model's page before you use it.
-- Impulse's own licences: LICENSING.md.
+- Impulse's own licence (Apache-2.0): LICENSING.md.
 
 ### Next steps
 
@@ -5850,7 +5856,7 @@ flowchart LR
 ```
 
 - Results are plain files under `.impulse/runs/<run_id>/`: `run.json`, `scenarios/<name>.json`, and `report.html`. There is no database, server, or dashboard.
-- To extend Impulse, write an adapter against the Apache-2.0 plugin API ([Adapters](#writing-your-own-adapter)).
+- To extend Impulse, write an adapter against the plugin API ([Adapters](#writing-your-own-adapter)).
 
 Words used on this page: TTS is text-to-speech, and STT is speech-to-text.
 
@@ -5865,7 +5871,7 @@ impulse_evals/
   cli.py              # the command line (typer)
   config.py           # load and validate config.yaml and .impulse/config.toml; model and key resolution; redaction
   models.py           # the pydantic data models; re-exports the plugin types
-  plugin_types.py     # Apache-2.0: AgentTool, ToolCall, MetricContext, MetricResult, ScoreResult
+  plugin_types.py     # plugin API: AgentTool, ToolCall, MetricContext, MetricResult, ScoreResult
   domains.py          # domain keyword lists and the domain defaults table
   runner.py           # orchestrates a run (text and voice mode)
   simulator.py        # the simulated caller and the system prompt summary
@@ -5880,7 +5886,7 @@ impulse_evals/
   testing.py          # pytest helpers: impulse_check, assert_no_critical
   reporter.py         # JSON and the self-contained HTML reports
   adapters/
-    base.py           # Apache-2.0: AgentInterface, AgentReply, AgentClosed
+    base.py           # plugin API: AgentInterface, AgentReply, AgentClosed
     generic_adapter.py
     custom_adapter.py       # adapter: custom, your own AgentInterface class named in config.yaml
     http_adapter.py         # adapter: http, any agent behind JSON endpoints
@@ -5889,17 +5895,17 @@ impulse_evals/
     _clock.py               # the clock shared by the LiveKit and Pipecat adapters
     _v2_platforms/          # vapi.py, retell.py, bland.py: stubs that raise NotImplementedError
   judge/
-    base.py           # Apache-2.0: Judge, JudgeVerdict
+    base.py           # plugin API: Judge, JudgeVerdict
     litellm_judge.py  # the LiteLLM judge: routing, tolerant JSON parsing, warnings
     prompts.py        # the safety floor and the judge messages
   metrics/
-    base.py           # Apache-2.0: Metric, JudgeMetric, the registry, select_metrics, build_criterion
+    base.py           # plugin API: Metric, JudgeMetric, the registry, select_metrics, build_criterion
     universal.py      # UNIV-001 ... UNIV-025
     voice.py          # VOICE-001 ... VOICE-039
     chat.py           # CHAT-001, CHAT-003, CHAT-005
   assertions/
-    base.py           # Apache-2.0: Assertion, the lazy pack registry
-    dpdp.py rbi_kyc.py trai_dlt.py hipaa.py   # Elastic-2.0 compliance packs
+    base.py           # plugin API: Assertion, the lazy pack registry
+    dpdp.py rbi_kyc.py trai_dlt.py hipaa.py   # compliance packs
   voice/
     tts.py stt.py     # provider interfaces and factories
     local_hf.py       # in-process Hugging Face speech models (extra "local")
@@ -5946,19 +5952,13 @@ impulse_evals/
 - **Plain files only.** Results are JSON and HTML files under `.impulse/`. There is no database, server, or dashboard.
 - **Zero network in tests.** The test suite mocks LiteLLM, the voice servers, the Pipecat channel, and the LiveKit room.
 
-#### Licensing by file
+#### Licensing
 
-| part | files | licence |
-|---|---|---|
-| core | everything not listed below, including `docs/`, `examples/`, and `tests/` | AGPL-3.0-only |
-| plugin API | `plugin_types.py` and the four `base.py` files of `adapters/`, `assertions/`, `judge/`, `metrics/` | Apache-2.0 |
-| compliance packs | `assertions/dpdp.py`, `rbi_kyc.py`, `trai_dlt.py`, `hipaa.py` | Elastic License 2.0 |
-
-Every source file starts with its SPDX licence header. See LICENSING.md and [Contributing](#contributing).
+Everything in the repository, including the plugin API and the compliance packs, is under the Apache License 2.0. Every source file starts with the `Apache-2.0` SPDX licence header. See LICENSING.md and [Contributing](#contributing).
 
 ##### The plugin API import rule
 
-The Apache-2.0 plugin API files import only each other, the Python standard library, and third-party packages. So extending Impulse through them needs no AGPL code.
+The plugin API files (`plugin_types.py` and the four `base.py` files of `adapters/`, `assertions/`, `judge/`, `metrics/`) import only each other, the Python standard library, and third-party packages. So extending Impulse through them does not depend on Impulse internals, which can change between releases.
 
 - Core names, such as `Scenario` from `impulse_evals.models`, appear only inside `if TYPE_CHECKING:` blocks.
 - `TYPE_CHECKING` is `False` when the program runs, so Python skips those imports. Only type checkers read them, for the type annotations.
@@ -6055,7 +6055,7 @@ python -m pytest -q
 
 - **What success looks like.** `impulse --help` lists the commands, and every test passes (skips allowed). The suite makes no real network or LLM call.
 - **The main rules.** Write tests first, and never edit a test to make it pass. Put no model names in source code. Copy normative texts word for word. Start every source file with its SPDX licence header.
-- **Licence of your change.** A contribution is under the licence of the file it changes. Most files are AGPL-3.0-only. The plugin API files, including `impulse_evals/plugin_types.py`, are Apache-2.0. The compliance pack files are under the Elastic License 2.0.
+- **Licence of your change.** Every contribution is under the Apache License 2.0, like all of Impulse. Sign off every commit with `git commit -s` (Developer Certificate of Origin).
 
 ### Details
 
@@ -6096,12 +6096,11 @@ The rules every change follows:
   - the metric criteria (`metrics/`);
   - the compliance criteria (`assertions/`).
 - **Lazy imports.** `import impulse_evals` must work with no extra installed. Import optional libraries inside the function that needs them.
-- **Licence headers.** Every source file starts with its SPDX header. A test checks this.
-  - `# SPDX-License-Identifier: AGPL-3.0-only` for core Python, YAML, and TOML files;
-  - `# SPDX-License-Identifier: Apache-2.0` for the five plugin API files;
-  - `# SPDX-License-Identifier: Elastic-2.0` for the four pack files;
-  - `<!-- SPDX-License-Identifier: AGPL-3.0-only -->` for HTML files (for example `impulse_evals/templates/report_template.html`) and for Markdown under `docs/` and `examples/`, the README, and `LICENSING.md`;
-  - none for JSON files, binary fixtures, and the `LICENSE*` files.
+- **Licence headers.** Every source file starts with the Apache-2.0 SPDX header. A test checks this.
+  - `# SPDX-License-Identifier: Apache-2.0` for Python, YAML, and TOML files;
+  - `<!-- SPDX-License-Identifier: Apache-2.0 -->` for HTML files (for example `impulse_evals/templates/report_template.html`) and for Markdown under `docs/` and `examples/`, the README, and `LICENSING.md`;
+  - none for JSON files, binary fixtures, and the `LICENSE` and `NOTICE` files.
+- **The plugin API import rule.** The plugin API files (`impulse_evals/plugin_types.py` and the `base.py` files of `adapters/`, `assertions/`, `judge/`, `metrics/`) import only each other, the standard library, and third-party packages. Another `impulse_evals` module may appear only inside an `if TYPE_CHECKING:` block (annotations, never executed). A test checks this rule ([Architecture](#the-plugin-api-import-rule)).
 - **Out of scope for v1:**
   - a dashboard or server, a database, PDF reports, and telephony;
   - Vapi / Retell / Bland connectors beyond their stubs;
@@ -6124,23 +6123,10 @@ Config blocks marked `# impulse:validate` must load. Model names appear only on 
 
 #### Licensing of contributions
 
-Contributions are accepted under the licence of the file they change:
+- **One licence.** All of Impulse, including the plugin API, the compliance packs, `docs/`, `examples/`, and `tests/`, is under the Apache License 2.0. Your contribution is accepted under the Apache License 2.0 (inbound = outbound), and new files carry the Apache-2.0 SPDX header.
+- **Developer Certificate of Origin (DCO).** Every commit must be signed off. Signing off certifies that you wrote the change or otherwise have the right to submit it under the project's licence, as stated in the [Developer Certificate of Origin 1.1](https://developercertificate.org/). Add the sign-off with `git commit -s`; it appends a line `Signed-off-by: Your Name <your.email@example.com>` that must match the commit author. A pull request with a commit that is not signed off is not merged until it is fixed, for example with `git commit --amend -s` or `git rebase --signoff`.
 
-| you change | your contribution is under |
-|---|---|
-| a core file (everything not listed below, including `docs/`, `examples/`, and `tests/`) | AGPL-3.0-only |
-| a plugin API file: `impulse_evals/plugin_types.py`, `impulse_evals/adapters/base.py`, `impulse_evals/assertions/base.py`, `impulse_evals/metrics/base.py`, `impulse_evals/judge/base.py` | Apache-2.0 |
-| a compliance pack file: `impulse_evals/assertions/dpdp.py`, `rbi_kyc.py`, `trai_dlt.py`, `hipaa.py` | Elastic License 2.0 |
-
-The plugin API files are under the Apache License 2.0, so that adapters, metrics, and judges can be built against them without AGPL obligations. They import no AGPL code. A change to one of them may import only:
-
-- the other plugin API files;
-- the standard library;
-- third-party packages.
-
-It may name an AGPL `impulse_evals` module only inside an `if TYPE_CHECKING:` block (annotations, never executed). A test checks this rule, including that importing a plugin API file loads no AGPL module. New files take the licence of the part they belong to.
-
-What each licence means in plain language: LICENSING.md. This page is not legal advice; the LICENSE files govern.
+What the licence means in plain language: LICENSING.md. This page is not legal advice; the `LICENSE` file governs.
 
 #### Help us test noise simulation
 
@@ -6272,6 +6258,18 @@ This page lists the changes in each Impulse release, newest first.
 - **What success looks like.** `impulse --help` lists the commands `run`, `report`, `compare`, `doctor`, `init`, `generate`, `convert-failure`, and `calibrate` (verified).
 
 ### Details
+
+#### Unreleased
+
+##### Licence change: everything is Apache-2.0
+
+- **All of Impulse Evals is now under the Apache License 2.0**, including the plugin API files and the compliance packs (`dpdp`, `rbi_kyc`, `trai_dlt`, `hipaa`). Nothing remains under AGPL-3.0-only or the Elastic License 2.0.
+- You may use, modify, and embed Impulse, and offer it as a hosted or managed service, including commercially. Keep the `LICENSE` and `NOTICE` files when you redistribute it.
+- Copyright VITAF Technologies. The new `NOTICE` file names the project and the copyright holder; the licence does not grant rights to the name "Impulse" or the Impulse logo.
+- `LICENSE` holds the Apache License 2.0 text. `LICENSE-APACHE` and `LICENSE-ELv2` are removed. The package metadata declares `License-Expression: Apache-2.0`, with `LICENSE` and `NOTICE` as its licence files.
+- Every source file carries the `Apache-2.0` SPDX header. The plugin API import rule stays, as an architecture rule: the plugin API files import only each other ([Architecture](#the-plugin-api-import-rule)).
+- Contributions are accepted under the Apache License 2.0 and need a Developer Certificate of Origin sign-off (`git commit -s`) ([Contributing](#licensing-of-contributions)).
+- **Releases already published on PyPI keep the licence they were published under.** This change applies from the first release that includes it.
 
 #### 0.1.0 (unreleased)
 
@@ -6568,7 +6566,7 @@ The skill is a summary of these pages, so it goes stale when they change.
 
 #### Licence
 
-The skill folder and the script are part of the core: AGPL-3.0-only, like `docs/` ([Contributing](#licensing-of-contributions)). `SKILL.md` starts with the YAML block Claude needs, so its SPDX header comes right after that block.
+The skill folder and the script are under the Apache License 2.0, like the rest of Impulse ([Contributing](#licensing-of-contributions)). `SKILL.md` starts with the YAML block Claude needs, so its SPDX header comes right after that block.
 
 ### Next steps
 

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 9: ``generator.allocate_mix`` (SPEC.md section 11).
 
 ``allocate_mix(count)`` splits ``count`` generated scenarios 30/25/25/20 into

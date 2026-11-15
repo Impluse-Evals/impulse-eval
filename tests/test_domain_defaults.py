@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 9: domain defaults (SPEC.md section 11; METRICS.md section 4.5).
 
 ``domains.DOMAIN_DEFAULTS`` (shape recorded in DECISIONS.md "Phase 3 (builder)"): one row per

@@ -1,7 +1,7 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Data models (SPEC.md section 7). Field names, types, and defaults are normative.
 
-``AgentTool``, ``ToolCall``, ``MetricResult``, and ``ScoreResult`` are defined in the Apache-2.0
+``AgentTool``, ``ToolCall``, ``MetricResult``, and ``ScoreResult`` are defined in the plugin API
 module ``impulse_evals.plugin_types`` and re-exported here (the same class objects), so
 ``from impulse_evals.models import ...`` keeps working (SPEC.md section 5.1 plugin API import rule).
 """

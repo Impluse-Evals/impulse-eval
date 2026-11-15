@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Run Impulse for free
 
 This guide runs Impulse with no API key: Ollama serves the language models, and open speech models run inside the Impulse process.

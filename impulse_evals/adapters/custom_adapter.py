@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Custom adapters from config: ``agent.adapter: custom`` (FIXES-ROUND-3-SPEC.md B3).
 
 ``agent.entrypoint = "module:Class"`` (dots allowed after the colon for a nested attribute) names a

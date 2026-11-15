@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 9: domain guard (SPEC.md section 11).
 
 ``domains.detect_domain(text)``: the domain with the most DISTINCT keyword hits (whole-word,

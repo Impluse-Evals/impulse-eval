@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 3, B3/B4-rev: revisions of the HTTP and custom adapters after the Stage D review
 (FIXES-ROUND-3-SPEC.md "B3/B4-rev", findings R1-R8).
 
@@ -609,7 +609,7 @@ async def test_adapter_error_texts_still_redact_every_header_value(impulse_proje
 
 def _custom_module(project, body):
     stem = f"impulse_test_custom_rev_{uuid.uuid4().hex[:10]}"
-    code = f'''# SPDX-License-Identifier: AGPL-3.0-only
+    code = f'''# SPDX-License-Identifier: Apache-2.0
 from impulse_evals.adapters.base import AgentInterface
 
 

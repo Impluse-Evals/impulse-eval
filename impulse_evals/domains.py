@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Domain tables (SPEC.md section 11): default assertions, metrics, and ``max_turns`` per domain,
 plus the domain-guard keyword lists and ``detect_domain``.
 

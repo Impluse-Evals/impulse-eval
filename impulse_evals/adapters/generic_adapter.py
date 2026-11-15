@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Generic adapter (SPEC.md sections 8.2 and 9): the PRIMARY adapter.
 
 ``agent.entrypoint = "module:function"`` names a Python function with the signature

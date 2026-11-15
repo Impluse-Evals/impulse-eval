@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 12: the ``rbi_kyc``, ``trai_dlt`` and ``hipaa`` compliance packs (METRICS.md section 4;
 SPEC.md sections 7, 12, 13).
 

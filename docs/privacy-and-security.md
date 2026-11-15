@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Privacy and security
 
 This page says exactly what data leaves your machine when you run Impulse, how keys are handled, and what the files it writes contain.
@@ -161,7 +161,7 @@ Simulated callers include adversarial ones, so transcripts are untrusted data.
 - Every compliance result carries "Technical signal only. Not legal certification."
 - The `regulation_ref` strings are informational. Have counsel verify them before they appear in customer-facing material ([Compliance packs](compliance-packs.md)).
 - The models you choose (Ollama models, Hugging Face speech models, hosted models) come with their own licences and terms of use. Check each model's page before you use it.
-- Impulse's own licences: [LICENSING.md](../LICENSING.md).
+- Impulse's own licence (Apache-2.0): [LICENSING.md](../LICENSING.md).
 
 ## Next steps
 

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 11: the LiveKit adapter (SPEC.md sections 8.2 and 9, as updated by the pre-Stage-B source read
 of livekit 1.1.21 / livekit-api 1.2.2 / livekit-protocol 1.1.27; DECISIONS.md D11-D16).
 

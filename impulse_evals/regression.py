@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Regression scenarios from failed calls (SPEC.md section 15; ``impulse convert-failure FILE``).
 
 FILE is a stored ``ScenarioResult`` JSON (``.impulse/runs/<run_id>/scenarios/<name>.json``). The

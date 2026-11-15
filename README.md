@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Impulse Evals
 
 Impulse Evals tests AI voice and chat agents: a simulated caller talks to your agent, and an LLM judge grades it against your system prompt. It is vendor-neutral and private: it works with any stack, runs on your machine or in your CI, and has compliance checks built in.
@@ -347,7 +347,7 @@ The LiveKit and Pipecat adapters capture both fields without code changes:
 
 Both were verified with live agents in the 2026-10-24 and 2026-10-25 test campaigns, with `heard_text` on every user turn of the voice runs.
 
-For any other stack, write your own adapter. Subclass `AgentInterface` from `impulse_evals.adapters.base`, and return `AgentReply(text=..., latency_ms=..., heard_text=..., tool_calls=[ToolCall(...)])` from its `send()`. `ToolCall` is in `impulse_evals.plugin_types`; these plugin API files are Apache-2.0. Load your adapter from `config.yaml` with `adapter: custom` and `entrypoint: "module:Class"` ([examples/custom_adapter/](examples/custom_adapter/echo_adapter.py)). Or pass it from Python to the async `impulse_evals.runner.run(config, adapter_factory=...)`. It returns the run result without writing `run.json` or `report.html`. In voice mode it still writes the `audio/` files under `.impulse/runs/<run_id>/`. An agent in another language can answer JSON over HTTP instead, with `adapter: http` ([examples/http/README.md](examples/http/README.md)); its answer carries `heard_text` and `tool_calls` the same way. See [docs/adapters.md](docs/adapters.md).
+For any other stack, write your own adapter. Subclass `AgentInterface` from `impulse_evals.adapters.base`, and return `AgentReply(text=..., latency_ms=..., heard_text=..., tool_calls=[ToolCall(...)])` from its `send()`. `ToolCall` is in `impulse_evals.plugin_types`. Load your adapter from `config.yaml` with `adapter: custom` and `entrypoint: "module:Class"` ([examples/custom_adapter/](examples/custom_adapter/echo_adapter.py)). Or pass it from Python to the async `impulse_evals.runner.run(config, adapter_factory=...)`. It returns the run result without writing `run.json` or `report.html`. In voice mode it still writes the `audio/` files under `.impulse/runs/<run_id>/`. An agent in another language can answer JSON over HTTP instead, with `adapter: http` ([examples/http/README.md](examples/http/README.md)); its answer carries `heard_text` and `tool_calls` the same way. See [docs/adapters.md](docs/adapters.md).
 
 ## CI and regression gates
 
@@ -367,11 +367,12 @@ That is exactly what happens. On the free local path (Ollama, and `local_hf` or 
 
 ## Licence
 
-- Core: AGPL-3.0-only ([LICENSE](LICENSE)). Running Impulse to test your own agents, inside your company or in CI, does not oblige you to publish your agent or your configs.
-- Plugin API files (`plugin_types.py` and the four `base.py` files of `adapters`, `assertions`, `judge`, `metrics`): Apache License 2.0 ([LICENSE-APACHE](LICENSE-APACHE)).
-- Compliance packs (`dpdp`, `rbi_kyc`, `trai_dlt`, `hipaa`): Elastic License 2.0 ([LICENSE-ELv2](LICENSE-ELv2)).
+- All of Impulse Evals, including the plugin API and the compliance packs (`dpdp`, `rbi_kyc`, `trai_dlt`, `hipaa`), is under the Apache License 2.0 (Apache-2.0, [LICENSE](LICENSE)). Copyright VITAF Technologies ([NOTICE](NOTICE)).
+- You are free to use, modify, and embed it, and to offer it as a service, including commercially. Keep the `LICENSE` and `NOTICE` files when you redistribute it.
+- Trademark: the licence does not grant rights to the name "Impulse" or the Impulse logo.
+- Releases already published on PyPI keep the licence they were published under.
 
-[LICENSING.md](LICENSING.md) explains what each licence means for you in plain language.
+[LICENSING.md](LICENSING.md) explains this in plain language.
 
 ## Status
 

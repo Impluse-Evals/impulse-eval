@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 # Starter config.yaml written by `impulse init --profile free` (based on examples/free/config.yaml).
 # Everything runs on your machine: LLMs served by Ollama, speech by local Hugging Face models
 # (local_hf, needs `pip install impulse-evals[local]`). No API key is needed anywhere.

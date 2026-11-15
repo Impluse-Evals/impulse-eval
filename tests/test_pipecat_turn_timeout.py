@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 3, A1 (DEFECT-8): the Pipecat adapter keeps a timed-out turn; ``agent.pipecat.turn_timeout_s``
 (FIXES-ROUND-3-SPEC.md section A1).
 

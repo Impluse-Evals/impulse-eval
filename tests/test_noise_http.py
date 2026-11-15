@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """HTTP adapter: the optional ``user_audio`` turn field (SPEC.md section 9; noise simulation).
 
 ``agent.http.send_audio: true`` adds ``"user_audio": "<base64 of the WAV>"`` (standard alphabet, with

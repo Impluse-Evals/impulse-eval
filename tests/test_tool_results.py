@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 2, A1 (DEFECT-1): tool results reach the judge, and success is detected from the
 common result shapes (FIXES-ROUND-2-SPEC.md section A1).
 

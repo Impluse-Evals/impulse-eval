@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 3, B1: the light local voice provider ``local_light`` and the ``light`` extra
 (FIXES-ROUND-3-SPEC.md "B1 decisions").
 
@@ -457,10 +457,10 @@ def test_model_file_constants_are_the_spec_values():
     assert list(module.MODEL_FILES) == [ONNX, VOICES]
 
 
-def test_local_light_module_starts_with_the_agpl_header():
+def test_local_light_module_starts_with_the_apache_header():
     path = REPO_ROOT / "impulse_evals" / "voice" / "local_light.py"
     first = path.read_text(encoding="utf-8").splitlines()[0]
-    assert first == "# SPDX-License-Identifier: AGPL-3.0-only"
+    assert first == "# SPDX-License-Identifier: Apache-2.0"
 
 
 def test_factories_return_local_light_providers_without_loading_or_downloading(light):

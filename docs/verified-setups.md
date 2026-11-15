@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Verified setups
 
 This dated table lists only the setups the maintainer has actually run end to end, and the TEMPLATE row shows what each entry records.

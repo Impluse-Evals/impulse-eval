@@ -1,16 +1,21 @@
-# SPDX-License-Identifier: AGPL-3.0-only
-"""Phase 0: SPDX licence headers and licence metadata (SPEC.md section 5.1).
+# SPDX-License-Identifier: Apache-2.0
+"""SPDX licence headers and licence metadata (SPEC.md section 5.1).
 
-Also the section 5.1 plugin API import rule for the five Apache-2.0 plugin API files: no import
-statement naming a non-Apache ``impulse_evals`` module outside ``if TYPE_CHECKING:`` (AST check),
-and importing each file in a fresh interpreter loads no AGPL ``impulse_evals`` module other than
-the package ``__init__`` modules on its import path (subprocess check). A module's licence is read
-from the SPDX header on the first line of its file.
+Everything in the repository is under the Apache License 2.0: every Python file starts with the
+Apache-2.0 SPDX header, no tracked file carries another SPDX identifier, and ``pyproject.toml``
+declares ``Apache-2.0`` with ``LICENSE`` and ``NOTICE`` as its licence files.
+
+Also the plugin API import rule for the five plugin API files: no import statement naming a
+non-plugin-API ``impulse_evals`` module outside ``if TYPE_CHECKING:`` (AST check), and importing
+each file in a fresh interpreter loads no other ``impulse_evals`` module than the plugin API files
+and the package ``__init__`` modules on its import path (subprocess check). The rule keeps the
+plugin API a small, stable surface that adapters, metrics, and judges can build on without the core.
 """
 
 import ast
 import json
 import os
+import re
 import subprocess
 import sys
 import textwrap
@@ -22,16 +27,8 @@ import pytest
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
-AGPL = "# SPDX-License-Identifier: AGPL-3.0-only"
 APACHE = "# SPDX-License-Identifier: Apache-2.0"
-ELASTIC = "# SPDX-License-Identifier: Elastic-2.0"
 
-PACK_FILES = {
-    "impulse_evals/assertions/dpdp.py",
-    "impulse_evals/assertions/rbi_kyc.py",
-    "impulse_evals/assertions/trai_dlt.py",
-    "impulse_evals/assertions/hipaa.py",
-}
 # Exactly the five plugin API files (SPEC.md section 5.1): plugin_types.py and the four base files.
 PLUGIN_API_FILES = {
     "impulse_evals/plugin_types.py",
@@ -43,8 +40,8 @@ PLUGIN_API_FILES = {
 SCANNED_DIRS = ("impulse_evals", "tests", "examples")
 
 PACKAGE = "impulse_evals"
-# Package __init__ modules an Apache-2.0 file may load at runtime (only those on the import path of
-# a loaded Apache-2.0 module; Python always executes them). SPEC.md section 5.1.
+# Package __init__ modules a plugin API file may load at runtime (only those on the import path of
+# a loaded plugin API module; Python always executes them). SPEC.md section 5.1.
 ALLOWED_PACKAGE_INITS = {
     "impulse_evals",
     "impulse_evals.metrics",
@@ -52,7 +49,6 @@ ALLOWED_PACKAGE_INITS = {
     "impulse_evals.adapters",
     "impulse_evals.judge",
 }
-LICENCE_BY_HEADER = {AGPL: "AGPL-3.0-only", APACHE: "Apache-2.0", ELASTIC: "Elastic-2.0"}
 
 
 def _python_files():
@@ -72,14 +68,6 @@ def _relative(path: Path) -> str:
     return path.relative_to(REPO_ROOT).as_posix()
 
 
-def _expected_header(relative: str) -> str:
-    if relative in PACK_FILES:
-        return ELASTIC
-    if relative in PLUGIN_API_FILES:
-        return APACHE
-    return AGPL
-
-
 def _first_line(path: Path) -> str:
     text = path.read_bytes().decode("utf-8-sig")
     lines = text.splitlines()
@@ -93,58 +81,85 @@ def test_python_files_are_found():
     assert "examples/sample_agent.py" in relatives
 
 
-def test_every_python_file_starts_with_its_spdx_header():
+def test_every_python_file_starts_with_the_apache_header():
     wrong = []
     for path in _python_files():
-        relative = _relative(path)
-        expected = _expected_header(relative)
         actual = _first_line(path)
-        if actual != expected:
-            wrong.append(f"{relative}: expected {expected!r}, found {actual!r}")
+        if actual != APACHE:
+            wrong.append(f"{_relative(path)}: expected {APACHE!r}, found {actual!r}")
     assert not wrong, "Wrong or missing SPDX header:\n" + "\n".join(wrong)
 
 
-@pytest.mark.parametrize("relative", sorted(PACK_FILES))
-def test_pack_files_exist_with_elastic_header(relative):
-    path = REPO_ROOT / relative
-    assert path.is_file(), f"{relative} must exist"
-    assert _first_line(path) == ELASTIC
+def _tracked_files() -> list[str]:
+    try:
+        completed = subprocess.run(
+            ["git", "ls-files"], cwd=str(REPO_ROOT), capture_output=True, text=True, timeout=60
+        )
+    except (OSError, subprocess.SubprocessError):
+        pytest.skip("git is not available")
+    if completed.returncode != 0:
+        pytest.skip("not a git checkout")
+    return completed.stdout.splitlines()
 
 
-@pytest.mark.parametrize("relative", sorted(PLUGIN_API_FILES))
-def test_plugin_api_base_files_exist_with_apache_header(relative):
-    path = REPO_ROOT / relative
-    assert path.is_file(), f"{relative} must exist"
-    assert _first_line(path) == APACHE
+def test_no_file_carries_another_spdx_identifier():
+    # Only a real licence ID counts (code that matches SPDX lines, like this one, is not a header).
+    pattern = re.compile(r"SPDX-License-Identifier:[ \t]*([A-Za-z0-9][A-Za-z0-9.+-]*)")
+    wrong = []
+    for relative in _tracked_files():
+        path = REPO_ROOT / relative
+        if not path.is_file():
+            continue
+        data = path.read_bytes()
+        if b"\0" in data[:4096]:
+            continue
+        for number, line in enumerate(data.decode("utf-8-sig", errors="replace").splitlines(), 1):
+            if any(match.group(1) != "Apache-2.0" for match in pattern.finditer(line)):
+                wrong.append(f"{relative}:{number}: {line.strip()}")
+    assert not wrong, "Only Apache-2.0 SPDX identifiers are allowed:\n" + "\n".join(wrong)
 
 
-def test_elastic_and_apache_headers_only_on_their_files():
-    for path in _python_files():
-        relative = _relative(path)
-        first = _first_line(path)
-        if first == ELASTIC:
-            assert relative in PACK_FILES, f"{relative} must not be under the Elastic License 2.0"
-        if first == APACHE:
-            assert relative in PLUGIN_API_FILES, f"{relative} must not be under Apache-2.0"
-
-
-@pytest.mark.parametrize("name", ["LICENSE", "LICENSE-ELv2", "LICENSE-APACHE", "LICENSING.md"])
+@pytest.mark.parametrize("name", ["LICENSE", "NOTICE", "LICENSING.md"])
 def test_licence_files_exist(name):
     assert (REPO_ROOT / name).is_file(), f"{name} must exist in the repository root"
+
+
+@pytest.mark.parametrize("name", ["LICENSE-ELv2", "LICENSE-APACHE"])
+def test_old_licence_files_are_gone(name):
+    assert not (REPO_ROOT / name).exists(), f"{name} must not exist: everything is under LICENSE"
+
+
+def test_licence_file_is_the_apache_licence():
+    text = (REPO_ROOT / "LICENSE").read_text(encoding="utf-8")
+    assert "Apache License" in text and "Version 2.0, January 2004" in text
+    assert "END OF TERMS AND CONDITIONS" in text
+    assert "Copyright 2026 VITAF Technologies" in text
+
+
+def test_notice_names_the_project_and_copyright_holder():
+    text = (REPO_ROOT / "NOTICE").read_text(encoding="utf-8")
+    assert text.startswith("Impulse Evals\n")
+    assert "Copyright 2026 VITAF Technologies" in text
 
 
 def test_pyproject_declares_licence_expression():
     pyproject = REPO_ROOT / "pyproject.toml"
     assert pyproject.is_file(), "pyproject.toml must exist"
     data = tomllib.loads(pyproject.read_text(encoding="utf-8"))
-    assert data["project"]["license"] == "AGPL-3.0-only AND Elastic-2.0 AND Apache-2.0"
+    assert data["project"]["license"] == "Apache-2.0"
 
 
 def test_pyproject_declares_licence_files():
     pyproject = REPO_ROOT / "pyproject.toml"
     assert pyproject.is_file(), "pyproject.toml must exist"
     data = tomllib.loads(pyproject.read_text(encoding="utf-8"))
-    assert set(data["project"]["license-files"]) == {"LICENSE", "LICENSE-ELv2", "LICENSE-APACHE"}
+    assert set(data["project"]["license-files"]) == {"LICENSE", "NOTICE"}
+
+
+def test_pyproject_has_no_licence_classifier():
+    # PEP 639: a licence expression replaces the "License ::" trove classifiers.
+    data = tomllib.loads((REPO_ROOT / "pyproject.toml").read_text(encoding="utf-8"))
+    assert not [c for c in data["project"].get("classifiers", []) if c.startswith("License ::")]
 
 
 # ============================================================================================
@@ -166,6 +181,9 @@ def _module_name(relative: str) -> str:
     return ".".join(parts)
 
 
+PLUGIN_API_MODULES = {_module_name(relative) for relative in PLUGIN_API_FILES}
+
+
 def _in_package(module: str) -> bool:
     return module == PACKAGE or module.startswith(PACKAGE + ".")
 
@@ -177,14 +195,6 @@ def _module_file(module: str) -> Optional[Path]:
         return base / "__init__.py"
     candidate = base.parent / (base.name + ".py")
     return candidate if candidate.is_file() else None
-
-
-def _licence_of(path: Optional[Path]) -> str:
-    """Licence of a module file by its first-line SPDX header ("missing" when there is no file)."""
-    if path is None or not path.is_file():
-        return "missing"
-    first = _first_line(path)
-    return LICENCE_BY_HEADER.get(first, f"unknown header {first!r}")
 
 
 def _is_type_checking(test: ast.expr) -> bool:
@@ -238,25 +248,22 @@ def _import_targets(node, module: str, is_package: bool) -> list[str]:
     return targets
 
 
-def _non_apache_imports(source: str, relative: str) -> list[tuple[int, str, str]]:
-    """``(line, module, licence)`` for each runtime import statement in ``source`` (the text of the
-    file at ``relative``) that names an ``impulse_evals`` module whose file is not Apache-2.0."""
+def _non_plugin_api_imports(source: str, relative: str) -> list[tuple[int, str]]:
+    """``(line, module)`` for each runtime import statement in ``source`` (the text of the file at
+    ``relative``) that names an ``impulse_evals`` module outside the plugin API."""
     module = _module_name(relative)
     is_package = relative.endswith("/__init__.py")
     found = []
     for node in _runtime_import_nodes(ast.parse(source, filename=relative)):
         for target in _import_targets(node, module, is_package):
-            if not _in_package(target):
-                continue
-            licence = _licence_of(_module_file(target))
-            if licence != "Apache-2.0":
-                found.append((node.lineno, target, licence))
+            if _in_package(target) and target not in PLUGIN_API_MODULES:
+                found.append((node.lineno, target))
     return sorted(found)
 
 
 def test_import_rule_checker_flags_runtime_imports_only():
-    """The AST check itself: flags function-level, ``else``-branch, relative, and Elastic imports;
-    ignores TYPE_CHECKING-only imports, Apache-2.0 targets, and non-``impulse_evals`` modules."""
+    """The AST check itself: flags function-level, ``else``-branch, relative, and pack imports;
+    ignores TYPE_CHECKING-only imports, plugin API targets, and non-``impulse_evals`` modules."""
     source = textwrap.dedent(
         """
         from __future__ import annotations
@@ -281,26 +288,26 @@ def test_import_rule_checker_flags_runtime_imports_only():
         from impulse_evals.assertions import dpdp
         """
     )
-    found = _non_apache_imports(source, "impulse_evals/metrics/base.py")
-    assert sorted((target, licence) for _, target, licence in found) == [
-        ("impulse_evals.assertions.dpdp", "Elastic-2.0"),
-        ("impulse_evals.domains", "AGPL-3.0-only"),
-        ("impulse_evals.metrics.universal", "AGPL-3.0-only"),
-        ("impulse_evals.models", "AGPL-3.0-only"),
-        ("impulse_evals.models", "AGPL-3.0-only"),
+    found = _non_plugin_api_imports(source, "impulse_evals/metrics/base.py")
+    assert sorted(target for _, target in found) == [
+        "impulse_evals.assertions.dpdp",
+        "impulse_evals.domains",
+        "impulse_evals.metrics.universal",
+        "impulse_evals.models",
+        "impulse_evals.models",
     ]
 
 
 @pytest.mark.parametrize("relative", sorted(PLUGIN_API_FILES))
-def test_plugin_api_file_has_no_agpl_import_statement(relative):
+def test_plugin_api_file_imports_only_the_plugin_api(relative):
     path = REPO_ROOT / relative
     assert path.is_file(), f"{relative} must exist"
     source = path.read_bytes().decode("utf-8-sig")
-    found = _non_apache_imports(source, relative)
+    found = _non_plugin_api_imports(source, relative)
     assert not found, (
-        f"{relative} (Apache-2.0) must not import a non-Apache impulse_evals module outside "
+        f"{relative} (plugin API) must not import a non-plugin-API impulse_evals module outside "
         "`if TYPE_CHECKING:` (SPEC.md section 5.1 plugin API import rule):\n"
-        + "\n".join(f"  line {line}: {target} ({licence})" for line, target, licence in found)
+        + "\n".join(f"  line {line}: {target}" for line, target in found)
     )
 
 
@@ -356,28 +363,25 @@ def _loaded_after_import(module: str) -> dict:
 
 
 @pytest.mark.parametrize("relative", sorted(PLUGIN_API_FILES))
-def test_importing_plugin_api_file_loads_no_agpl_module(relative):
+def test_importing_plugin_api_file_loads_only_the_plugin_api(relative):
     module = _module_name(relative)
     loaded = _loaded_after_import(module)
     assert module in loaded, f"{module} was not loaded by the import probe"
-    licences = {name: _licence_of(Path(file) if file else None) for name, file in loaded.items()}
-    apache = [name for name, licence in licences.items() if licence == "Apache-2.0"]
-    assert module in apache, f"{module} must be Apache-2.0, found {licences[module]}"
+    plugin_api = [name for name in loaded if name in PLUGIN_API_MODULES]
     wrong = []
-    for name, licence in sorted(licences.items()):
-        if licence == "Apache-2.0":
+    for name, file in sorted(loaded.items()):
+        if name in PLUGIN_API_MODULES:
             continue
-        file = loaded[name]
         is_allowed_init = (
             name in ALLOWED_PACKAGE_INITS
             and file is not None
             and Path(file).name == "__init__.py"
-            and any(other.startswith(name + ".") for other in apache)
+            and any(other.startswith(name + ".") for other in plugin_api)
         )
         if not is_allowed_init:
-            wrong.append(f"  {name} ({licence})")
+            wrong.append(f"  {name}")
     assert not wrong, (
-        f"importing {module} (Apache-2.0) in a fresh interpreter loaded non-Apache impulse_evals "
-        "modules other than the package __init__ modules on its import path "
+        f"importing {module} (plugin API) in a fresh interpreter loaded impulse_evals modules "
+        "outside the plugin API other than the package __init__ modules on its import path "
         "(SPEC.md section 5.1 plugin API import rule):\n" + "\n".join(wrong)
     )

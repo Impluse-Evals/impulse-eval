@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Compliance packs
 
 Compliance packs are optional judge-based checks for regulated industries, listed per scenario as `pack.rule_id` assertions, whose results are technical signals only.
@@ -15,7 +15,7 @@ Compliance packs are optional judge-based checks for regulated industries, liste
 
 - **What success looks like.** Each rule returns `pass`, `fail`, or `skip`. A `fail` of any severity fails the scenario. With the default `--fail-on high`, a failed `critical` or `high` rule makes `impulse run` exit 1.
 - **What a result means.** Every result carries the disclaimer "Technical signal only. Not legal certification."
-- **Licence.** The pack files are under the Elastic License 2.0 (below).
+- **Licence.** The pack files are under the Apache License 2.0, like the rest of Impulse (below).
 
 ## Details
 
@@ -38,15 +38,15 @@ Every result carries the disclaimer "Technical signal only. Not legal certificat
 - The `regulation_ref` strings name the provision a rule relates to. They are informational. Have counsel verify them before they appear in any customer-facing material.
 - Some things cannot be checked from a conversation at all, for example whether your company's DLT registration exists. The `trai_dlt.consent_for_outbound` criterion says so itself.
 
-### Licence: Elastic License 2.0
+### Licence: Apache License 2.0
 
-The four pack files (`impulse_evals/assertions/dpdp.py`, `rbi_kyc.py`, `trai_dlt.py`, `hipaa.py`) are source-available under the Elastic License 2.0.
+The four pack files (`impulse_evals/assertions/dpdp.py`, `rbi_kyc.py`, `trai_dlt.py`, `hipaa.py`) are open source under the Apache License 2.0, like the rest of Impulse.
 
-- Anyone may use, copy, modify, and redistribute them, including commercially.
-- No one may provide them to third parties as a hosted or managed service, circumvent licence-key functionality, or remove licensing notices.
-- Running the packs to test your own agents, in your company or in CI, is ordinary use.
+- Anyone may use, copy, modify, embed, and redistribute them, including commercially.
+- Anyone may offer them to others as part of a hosted or managed service.
+- Keep the `LICENSE` and `NOTICE` files when you redistribute them.
 
-The pack base class (`assertions/base.py`) is part of the Apache-2.0 plugin API, and the rest of Impulse is AGPL-3.0-only. Details in plain language: [LICENSING.md](../LICENSING.md).
+Releases already published on PyPI keep the licence they were published under (the packs were under the Elastic License 2.0 there). Details in plain language: [LICENSING.md](../LICENSING.md).
 
 ### Using a pack
 

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Noise simulation (EXPERIMENTAL): config.yaml keys and validation (SPEC.md sections 7 and 8.2).
 
 - ``voice_config.noise`` is the default for every scenario; ``scenarios[i].noise`` replaces it as a

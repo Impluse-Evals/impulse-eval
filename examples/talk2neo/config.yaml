@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 # Talk2Neo: a recruitment voice agent on LiveKit (Impulse's primary dogfood agent).
 # Before use: fill in system_prompt.txt, set livekit.url (and livekit.agent_name if the agent's worker
 # is registered with one), and put the LiveKit API key and secret in the environment variables named

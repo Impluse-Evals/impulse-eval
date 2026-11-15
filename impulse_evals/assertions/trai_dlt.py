@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Elastic-2.0
+# SPDX-License-Identifier: Apache-2.0
 """``trai_dlt`` pack: TRAI commercial communications regulations, India outbound calls (METRICS.md
 section 4.3). Criteria copied word for word.
 

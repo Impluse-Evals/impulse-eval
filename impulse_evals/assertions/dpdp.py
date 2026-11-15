@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Elastic-2.0
+# SPDX-License-Identifier: Apache-2.0
 """``dpdp`` pack: India DPDP Act 2023 (METRICS.md section 4.1). Criteria copied word for word.
 
 Technical signal only. Not legal certification. The ``regulation_ref`` strings are informational;

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 3, B1-rev: revisions of the light local voice after the Stage D review
 (FIXES-ROUND-3-SPEC.md "B1 decisions", bullet "B1-rev"; findings L1-L7).
 

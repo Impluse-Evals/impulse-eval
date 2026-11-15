@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 3, B4: the HTTP adapter, ``agent.adapter: http`` (FIXES-ROUND-3-SPEC.md B4).
 
 * config ``agent.http`` (kept only when ``adapter: http``): ``url`` (required, http:// or https://),

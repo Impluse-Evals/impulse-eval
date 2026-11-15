@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 2, A5 (DEFECT-5): Pipecat text-mode duplicate ``bot-output`` (FIXES-ROUND-2-SPEC.md).
 
 In a ``-t eval`` text run, the LLM run after a tool call is spoken, and a Deepgram-style TTS

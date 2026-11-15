@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 11: ``runner.run`` in voice mode (SPEC.md sections 7, 9, 13, 14, 15; METRICS.md VOICE-011).
 
 Voice mode is on when ``voice_config`` exists. Per user turn: simulator text -> TTS -> ``send(text,

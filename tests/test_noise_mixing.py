@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Noise simulation (EXPERIMENTAL): the mixer in ``impulse_evals.voice.noise`` (SPEC.md section 14.4).
 
 ``mix_noise(clean_wav, settings, *, seed, turn, noise_source=None) -> NoiseMix`` mixes background

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 14: documentation checks (SPEC.md sections 5.1, 17, 21; maintainer decisions in DECISIONS.md).
 
 Written before ``docs/`` exists; every test fails until phase 14 writes the docs.
@@ -67,7 +67,7 @@ DOC_PAGES = [
 ]
 SUBCOMMANDS = ("init", "doctor", "generate", "run", "report", "compare", "convert-failure", "calibrate")
 PYTHON_SENTENCE = "Requires Python 3.11 or newer (tested on 3.11, 3.12 and 3.14). Python 3.10 is not supported."
-MD_HEADER = "<!-- SPDX-License-Identifier: AGPL-3.0-only -->"
+MD_HEADER = "<!-- SPDX-License-Identifier: Apache-2.0 -->"
 MODEL_PATTERNS = ("claude-", "gemini-", "gpt-")
 MODEL_MARKER = "# example, check the current name"
 
@@ -91,7 +91,7 @@ REQUIRED_MENTIONS = [
     ("ci-integration.md", "--fail-on"),
     ("metrics.md", "UNIV-023"),
     ("metrics.md", "UNIV-025"),
-    ("compliance-packs.md", "Elastic License 2.0"),
+    ("compliance-packs.md", "Apache License 2.0"),
     ("compliance-packs.md", "hipaa"),
     ("compliance-packs.md", "opt-in"),
     ("compliance-packs.md", "Technical signal only. Not legal certification."),
@@ -122,9 +122,9 @@ REQUIRED_MENTIONS = [
 README_MENTIONS = [
     "formerly PULSE",
     "LICENSING.md",
-    "AGPL-3.0",
-    "Apache",
-    "Elastic License 2.0",
+    "Apache-2.0",
+    "NOTICE",
+    "Trademark",
     "heard_text",
     "tool_calls",
     "Talk2Neo",

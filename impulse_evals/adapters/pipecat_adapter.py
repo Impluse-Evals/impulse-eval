@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Pipecat adapter (SPEC.md sections 8.2 and 9; optional extra ``pipecat``).
 
 Impulse connects to a RUNNING Pipecat bot as a client and speaks RTVI, Pipecat's client/server message

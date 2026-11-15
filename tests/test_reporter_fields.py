@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 7: JSON and HTML reports (SPEC.md section 16; reporter.write_json / reporter.render_html).
 
 ``write_json(run, path)`` writes ``RunResult.model_dump_json(indent=2)`` to the file ``path``.

@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Configuration
 
 This page documents every key of the two files Impulse reads: `config.yaml` for your project and `.impulse/config.toml` for your keys, models and defaults.

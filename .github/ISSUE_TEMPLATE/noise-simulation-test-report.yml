@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 name: Noise simulation test report
 description: Share the results of running noise simulation (experimental) on your own voice agent.
 title: "[noise test] <adapter> / <platform> / <language>"

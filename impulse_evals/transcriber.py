@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Transcript formatting and loading (SPEC.md sections 7, 12, and 15).
 
 ``format_transcript`` renders the text the judge reads between the ``<transcript>`` tags:

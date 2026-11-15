@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Tiny echo-style agent for `impulse run --dry-run`, the docs, and the tests (SPEC.md section 8.2).
 
 Generic adapter entrypoint: ``sample_agent:respond`` with the signature ``(user_text, history)``.

@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Contributing
 
 Contributions are welcome, and this page explains how to set up a development environment, the rules every change follows, and how licensing works for contributions.
@@ -14,7 +14,7 @@ python -m pytest -q
 
 - **What success looks like.** `impulse --help` lists the commands, and every test passes (skips allowed). The suite makes no real network or LLM call.
 - **The main rules.** Write tests first, and never edit a test to make it pass. Put no model names in source code. Copy normative texts word for word. Start every source file with its SPDX licence header.
-- **Licence of your change.** A contribution is under the licence of the file it changes. Most files are AGPL-3.0-only. The plugin API files, including `impulse_evals/plugin_types.py`, are Apache-2.0. The compliance pack files are under the Elastic License 2.0.
+- **Licence of your change.** Every contribution is under the Apache License 2.0, like all of Impulse. Sign off every commit with `git commit -s` (Developer Certificate of Origin).
 
 ## Details
 
@@ -55,12 +55,11 @@ The rules every change follows:
   - the metric criteria (`metrics/`);
   - the compliance criteria (`assertions/`).
 - **Lazy imports.** `import impulse_evals` must work with no extra installed. Import optional libraries inside the function that needs them.
-- **Licence headers.** Every source file starts with its SPDX header. A test checks this.
-  - `# SPDX-License-Identifier: AGPL-3.0-only` for core Python, YAML, and TOML files;
-  - `# SPDX-License-Identifier: Apache-2.0` for the five plugin API files;
-  - `# SPDX-License-Identifier: Elastic-2.0` for the four pack files;
-  - `<!-- SPDX-License-Identifier: AGPL-3.0-only -->` for HTML files (for example `impulse_evals/templates/report_template.html`) and for Markdown under `docs/` and `examples/`, the README, and `LICENSING.md`;
-  - none for JSON files, binary fixtures, and the `LICENSE*` files.
+- **Licence headers.** Every source file starts with the Apache-2.0 SPDX header. A test checks this.
+  - `# SPDX-License-Identifier: Apache-2.0` for Python, YAML, and TOML files;
+  - `<!-- SPDX-License-Identifier: Apache-2.0 -->` for HTML files (for example `impulse_evals/templates/report_template.html`) and for Markdown under `docs/` and `examples/`, the README, and `LICENSING.md`;
+  - none for JSON files, binary fixtures, and the `LICENSE` and `NOTICE` files.
+- **The plugin API import rule.** The plugin API files (`impulse_evals/plugin_types.py` and the `base.py` files of `adapters/`, `assertions/`, `judge/`, `metrics/`) import only each other, the standard library, and third-party packages. Another `impulse_evals` module may appear only inside an `if TYPE_CHECKING:` block (annotations, never executed). A test checks this rule ([Architecture](architecture.md#the-plugin-api-import-rule)).
 - **Out of scope for v1:**
   - a dashboard or server, a database, PDF reports, and telephony;
   - Vapi / Retell / Bland connectors beyond their stubs;
@@ -83,23 +82,10 @@ Config blocks marked `# impulse:validate` must load. Model names appear only on 
 
 ### Licensing of contributions
 
-Contributions are accepted under the licence of the file they change:
+- **One licence.** All of Impulse, including the plugin API, the compliance packs, `docs/`, `examples/`, and `tests/`, is under the Apache License 2.0. Your contribution is accepted under the Apache License 2.0 (inbound = outbound), and new files carry the Apache-2.0 SPDX header.
+- **Developer Certificate of Origin (DCO).** Every commit must be signed off. Signing off certifies that you wrote the change or otherwise have the right to submit it under the project's licence, as stated in the [Developer Certificate of Origin 1.1](https://developercertificate.org/). Add the sign-off with `git commit -s`; it appends a line `Signed-off-by: Your Name <your.email@example.com>` that must match the commit author. A pull request with a commit that is not signed off is not merged until it is fixed, for example with `git commit --amend -s` or `git rebase --signoff`.
 
-| you change | your contribution is under |
-|---|---|
-| a core file (everything not listed below, including `docs/`, `examples/`, and `tests/`) | AGPL-3.0-only |
-| a plugin API file: `impulse_evals/plugin_types.py`, `impulse_evals/adapters/base.py`, `impulse_evals/assertions/base.py`, `impulse_evals/metrics/base.py`, `impulse_evals/judge/base.py` | Apache-2.0 |
-| a compliance pack file: `impulse_evals/assertions/dpdp.py`, `rbi_kyc.py`, `trai_dlt.py`, `hipaa.py` | Elastic License 2.0 |
-
-The plugin API files are under the Apache License 2.0, so that adapters, metrics, and judges can be built against them without AGPL obligations. They import no AGPL code. A change to one of them may import only:
-
-- the other plugin API files;
-- the standard library;
-- third-party packages.
-
-It may name an AGPL `impulse_evals` module only inside an `if TYPE_CHECKING:` block (annotations, never executed). A test checks this rule, including that importing a plugin API file loads no AGPL module. New files take the licence of the part they belong to.
-
-What each licence means in plain language: [LICENSING.md](../LICENSING.md). This page is not legal advice; the LICENSE files govern.
+What the licence means in plain language: [LICENSING.md](../LICENSING.md). This page is not legal advice; the `LICENSE` file governs.
 
 ### Help us test noise simulation
 

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Text to speech: the ``TTSProvider`` interface and the ``get_tts_provider`` factory (SPEC.md section 14).
 
 ``get_tts_provider(cfg)`` takes the loaded ``voice_config`` block (``ProjectConfig.voice_config``)

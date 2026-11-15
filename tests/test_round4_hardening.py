@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 4, L8, L22, L25 (FINAL-TEST.md).
 
 * L8: ``config.URL_CREDENTIAL_QUERY_KEYS`` also holds ``apikey``, ``api_token``, ``sig``, ``signature``,

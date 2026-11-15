@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 2: judge messages carry the agent's system prompt and the safety floor (SPEC.md sections 4 and 12)."""
 
 import pytest

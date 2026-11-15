@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Load and validate ``config.yaml`` and ``.impulse/config.toml`` (SPEC.md sections 8.1 and 8.2).
 
 ``load_config`` validates structure and every SPEC.md section 8.2 rule, but it never imports the
@@ -28,8 +28,8 @@ import yaml
 from pydantic import BaseModel, Field, SecretStr, ValidationError, field_validator
 from pydantic_core import PydanticCustomError
 
-# The metric and assertion ID tables live in the Apache-2.0 plugin API base files (AGPL code may
-# import Apache code); PACK_RULE_IDS is re-exported as config.PACK_RULE_IDS.
+# The metric and assertion ID tables live in the plugin API base files (core code may import the
+# plugin API, not the other way round); PACK_RULE_IDS is re-exported as config.PACK_RULE_IDS.
 from impulse_evals.assertions.base import KNOWN_ASSERTION_IDS
 from impulse_evals.assertions.base import PACK_RULE_IDS as PACK_RULE_IDS
 from impulse_evals.metrics.base import KNOWN_METRIC_IDS

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 3, A2-rev: the revised tie rule for Pipecat RTVI "Error executing function call" errors
 (FIXES-ROUND-3-SPEC.md section A2-rev; Stage D review R3P-1..3). It SUPERSEDES the A2 tie rule where
 they differ; the A2 tests in ``test_pipecat_tool_errors.py`` stay valid.

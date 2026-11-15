@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Voice pipeline providers (SPEC.md section 14).
 
 ``voice.tts`` / ``voice.stt`` hold the ``TTSProvider`` / ``STTProvider`` interfaces and the factories

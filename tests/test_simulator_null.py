@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 5: the simulated caller survives None / empty / whitespace LLM output (SPEC.md section 10).
 
 ``Simulator(model, options, persona_style)``; ``await next_turn(scenario, summary, turns)`` makes one

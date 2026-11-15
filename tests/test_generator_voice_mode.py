@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 9: generator metric lists by mode (SPEC.md section 11).
 
 The generation prompt lists the text-mode metric IDs, or with ``--voice-mode`` the voice-mode IDs.

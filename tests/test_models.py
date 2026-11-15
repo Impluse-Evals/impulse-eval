@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 1: data models (SPEC.md section 7) and the scenario pass logic (compute_passed)."""
 
 import pytest

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Voice metrics (METRICS.md section 2; SPEC.md sections 7, 13, and 14).
 
 Criterion and "Skip when" texts are copied word for word from METRICS.md section 2.2.

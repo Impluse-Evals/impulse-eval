@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Stage B notes: fixes round 3, B3 (custom adapters) and B4 (HTTP adapter)
 
 Test files: `tests/test_custom_adapter.py`, `tests/test_http_adapter.py`. No conftest change.

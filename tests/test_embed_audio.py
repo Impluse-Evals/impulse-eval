@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 7: audio in the HTML report (SPEC.md section 16; reporter.render_html).
 
 ``render_html(run, embed_audio=True, run_dir)`` embeds each WAV file named by ``Turn.audio_path``

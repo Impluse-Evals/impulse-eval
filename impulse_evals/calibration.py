@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Judge calibration against human labels (SPEC.md section 15; ``impulse calibrate DIR``).
 
 Input: a folder with one JSON file per item (every ``*.json`` file directly in the folder, read in

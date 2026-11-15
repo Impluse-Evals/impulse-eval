@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 4, M1 (FINAL-TEST.md audit, 2026-11-02): no HTTP header value can leak through an error text.
 
 * ``load_config``: an ``agent.http.headers`` value with leading or trailing whitespace is the config

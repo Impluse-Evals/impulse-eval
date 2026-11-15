@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Cookbook
 
 These recipes adapt the example scenarios in `examples/`, from India, the US and Mexico, to your own agent.

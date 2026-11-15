@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Speech to text: the ``STTProvider`` interface and the ``get_stt_provider`` factory (SPEC.md section 14).
 
 ``get_stt_provider(cfg)`` takes the loaded ``voice_config`` block (``ProjectConfig.voice_config``)

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Noise simulation (EXPERIMENTAL; SPEC.md section 14.4): background noise mixed into the caller's
 TTS audio after TTS and before the adapter sends it.
 

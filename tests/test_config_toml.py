@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 1: `.impulse/config.toml` loading (SPEC.md section 8.1; load_toml / TomlConfig, section 18.1)."""
 
 import logging

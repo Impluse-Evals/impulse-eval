@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 11: the Pipecat adapter (SPEC.md section 9, as updated by the pre-Stage-B source read of
 pipecat-ai 1.12.0; DECISIONS.md "Source read (KICKOFF §2b)" and decisions D1-D10).
 

@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Contributing to Impulse Evals
 
 Thank you for helping. The full guide, with every rule a change follows and how licensing works for contributions, is the [Contributing](docs/contributing.md) page of the docs.
@@ -18,14 +18,24 @@ Before you open a pull request:
 
 - Add or extend tests for any change in behaviour, and never edit an existing test to make it pass. If a test looks wrong, say why in the pull request.
 - Put no model names in source code; models come from `config.yaml`, the environment, or `config.toml`.
-- Start every new source file with its SPDX licence header ([Contributing](docs/contributing.md#3-make-your-change)).
+- Start every new source file with the Apache-2.0 SPDX licence header ([Contributing](docs/contributing.md#3-make-your-change)).
+- Sign off every commit with `git commit -s` (see below).
 - If you changed a page in `docs/`, rebuild the Claude skill reference and commit the result:
 
   ```bash
   python scripts/build_skill_reference.py
   ```
 
-A contribution is under the licence of the file it changes: most files are AGPL-3.0-only, the plugin API files are Apache-2.0, and the compliance pack files are under the Elastic License 2.0 ([LICENSING.md](LICENSING.md)).
+## Licence and sign-off (DCO)
+
+- **Licence.** All of Impulse, including the compliance packs, is under the Apache License 2.0 ([LICENSE](LICENSE), [LICENSING.md](LICENSING.md)). Contributions are accepted under the Apache License 2.0.
+- **Developer Certificate of Origin.** Every commit must carry a `Signed-off-by:` line. By signing off you certify the [Developer Certificate of Origin 1.1](https://developercertificate.org/): you wrote the change, or otherwise have the right to submit it under the Apache License 2.0. Sign off with:
+
+  ```bash
+  git commit -s
+  ```
+
+  The sign-off must match the commit author's name and email. To fix commits that are missing it: `git commit --amend -s` for the last commit, or `git rebase --signoff main` for several. Pull requests with commits that are not signed off are not merged.
 
 ## Help us test noise simulation
 

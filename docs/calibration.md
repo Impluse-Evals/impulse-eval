@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Calibration
 
 Calibration measures how often the judge agrees with your own pass or fail labels, so you know how far to trust it.

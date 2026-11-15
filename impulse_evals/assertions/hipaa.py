@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Elastic-2.0
+# SPDX-License-Identifier: Apache-2.0
 """``hipaa`` pack: HIPAA Privacy Rule, US healthcare (METRICS.md section 4.4). Criteria copied word for
 word.
 

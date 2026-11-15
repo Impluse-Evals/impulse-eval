@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 0: no hardcoded model version strings in source code (SPEC.md section 0, rule 5)."""
 
 import io

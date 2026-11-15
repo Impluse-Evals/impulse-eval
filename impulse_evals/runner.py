@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Runner: orchestrates the scenarios of one run (SPEC.md sections 7, 9, 10, 12-15, 17).
 
 ``await run(config, *, dry_run=False, concurrency=1, adapter_factory=None) -> RunResult``

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """``python -m impulse_evals``: the same CLI as the ``impulse`` command (SPEC.md section 17).
 
 Help and usage texts name the program ``impulse``; exit codes and output are the console script's.

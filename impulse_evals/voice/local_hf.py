@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """``local_hf`` voice provider: open Hugging Face speech models running in-process (SPEC.md section 14.1).
 
 Free default: no server and no key. Needs the ``local`` extra (``pip install impulse-evals[local]``);

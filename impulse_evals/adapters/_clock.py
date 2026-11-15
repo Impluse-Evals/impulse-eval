@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Time seam shared by the network adapters (SPEC.md section 9).
 
 Every timeout and grace window of the LiveKit and Pipecat adapters goes through a ``Clock``, so tests

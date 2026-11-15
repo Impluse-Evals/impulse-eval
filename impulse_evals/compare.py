@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """``impulse compare``: diff two stored runs (SPEC.md sections 7 and 15).
 
 ``compare_runs(run_a, run_b) -> CompareResult`` (run A is the baseline, run B the new run):

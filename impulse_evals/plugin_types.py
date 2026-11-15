@@ -2,8 +2,8 @@
 """Plugin API types (SPEC.md sections 5.1, 7, and 18.1).
 
 ``AgentTool``, ``ToolCall``, ``MetricResult``, and ``ScoreResult`` (SPEC.md section 7) and
-``MetricContext`` (SPEC.md section 18.1) are defined here, in the Apache-2.0 plugin API, so the
-plugin API files never import AGPL core code (SPEC.md section 5.1 plugin API import rule).
+``MetricContext`` (SPEC.md section 18.1) are defined here, in the plugin API, so the plugin API
+files never import core modules outside the plugin API (SPEC.md section 5.1 plugin API import rule).
 ``impulse_evals.models`` re-exports the first four and ``impulse_evals.metrics.base`` re-exports
 ``MetricContext``, so every existing import path keeps working.
 

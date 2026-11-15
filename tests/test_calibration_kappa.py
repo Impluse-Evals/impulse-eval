@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 10: calibration (SPEC.md section 15).
 
 ``calibration.cohen_kappa(a, b)``: Cohen's kappa of two label lists (no sklearn); 1.0 when observed

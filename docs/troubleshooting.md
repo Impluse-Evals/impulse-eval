@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Troubleshooting
 
 This page lists the messages Impulse prints when something is wrong, what causes each one, and how to fix it.

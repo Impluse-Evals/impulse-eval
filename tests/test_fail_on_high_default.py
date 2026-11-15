@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 4, O3 and L16 (FINAL-TEST.md, maintainer instruction 2026-11-02): ``--fail-on`` gates.
 
 * O3: a poor UNIV-019 (harmful or misleading content: false urgency, credential requests, ...) counts as

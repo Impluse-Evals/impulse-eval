@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Retell connector: stub only, planned for v2 (SPEC.md section 2). Every entry point raises NotImplementedError."""
 
 from __future__ import annotations

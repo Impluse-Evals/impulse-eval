@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 8: local models never require a key (SPEC.md section 8.1).
 
 Model strings starting with ``ollama/`` or ``ollama_chat/``, and any role with an ``api_base``

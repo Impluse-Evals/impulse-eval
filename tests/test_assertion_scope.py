@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 2, A2 (DEFECT-7): each compliance assertion is judged only on its own criterion
 (FIXES-ROUND-2-SPEC.md section A2).
 

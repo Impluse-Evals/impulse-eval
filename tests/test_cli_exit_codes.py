@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 8: ``impulse run`` / ``impulse report`` exit codes and outputs (SPEC.md sections 15-17).
 
 Exit codes: 0 success; 1 when the ``--fail-on`` condition is met; 2 usage or config error.

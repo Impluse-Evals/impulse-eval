@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Plugin API types (SPEC.md sections 5.1, 7, and 18.1).
 
 ``AgentTool``, ``ToolCall``, ``MetricResult``, ``ScoreResult``, and ``MetricContext`` are defined in

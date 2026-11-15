@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 4, O4 (FINAL-TEST.md): the embedded-audio size warning counts the base64 text on the page.
 
 ``render_html(..., embed_audio=True)`` embeds WAV files as ``data:audio/wav;base64,...``; base64 is a third

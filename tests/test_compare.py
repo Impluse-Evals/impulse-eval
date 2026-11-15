@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Phase 8: ``impulse compare RUN_A RUN_B`` and ``compare.compare_runs`` (SPEC.md sections 7, 15, 16, 17).
 
 Two stored ``run.json`` fixtures are built in ``tmp_path`` from SPEC.md section 7 models (JSON files

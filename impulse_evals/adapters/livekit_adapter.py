@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """LiveKit adapter (SPEC.md sections 8.2 and 9; optional extra ``livekit``).
 
 Impulse joins one new LiveKit room per scenario as a plain client participant (never through

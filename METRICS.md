@@ -149,7 +149,7 @@ CHAT metrics run only when listed in a scenario's `metrics`. With `agent.type: v
 
 ## 4. Compliance packs (OPTIONAL, run only when listed in `scenario.assertions`)
 
-The pack implementations (`assertions/dpdp.py`, `rbi_kyc.py`, `trai_dlt.py`, `hipaa.py`) are licensed under the Elastic License 2.0; the plugin API files (including `assertions/base.py` and `plugin_types.py`) are Apache-2.0; everything else in Impulse is AGPL-3.0-only (SPEC.md section 5.1).
+The pack implementations (`assertions/dpdp.py`, `rbi_kyc.py`, `trai_dlt.py`, `hipaa.py`), like everything else in Impulse, are licensed under the Apache License 2.0 (see `LICENSING.md`).
 
 Format: `pack.rule_id`. Every result carries the disclaimer "Technical signal only. Not legal certification." The `regulation_ref` strings are informational; have counsel verify them before they appear in any customer-facing material. All rules are judge-based and use the same judge wrapper as metrics. `skip` when the triggering situation never occurred (reason given).
 

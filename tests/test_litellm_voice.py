@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 3, B2: the LiteLLM voice provider (``voice_config.{tts,stt}.provider: litellm``;
 FIXES-ROUND-3-SPEC.md section B2).
 

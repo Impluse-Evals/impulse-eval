@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 2, A4 (DEFECT-3) as revised by A4-rev: number, letter, date and ID normalisation
 before WER (FIXES-ROUND-2-SPEC.md A4 and "A4-rev"; METRICS.md section 2.1 VOICE-009 / VOICE-011).
 

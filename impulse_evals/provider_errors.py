@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """One-line texts for LLM provider errors (FIXES-ROUND-2-SPEC.md A7, DEFECT-6).
 
 ``provider_error_text(exc)`` turns an exception raised by LiteLLM (its class is defined in the

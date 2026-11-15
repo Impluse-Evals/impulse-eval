@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Fixes round 3, B3: custom adapters from config, ``agent.adapter: custom`` (FIXES-ROUND-3-SPEC.md B3).
 
 * config: ``adapter: custom`` with ``entrypoint: "module:Class"`` (dots allowed after the colon);
@@ -176,7 +176,7 @@ class ExplodingAdapter(AgentInterface):
 def _write_module(project, code, stem=None):
     """Write an adapter module into the project folder (the config's folder); returns its name."""
     stem = stem or f"impulse_test_custom_{uuid.uuid4().hex[:10]}"
-    (project.root / f"{stem}.py").write_text("# SPDX-License-Identifier: AGPL-3.0-only\n" + code, encoding="utf-8")
+    (project.root / f"{stem}.py").write_text("# SPDX-License-Identifier: Apache-2.0\n" + code, encoding="utf-8")
     importlib.invalidate_caches()
     return stem
 

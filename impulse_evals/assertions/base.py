@@ -10,9 +10,9 @@ Every result carries the disclaimer "Technical signal only. Not legal certificat
 ``PACK_RULE_IDS`` / ``KNOWN_ASSERTION_IDS`` (every rule in METRICS.md section 4) are defined here;
 ``impulse_evals.config`` imports them for ``load_config`` validation.
 
-Licensing: this file is Apache-2.0 (SPEC.md section 5.1) and imports no AGPL core code:
-``ScoreResult`` comes from the Apache-2.0 ``impulse_evals.plugin_types`` and ``build_criterion`` from
-the Apache-2.0 ``metrics.base``; every other core name is annotation-only, and pack modules are
+Plugin API (SPEC.md section 5.1): this file imports no core module outside the plugin API:
+``ScoreResult`` comes from ``impulse_evals.plugin_types`` and ``build_criterion`` from
+``metrics.base``; every other core name is annotation-only, and pack modules are
 loaded by name through ``importlib`` (``get_assertion``).
 """
 

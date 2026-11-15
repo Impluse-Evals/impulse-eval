@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Rebuild skills/impulse-evals/references/documentation.md from README.md, docs/ and ROADMAP.md.
 
 Run from anywhere:
@@ -54,7 +54,7 @@ ORDER = [
 ]
 
 HEADER = (
-    "<!-- SPDX-License-Identifier: AGPL-3.0-only -->\n"
+    "<!-- SPDX-License-Identifier: Apache-2.0 -->\n"
     "# Impulse Evals: complete documentation\n"
     "\n"
     "Every page of the Impulse Evals 0.1.0 documentation in one file: the README, all pages under `docs/`, "

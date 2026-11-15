@@ -1,4 +1,4 @@
-<!-- SPDX-License-Identifier: AGPL-3.0-only -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 # Known limitations
 
 This page lists every documented limitation of Impulse 0.1.0 in one place, each with a one-line workaround and a link to the full explanation.

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-only
+# SPDX-License-Identifier: Apache-2.0
 """Audit batch 3 (AUDIT.md finding 49, maintainer decision #49): what the built distributions hold.
 
 The wheel and the sdist are built once per module, offline, from the repository into ``tmp_path``
@@ -7,8 +7,8 @@ every non-loopback connection. Skipped when hatchling is not installed.
 
 * ``click`` is a declared dependency: ``cli.py`` imports it, and typer vendors its own copy, so it
   would otherwise arrive only through other packages.
-* The wheel ships ``LICENSING.md`` (force-included into the package); the ``license-files`` set in
-  ``pyproject.toml`` is unchanged (pinned by ``tests/test_license_headers.py``).
+* The wheel ships ``LICENSING.md`` (force-included into the package) and the ``license-files`` set
+  in ``pyproject.toml`` (``LICENSE`` and ``NOTICE``, pinned by ``tests/test_license_headers.py``).
 * The sdist leaves out the root planning files and ``.github/``.
 """
 
@@ -37,7 +37,7 @@ PLANNING_FILES = (
     "AUDIT.md",
     "AUDIT-FIXES.md",
 )
-LICENCE_FILES = {"LICENSE", "LICENSE-ELv2", "LICENSE-APACHE"}
+LICENCE_FILES = {"LICENSE", "NOTICE"}
 BUILD_TIMEOUT_S = 300
 
 BUILD_SCRIPT = r"""
@@ -154,13 +154,13 @@ def test_wheel_ships_licensing_md(dists):
     assert _wheel_read(dists, found[0]) == (REPO_ROOT / "LICENSING.md").read_bytes()
 
 
-def test_wheel_licence_metadata_is_unchanged(dists):
-    # Regression guard (passes before the fix too): the PEP 639 licence files and expression.
+def test_wheel_licence_metadata(dists):
+    # The PEP 639 licence files and expression (Apache-2.0 for the whole package).
     names = _wheel_names(dists)
     licences = {PurePosixPath(n).name for n in names if re.fullmatch(r"[^/]+\.dist-info/licenses/[^/]+", n)}
     assert licences == LICENCE_FILES
     metadata = _metadata(dists)
-    assert "License-Expression: AGPL-3.0-only AND Elastic-2.0 AND Apache-2.0" in metadata.splitlines()
+    assert "License-Expression: Apache-2.0" in metadata.splitlines()
     assert {line.split(":", 1)[1].strip() for line in metadata.splitlines() if line.startswith("License-File:")} == LICENCE_FILES
 
 
