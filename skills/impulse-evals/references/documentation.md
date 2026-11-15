@@ -38,6 +38,8 @@ Impulse Evals tests AI voice and chat agents: a simulated caller talks to your a
 
 Any language, any stack, any industry.
 
+Give us feedback at shrikant.s@testvoiceai.live: any bugs, feature requests, or ideas you have. If it qualifies, you'll be added to contributors.
+
 > [!TIP]
 > Using Claude? Install the Impulse Evals skill ([docs/skill.md](#claude-skill)) and ask it to write your config.yaml.
 
