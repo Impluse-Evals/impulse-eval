@@ -263,6 +263,29 @@ app = _ImpulseTyper(
 )
 
 
+def _version_callback(value: bool) -> None:
+    """``impulse --version``: print the installed package version and exit."""
+    if value:
+        from importlib.metadata import PackageNotFoundError, version
+
+        try:
+            installed = version("impulse-evals")
+        except PackageNotFoundError:
+            installed = "unknown (package metadata not found)"
+        _echo(f"impulse-evals {installed}")
+        raise typer.Exit()
+
+
+@app.callback()
+def _main(
+    show_version: bool = typer.Option(
+        False, "--version", help="Show the installed version and exit.", callback=_version_callback,
+        is_eager=True,
+    ),
+) -> None:
+    """Impulse Evals: pytest-style evaluation for AI voice and chat agents."""
+
+
 class Profile(str, Enum):
     free = "free"
     hosted = "hosted"
