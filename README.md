@@ -88,19 +88,25 @@ Impulse plays a simulated caller against your agent, in text or in voice. In voi
 
 Requires Python 3.11 or newer (tested on 3.11, 3.12 and 3.14). Python 3.10 is not supported.
 
-From a clone of this repository:
+Straight from GitHub, with no clone:
+
+```bash
+# Base install
+pip install "git+https://github.com/Impluse-Evals/impulse-eval"
+
+# With optional extras (Pipecat, LiveKit, local speech, etc.)
+pip install "impulse-evals[pipecat] @ git+https://github.com/Impluse-Evals/impulse-eval"
+pip install "impulse-evals[livekit] @ git+https://github.com/Impluse-Evals/impulse-eval"
+pip install "impulse-evals[local] @ git+https://github.com/Impluse-Evals/impulse-eval"
+```
+
+From a clone of this repository (needed for the examples in `examples/`):
 
 ```bash
 pip install -e .
 ```
 
-From the package index, once 0.1.0 is published (not verified):
-
-```bash
-pip install impulse-evals
-```
-
-Optional extras (combine them, e.g. `pip install -e ".[local,pipecat]"`):
+Optional extras (combine them, e.g. `pip install "impulse-evals[local,pipecat] @ git+https://github.com/Impluse-Evals/impulse-eval"`, or `pip install -e ".[local,pipecat]"` from a clone):
 
 | extra | adds | for |
 |---|---|---|
@@ -134,7 +140,7 @@ Everything runs on your machine: no API key is asked for anywhere. The full guid
 No GPU, or no PyTorch? The light local voice (`pip install -e ".[light]"`, `provider: local_light`) runs speech on the CPU. Its round trip was verified on 2026-10-26 on a laptop with 8 GB RAM: good in English and Spanish, poor speech-to-text in Hindi ([Voice testing](docs/voice-testing.md#light-local-voice-no-pytorch-weak-laptops)).
 
 1. Install [Ollama](https://ollama.com) and pull two models you choose: `ollama pull YOUR_FAST_MODEL` (simulator and fast judge) and `ollama pull YOUR_PRIMARY_MODEL` (primary judge).
-2. Install Impulse with the local speech extra: `pip install -e ".[local]"` from a clone (`pip install impulse-evals[local]` once 0.1.0 is published).
+2. Install Impulse with the local speech extra: `pip install -e ".[local]"` from a clone, or `pip install "impulse-evals[local] @ git+https://github.com/Impluse-Evals/impulse-eval"` without one.
 3. Run `impulse init --profile free`. It asks for the language, an Ollama tag per role, and the Hugging Face TTS and STT model ids, never for a key. A blank answer keeps the `YOUR_..._MODEL` placeholder, for example `YOUR_TTS_MODEL` or `YOUR_STT_MODEL`. It writes `.impulse/config.toml`. When the current folder has no `config.yaml`, it also writes a starter `config.yaml` for your own agent.
 4. [examples/free/config.yaml](examples/free/config.yaml) runs in voice mode with `local_hf` speech, and `impulse init` does not change it. Set its `voice_config.tts.model` and `voice_config.stt.model` to your Hugging Face text-to-speech and speech-to-text (faster-whisper) model ids. Or delete its `voice_config` block for a text-mode run. With `YOUR_TTS_MODEL` or `YOUR_STT_MODEL` left in, `impulse doctor` shows a FAIL row for voice TTS or voice STT. `impulse run` then stops with a config error (exit code 2).
 5. Try the example agent from the repository root, in one shell:

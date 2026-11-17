@@ -103,7 +103,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install
-        run: python -m pip install impulse-evals   # once 0.1.0 is published; or install from your clone
+        run: python -m pip install "git+https://github.com/Impluse-Evals/impulse-eval"   # or install from your clone
 
       - name: Validate the config (no LLM calls)
         run: impulse run evals/config.yaml --dry-run --reporter json

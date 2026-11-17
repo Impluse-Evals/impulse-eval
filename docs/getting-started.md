@@ -6,7 +6,7 @@ This guide takes you from install to a dry run, your models, and a first real ru
 ## Quick version
 
 - **What it is.** Impulse plays a simulated caller against your agent and judges each call against your agent's own system prompt. A dry run checks everything except the judge, with no model and no key.
-- **The commands most people need.** Install with `pip install impulse-evals` once 0.1.0 is published (not verified). Today, install from the root of a clone and make a dry run of the example:
+- **The commands most people need.** Install straight from GitHub with `pip install "git+https://github.com/Impluse-Evals/impulse-eval"`. To try the examples, install from the root of a clone and make a dry run of the example:
 
   ```bash
   pip install -e .
@@ -30,10 +30,16 @@ python -m venv .venv
 source .venv/bin/activate            # PowerShell: .venv\Scripts\Activate.ps1
 ```
 
-From the package index, once 0.1.0 is published (not verified):
+Straight from GitHub, with no clone:
 
 ```bash
-pip install impulse-evals
+# Base install
+pip install "git+https://github.com/Impluse-Evals/impulse-eval"
+
+# With optional extras (Pipecat, LiveKit, local speech, etc.)
+pip install "impulse-evals[pipecat] @ git+https://github.com/Impluse-Evals/impulse-eval"
+pip install "impulse-evals[livekit] @ git+https://github.com/Impluse-Evals/impulse-eval"
+pip install "impulse-evals[local] @ git+https://github.com/Impluse-Evals/impulse-eval"
 ```
 
 The developer path, from the root of a clone of the repository (verified on 2026-10-26 in a fresh virtual environment, Windows, Python 3.14.7):

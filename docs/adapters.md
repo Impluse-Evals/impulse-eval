@@ -132,7 +132,7 @@ async def respond(user_text, history):
 |---|---|
 | config | `adapter: livekit` and a `livekit:` block with `url` |
 | how it connects | joins a LiveKit room as an ordinary client participant, like a person would |
-| extra to install | `pip install -e ".[livekit]"` from a clone (`pip install impulse-evals[livekit]` once 0.1.0 is published) |
+| extra to install | `pip install -e ".[livekit]"` from a clone, or `pip install "impulse-evals[livekit] @ git+https://github.com/Impluse-Evals/impulse-eval"` without one |
 | keys | the LiveKit API key and secret, from the variables named by `api_key_env` and `api_secret_env` |
 | system prompt | the `agent.system_prompt` file, else asked from the agent |
 | turn timeout | `livekit.turn_timeout_s`, else `voice_config.timeout_s` in voice mode, else 30 s |
@@ -278,7 +278,7 @@ if __name__ == "__main__":
 | config | `adapter: pipecat` and a `pipecat:` block with `url` |
 | how it connects | as a client of your running bot, speaking RTVI; Impulse never imports or runs your pipeline |
 | modes | `eval` (the default; start the bot with `-t eval`) or `websocket` (the fallback) |
-| extra to install | `pip install -e ".[pipecat]"` from a clone (`pip install impulse-evals[pipecat]` once 0.1.0 is published); installs `pipecat-ai>=1.12,<1.13` |
+| extra to install | `pip install -e ".[pipecat]"` from a clone, or `pip install "impulse-evals[pipecat] @ git+https://github.com/Impluse-Evals/impulse-eval"` without one; installs `pipecat-ai>=1.12,<1.13` |
 | system prompt | the `agent.system_prompt` file, else the bot's answer to the `get_system_prompt` client message |
 | tool calls | need the RTVI function call report level FULL; eval mode requests it itself |
 | concurrency | Pipecat bots serve one client at a time, so scenarios run one by one |
