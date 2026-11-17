@@ -384,6 +384,8 @@ That is exactly what happens. On the free local path (Ollama, and `local_hf` or 
 
 [LICENSING.md](LICENSING.md) explains this in plain language.
 
+"Need help setting up custom adapters, CI pipelines, or DPDP / RBI KYC / HIPAA compliance suites for your voice agents? Reach out at **shrikant.s@testvoiceai.live "
+
 ## Status
 
 Version 0.1.0, the first public release (alpha). What the maintainer has run, with dates and versions, is in [docs/verified-setups.md](docs/verified-setups.md):
