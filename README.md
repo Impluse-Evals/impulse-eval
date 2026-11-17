@@ -10,7 +10,7 @@ Give us feedback at shrikant.s@testvoiceai.live: any bugs, feature requests, or 
 > [!TIP]
 > Using Claude? Install the Impulse Evals skill ([docs/skill.md](docs/skill.md)) and ask it to write your config.yaml.
 
-![An Impulse voice report: call recording, failed checks with "Hear turn 2" links, a timeline with slow replies in red, a highlighted failing turn.](docs/images/report.png)
+**▶ [Watch the report walkthrough (MP4, with audio)](docs/images/report-walkthrough.mp4)**: an Impulse voice report with the call recording, failed checks with "Hear turn N" links, a timeline with slow replies in red, and a highlighted failing turn.
 
 ## Quickstart (60 seconds)
 

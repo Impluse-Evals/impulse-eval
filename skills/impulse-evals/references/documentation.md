@@ -43,7 +43,7 @@ Give us feedback at shrikant.s@testvoiceai.live: any bugs, feature requests, or 
 > [!TIP]
 > Using Claude? Install the Impulse Evals skill ([docs/skill.md](#claude-skill)) and ask it to write your config.yaml.
 
-![An Impulse voice report: call recording, failed checks with "Hear turn 2" links, a timeline with slow replies in red, a highlighted failing turn.](docs/images/report.png)
+**▶ Watch the report walkthrough (MP4, with audio)**: an Impulse voice report with the call recording, failed checks with "Hear turn N" links, a timeline with slow replies in red, and a highlighted failing turn.
 
 ### Quickstart (60 seconds)
 
@@ -668,9 +668,9 @@ Open `.impulse/runs/<run_id>/report.html` in a browser. It is one self-contained
 
 Success: six scenarios are marked as passed, the judge metrics show as skipped with "dry run", and UNIV-025 is good for the three booking scenarios.
 
-What your first report looks like: a dry run has the same layout. A real voice run, such as the one below, adds a full call recording and a player per turn. It also adds "Hear turn N" links next to failed checks, and a call timeline. [Reading the report](#reading-the-report) explains every part.
+What your first report looks like: a dry run has the same layout. A real voice run, such as the one in the video below, adds a full call recording and a player per turn. It also adds "Hear turn N" links next to failed checks, and a call timeline. [Reading the report](#reading-the-report) explains every part.
 
-![One scenario of a real voice report: call recording, failed checks with "Hear turn N" links, the call timeline, and a highlighted failing turn.](images/report.png)
+**▶ Watch the report walkthrough (MP4, with audio)**: a real voice report with the call recording, failed checks with "Hear turn N" links, the call timeline, and a highlighted failing turn.
 
 #### 4. Choose your models
 
@@ -4120,13 +4120,13 @@ This page walks through each part of the HTML report that `impulse run` writes, 
 
 ### Details
 
-Both screenshots on this page come from a real voice run of the second test campaign (2026-10-25): a Pipecat banking bot with seeded bugs.
+The walkthrough video comes from a real voice run of the second test campaign (2026-10-25): a Pipecat banking bot with seeded bugs. It plays the call audio, so turn your sound on.
+
+**▶ Watch the report walkthrough (MP4, with audio)**: the summary at the top of the report, then one scenario with its call recording, failed checks with "Hear turn N" links, the call timeline, and a highlighted failing turn.
 
 Terms used below: TTS is text-to-speech, STT is speech-to-text, WER is word error rate, and TTFA is time to first audio. RTVI is Pipecat's client/server message protocol.
 
 #### The summary
-
-![The top of an Impulse report: run header, run warnings, critical failures, scenarios, cohorts, and the start of the metric summary.](images/report-summary.png)
 
 The page opens with the run as a whole, in this order:
 
@@ -4143,8 +4143,6 @@ The page opens with the run as a whole, in this order:
 When a Pipecat bot reports RTVI `metrics`, the latency profile also has a "Per-service latency" part. Its first table gives each service's samples, mean and maximum time (for example the bot's STT, LLM and TTS). Its second table lists every timing by scenario and turn. These timings are informational and never scored.
 
 #### A scenario
-
-![One scenario of a voice report: call recording, failed checks with "Hear turn 2" links, the call timeline, and a highlighted failing turn.](images/report.png)
 
 Below the summary, "Scenario transcripts" holds one collapsible block per scenario. Failed scenarios open expanded. The block's title line shows the status, the name, the language and accent, the number of turns, and the call length.
 
@@ -6306,7 +6304,7 @@ The first release under the name Impulse Evals (formerly PULSE).
 - Every docs page now starts with a one-sentence intro and a "Quick version": what it is, the one command, what success looks like. Then come "Details" and, last, "Next steps".
 - New page [Reading the report](#reading-the-report): every part of the HTML report. It covers the call recording and per-turn players, "Hear turn N" links, the call timeline, the tool call trace, and embedded or linked audio.
 - New page [Known limitations](#known-limitations): every documented limitation in one place, each with a one-line workaround.
-- Real report screenshots from a voice run of the second test campaign: `docs/images/report.png` (one scenario) and `docs/images/report-summary.png` (the summary).
+- A real report walkthrough video, with the call audio, from a voice run of the second test campaign: `docs/images/report-walkthrough.mp4` (the summary, then one scenario). It replaces the earlier screenshots `report.png` and `report-summary.png`.
 - The README opens with a 3-command quickstart from a clone, verified in a fresh virtual environment.
 - [Verified setups](#verified-setups) gains rows for the second test campaign (2026-10-25) and the round-3 checks (2026-10-26).
 

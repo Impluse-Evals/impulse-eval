@@ -87,9 +87,9 @@ Open `.impulse/runs/<run_id>/report.html` in a browser. It is one self-contained
 
 Success: six scenarios are marked as passed, the judge metrics show as skipped with "dry run", and UNIV-025 is good for the three booking scenarios.
 
-What your first report looks like: a dry run has the same layout. A real voice run, such as the one below, adds a full call recording and a player per turn. It also adds "Hear turn N" links next to failed checks, and a call timeline. [Reading the report](reading-the-report.md) explains every part.
+What your first report looks like: a dry run has the same layout. A real voice run, such as the one in the video below, adds a full call recording and a player per turn. It also adds "Hear turn N" links next to failed checks, and a call timeline. [Reading the report](reading-the-report.md) explains every part.
 
-![One scenario of a real voice report: call recording, failed checks with "Hear turn N" links, the call timeline, and a highlighted failing turn.](images/report.png)
+**▶ [Watch the report walkthrough (MP4, with audio)](images/report-walkthrough.mp4)**: a real voice report with the call recording, failed checks with "Hear turn N" links, the call timeline, and a highlighted failing turn.
 
 ### 4. Choose your models
 

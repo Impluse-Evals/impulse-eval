@@ -63,7 +63,7 @@ The first release under the name Impulse Evals (formerly PULSE).
 - Every docs page now starts with a one-sentence intro and a "Quick version": what it is, the one command, what success looks like. Then come "Details" and, last, "Next steps".
 - New page [Reading the report](reading-the-report.md): every part of the HTML report. It covers the call recording and per-turn players, "Hear turn N" links, the call timeline, the tool call trace, and embedded or linked audio.
 - New page [Known limitations](known-limitations.md): every documented limitation in one place, each with a one-line workaround.
-- Real report screenshots from a voice run of the second test campaign: `docs/images/report.png` (one scenario) and `docs/images/report-summary.png` (the summary).
+- A real report walkthrough video, with the call audio, from a voice run of the second test campaign: `docs/images/report-walkthrough.mp4` (the summary, then one scenario). It replaces the earlier screenshots `report.png` and `report-summary.png`.
 - The README opens with a 3-command quickstart from a clone, verified in a fresh virtual environment.
 - [Verified setups](verified-setups.md) gains rows for the second test campaign (2026-10-25) and the round-3 checks (2026-10-26).
 
