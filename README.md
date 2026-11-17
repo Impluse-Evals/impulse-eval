@@ -19,7 +19,8 @@ An Impulse voice report, with sound: the call recording, failed checks with "Hea
 From the root of a clone of this repository, with Python 3.11 or newer:
 
 ```bash
-pip install -e .
+pip install "git+https://github.com/Impluse-Evals/impulse-eval"
+ .
 impulse run examples/config.yaml --dry-run   # no model and no key needed
 impulse init                                 # asks for the language and a model per role
 impulse doctor examples/config.yaml          # shows what a real run still needs
