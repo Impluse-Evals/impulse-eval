@@ -1351,7 +1351,12 @@ def _cli_import_interpreter(root, site, body, *, preset=None):
     ``(RESULT= JSON, system temp folder)``."""
     system_temp = root / "system-temp"
     system_temp.mkdir(exist_ok=True)
-    env = {name: value for name, value in os.environ.items() if name not in TIKTOKEN_CACHE_VARIABLES}
+    # Drop proxy variables too: a proxy on 127.0.0.1 passes the guard as "local", so requests would
+    # reach the network through it and the guard would record no attempt.
+    env = {
+        name: value for name, value in os.environ.items()
+        if name not in TIKTOKEN_CACHE_VARIABLES and not name.lower().endswith("_proxy")
+    }
     inherited = os.environ.get("PYTHONPATH")
     env["PYTHONPATH"] = os.pathsep.join([str(site)] + ([inherited] if inherited else []))
     env.update(TMP=str(system_temp), TEMP=str(system_temp), TMPDIR=str(system_temp))
