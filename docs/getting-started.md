@@ -89,7 +89,9 @@ Success: six scenarios are marked as passed, the judge metrics show as skipped w
 
 What your first report looks like: a dry run has the same layout. A real voice run, such as the one in the video below, adds a full call recording and a player per turn. It also adds "Hear turn N" links next to failed checks, and a call timeline. [Reading the report](reading-the-report.md) explains every part.
 
-**▶ [Watch the report walkthrough (MP4, with audio)](images/report-walkthrough.mp4)**: a real voice report with the call recording, failed checks with "Hear turn N" links, the call timeline, and a highlighted failing turn.
+https://github.com/user-attachments/assets/a7272d6c-41a7-4efa-af84-4b815421a5e6
+
+A real voice report, with sound: the call recording, failed checks with "Hear turn N" links, the call timeline, and a highlighted failing turn. ([Download the MP4](images/report-walkthrough.mp4))
 
 ### 4. Choose your models
 

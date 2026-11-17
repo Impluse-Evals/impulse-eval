@@ -43,7 +43,9 @@ Give us feedback at shrikant.s@testvoiceai.live: any bugs, feature requests, or 
 > [!TIP]
 > Using Claude? Install the Impulse Evals skill ([docs/skill.md](#claude-skill)) and ask it to write your config.yaml.
 
-**▶ Watch the report walkthrough (MP4, with audio)**: an Impulse voice report with the call recording, failed checks with "Hear turn N" links, a timeline with slow replies in red, and a highlighted failing turn.
+https://github.com/user-attachments/assets/a7272d6c-41a7-4efa-af84-4b815421a5e6
+
+An Impulse voice report, with sound: the call recording, failed checks with "Hear turn N" links, a timeline with slow replies in red, and a highlighted failing turn. (Download the MP4)
 
 ### Quickstart (60 seconds)
 
@@ -670,7 +672,9 @@ Success: six scenarios are marked as passed, the judge metrics show as skipped w
 
 What your first report looks like: a dry run has the same layout. A real voice run, such as the one in the video below, adds a full call recording and a player per turn. It also adds "Hear turn N" links next to failed checks, and a call timeline. [Reading the report](#reading-the-report) explains every part.
 
-**▶ Watch the report walkthrough (MP4, with audio)**: a real voice report with the call recording, failed checks with "Hear turn N" links, the call timeline, and a highlighted failing turn.
+https://github.com/user-attachments/assets/a7272d6c-41a7-4efa-af84-4b815421a5e6
+
+A real voice report, with sound: the call recording, failed checks with "Hear turn N" links, the call timeline, and a highlighted failing turn. (Download the MP4)
 
 #### 4. Choose your models
 
@@ -4122,7 +4126,9 @@ This page walks through each part of the HTML report that `impulse run` writes, 
 
 The walkthrough video comes from a real voice run of the second test campaign (2026-10-25): a Pipecat banking bot with seeded bugs. It plays the call audio, so turn your sound on.
 
-**▶ Watch the report walkthrough (MP4, with audio)**: the summary at the top of the report, then one scenario with its call recording, failed checks with "Hear turn N" links, the call timeline, and a highlighted failing turn.
+https://github.com/user-attachments/assets/a7272d6c-41a7-4efa-af84-4b815421a5e6
+
+The summary at the top of the report, then one scenario with its call recording, failed checks with "Hear turn N" links, the call timeline, and a highlighted failing turn. (Download the MP4)
 
 Terms used below: TTS is text-to-speech, STT is speech-to-text, WER is word error rate, and TTFA is time to first audio. RTVI is Pipecat's client/server message protocol.
 

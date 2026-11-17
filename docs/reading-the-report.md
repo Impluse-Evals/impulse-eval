@@ -19,7 +19,9 @@ This page walks through each part of the HTML report that `impulse run` writes, 
 
 The walkthrough video comes from a real voice run of the second test campaign (2026-10-25): a Pipecat banking bot with seeded bugs. It plays the call audio, so turn your sound on.
 
-**▶ [Watch the report walkthrough (MP4, with audio)](images/report-walkthrough.mp4)**: the summary at the top of the report, then one scenario with its call recording, failed checks with "Hear turn N" links, the call timeline, and a highlighted failing turn.
+https://github.com/user-attachments/assets/a7272d6c-41a7-4efa-af84-4b815421a5e6
+
+The summary at the top of the report, then one scenario with its call recording, failed checks with "Hear turn N" links, the call timeline, and a highlighted failing turn. ([Download the MP4](images/report-walkthrough.mp4))
 
 Terms used below: TTS is text-to-speech, STT is speech-to-text, WER is word error rate, and TTFA is time to first audio. RTVI is Pipecat's client/server message protocol.
 
